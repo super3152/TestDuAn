@@ -6,6 +6,10 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -14,14 +18,28 @@ import javax.swing.JPanel;
  */
 public class frmmain extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmmain
-     */
+    pnlbanhang bh = new pnlbanhang();
+    pnltongquan tq = new pnltongquan();
+    
     public frmmain() {
         initComponents();
-       
+        jButton1.addActionListener((ActionListener) this);
+        jButton2.addActionListener((ActionListener) this);
     }
+  public void dsnut() {
 
+        jLabel3.setEnabled(true);
+        jLabel4.setEnabled(true);
+       
+
+    }
+   public void nut() {
+        if (bh.isVisible()) {
+            dsnut();
+        } else if (tq.isVisible()) {
+            dsnut();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,9 +70,9 @@ public class frmmain extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -71,6 +89,11 @@ public class frmmain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÝ SHOP QUẦN ÁO");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -366,64 +389,34 @@ public class frmmain extends javax.swing.JFrame {
 
         jPanel15.setBackground(new java.awt.Color(33, 36, 51));
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/settings_20px.png"))); // NOI18N
-        jLabel11.setText("  CẤU HÌNH");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
+        jButton1.setText("jButton1");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 200, 50));
 
         jPanel16.setBackground(new java.awt.Color(33, 36, 51));
 
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/globe_earth_22px.png"))); // NOI18N
-        jLabel12.setText("  WEBSITE");
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel12MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel12MouseExited(evt);
-            }
-        });
+        jButton2.setText("jButton2");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jPanel2.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 401, 200, 50));
@@ -670,16 +663,6 @@ public class frmmain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel10MouseExited
 
-    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
-        // TODO add your handling code here:
-         resetcolor(jPanel16);
-    }//GEN-LAST:event_jLabel12MouseEntered
-
-    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
-        // TODO add your handling code here:
-        setcolor(jPanel16);
-    }//GEN-LAST:event_jLabel12MouseExited
-
     private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
         // TODO add your handling code here:
          resetcolor(jPanel17);
@@ -690,16 +673,6 @@ public class frmmain extends javax.swing.JFrame {
         setcolor(jPanel17);
     }//GEN-LAST:event_jLabel13MouseExited
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        // TODO add your handling code here:
-         resetcolor(jPanel15);
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        // TODO add your handling code here:
-        setcolor(jPanel15);
-    }//GEN-LAST:event_jLabel11MouseExited
-
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:
          setcolorbutton(jPanel12);
@@ -709,6 +682,10 @@ public class frmmain extends javax.swing.JFrame {
         // TODO add your handling code here:
          resetcolorbutton(jPanel12);
     }//GEN-LAST:event_jLabel2MouseExited
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       jPanel21.add(tq);
+    }//GEN-LAST:event_formWindowOpened
 
     
         void setcolorbutton(JPanel panel){
@@ -733,7 +710,22 @@ public class frmmain extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
+    public void actionPerformed(ActionEvent e) {
+        Object evt = e.getSource();
+
+        if (evt.equals(jButton1)) {
+           
+            tq.setVisible(true);
+            bh.setVisible(false);
+         
+            nut();
+        } else if (evt.equals(jButton2)) {
+            bh.setVisible(false);
+            tq.setVisible(true);
+          
+            nut();
+        } 
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -767,10 +759,10 @@ public class frmmain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
