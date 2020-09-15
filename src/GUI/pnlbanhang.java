@@ -9,12 +9,12 @@ package GUI;
  *
  * @author Takemikazuchi
  */
-public class pnltongquan extends javax.swing.JPanel {
+public class pnlbanhang extends javax.swing.JPanel {
 
     /**
-     * Creates new form pnltongquan
+     * Creates new form pnldonhang
      */
-    public pnltongquan() {
+    public pnlbanhang() {
         initComponents();
     }
 
@@ -26,6 +26,10 @@ public class pnltongquan extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setPreferredSize(new java.awt.Dimension(980, 620));
+        setRequestFocusEnabled(false);
+        setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
