@@ -6,30 +6,30 @@
 package GUI;
 
 import java.awt.Color;
-import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
+
 import javax.swing.JPanel;
 
 /**
  *
  * @author Takemikazuchi
  */
-public class frmmain extends javax.swing.JFrame {
+public class frmmain extends javax.swing.JFrame implements ActionListener{
 
     pnlbanhang bh = new pnlbanhang();
     pnltongquan tq = new pnltongquan();
     
     public frmmain() {
         initComponents();
-        jButton1.addActionListener((ActionListener) this);
-        jButton2.addActionListener((ActionListener) this);
+        jButton1.addActionListener (this);
+        jButton2.addActionListener(this);
     }
   public void dsnut() {
 
-        jLabel3.setEnabled(true);
-        jLabel4.setEnabled(true);
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
        
 
     }
