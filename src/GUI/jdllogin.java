@@ -623,13 +623,15 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-     
-        if (  BLLlogin.login() == true ) {
+       String username = txtUser.getText();
+        String password = String.valueOf(txtPass.getPassword());
+        boolean kq = BLL.BLLlogin.KiemTra(username, password);
+        if (kq) {
             this.dispose();
             frmmain frm = new frmmain();
+            //frm.setExtendedState(JFrame.MAXIMIZED_BOTH);
             frm.setVisible(true);
-        } 
-      
+        }
         
       
         
