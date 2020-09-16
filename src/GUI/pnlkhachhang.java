@@ -34,12 +34,10 @@ public class pnlkhachhang extends javax.swing.JPanel {
   
           initComponents();
           jComboBox1.setBackground(Color.WHITE);
-            tblkhachhang.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
-         tblkhachhang.getTableHeader().setOpaque(false);
-         
-          tblkhachhang.getTableHeader().setBackground(new Color(33,36,51));
-          
-           tblkhachhang.getTableHeader().setForeground(Color.WHITE);
+          tblkhachhang.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
+          tblkhachhang.getTableHeader().setOpaque(false);        
+          tblkhachhang.getTableHeader().setBackground(new Color(33,36,51));          
+          tblkhachhang.getTableHeader().setForeground(Color.WHITE);
           tblkhachhang.setRowHeight(25);
           
     }
@@ -52,27 +50,37 @@ public class pnlkhachhang extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblkhachhang = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(980, 620));
         setRequestFocusEnabled(false);
         setVerifyInputWhenFocusTarget(false);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/search_25px.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 37));
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lọc khách hàng" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 171, 40));
+        jComboBox1.getAccessibleContext().setAccessibleParent(jComboBox1);
 
-        tblkhachhang.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        tblkhachhang.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 810, 40));
+
+        tblkhachhang.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblkhachhang.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         tblkhachhang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
+                {"1", "Trung Nguyên", "1", "2", "55", "on"},
+                {"2", "b", "2", "2", "55", "off"},
+                {"3", "c", "3", "2", "55", null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -105,37 +113,17 @@ public class pnlkhachhang extends javax.swing.JPanel {
                 "Mã khách hàng", "Tên khách hàng", "Nhóm khách hàng", "Email", "Số điện thoại", "Trạng thái"
             }
         ));
-        tblkhachhang.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        tblkhachhang.setDragEnabled(true);
+        tblkhachhang.setFocusable(false);
+        tblkhachhang.setIntercellSpacing(new java.awt.Dimension(0, 1));
+        tblkhachhang.setName(""); // NOI18N
         tblkhachhang.setRowHeight(25);
         tblkhachhang.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tblkhachhang.setShowVerticalLines(false);
         tblkhachhang.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblkhachhang);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/search_25px.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jComboBox1, 0, 171, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(jComboBox1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
-        );
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 980, 580));
     }// </editor-fold>//GEN-END:initComponents
 
 
