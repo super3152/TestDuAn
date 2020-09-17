@@ -50,29 +50,32 @@ public class pnlkhachhang extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblkhachhang = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(33, 36, 51));
         setPreferredSize(new java.awt.Dimension(980, 620));
         setRequestFocusEnabled(false);
         setVerifyInputWhenFocusTarget(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/search_25px.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 37));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/search_25px.png"))); // NOI18N
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 40, 37));
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lọc khách hàng" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 171, 40));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 180, 40));
         jComboBox1.getAccessibleContext().setAccessibleParent(jComboBox1);
 
         jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 810, 40));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 630, 40));
 
         tblkhachhang.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tblkhachhang.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -123,13 +126,48 @@ public class pnlkhachhang extends javax.swing.JPanel {
         tblkhachhang.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblkhachhang);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 980, 580));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 810, 580));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton1.setBackground(new java.awt.Color(33, 36, 51));
+        jButton1.setText("VIP");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(527, Short.MAX_VALUE))
+        );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 170, 580));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Loại khách hàng");
+        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 40));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblkhachhang;
