@@ -50,7 +50,7 @@ public class pnlgiaohang extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addComponent(jLabel1)
-                .addContainerGap(494, Short.MAX_VALUE))
+                .addContainerGap(496, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

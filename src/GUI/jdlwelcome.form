@@ -79,7 +79,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c0" green="7a" red="9" type="rgb"/>
@@ -123,7 +123,7 @@
         <Component class="javax.swing.JLabel" name="lblBackground">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/IMAGE/logo23.jpg"/>
+              <Image iconType="3" name="/IMAGE/logo24.jpg"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>

@@ -97,7 +97,7 @@ void showjdlDangNhap(){
         pnlNenChao.add(jPanel1);
         jPanel1.setBounds(20, 380, 560, 30);
 
-        jPanel2.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel2.setBackground(new java.awt.Color(33, 36, 51));
         jPanel2.setForeground(new java.awt.Color(9, 122, 192));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -120,7 +120,7 @@ void showjdlDangNhap(){
         pnlNenChao.add(jPanel2);
         jPanel2.setBounds(490, 420, 110, 30);
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logo23.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logo24.jpg"))); // NOI18N
         lblBackground.setOpaque(true);
         pnlNenChao.add(lblBackground);
         lblBackground.setBounds(0, 0, 600, 450);

@@ -23,45 +23,46 @@ import DTO.DTONguoidung;
  * @author Takemikazuchi
  */
 public class BLLlogin {
-     public static Connection con;
+  public static Connection con;
    public static PreparedStatement pst;
    public static ResultSet rs;
-   public static DTONguoidung nd = new DTONguoidung();
 
-   
-
-     public static boolean KiemTra(String username, String password) {
-        if (username.trim().length() < 5) {
-            //Thông báo
-            ThongBaoLoi.ThongBao("Tên đăng nhập chưa hợp lệ", "Thông báo đăng nhập");
+   public static boolean login() {
+      String username = GUI.jdllogin.txtUser.getText();
+      String password = String.valueOf(GUI.jdllogin.txtPass.getPassword());
+    
+        if(username.equals("")||password.equals("")){
+          ThongBaoCanhBao.ThongBao("Vui lòng nhập đầy đủ thông tin", "Thông báo");
+           return false;
+       }
+          if (username.trim().length() > 15 || username.trim().length() < 5) {
+            ThongBaoCanhBao.ThongBao("Username phải từ 5 đến 15 kí tự", "Thông báo lỗi");
             return false;
         }
-        if (password.trim().length() < 5) {
-            ThongBaoLoi.ThongBao("Mật khẩu chưa hợp lệ", "Thông báo đăng nhập");
-            return false;
-        }
-        //Gọi hàm kiểm tra đăng nhập với SQL từ tầng DAO
-        ResultSet rs = DAO.DAOnguoidung.DangNhap(username);
-        try {
-            if (!rs.next()) {
-                ThongBaoLoi.ThongBao("Tên đăng nhập không đúng", "Thông báo");
-                return false;
-            } else {
-                if (!rs.getString("MatKhau").equals(password)) {
-                    ThongBaoLoi.ThongBao("Mật khẩu không đúng", "Thông báo");
-                    return false;
-                } else {
-                    nd.setTendangnhap(username);
-                    System.out.println();
+        else{
+           try{
+               con = DBConection.getDatabase();
+               //lấy dữ liệu bảng từ dattabase
+               pst = con.prepareStatement("SELECT * FROM nguoidung WHERE tendangnhap=? and matkhau=?");
+               pst.setString(1, username);
+               pst.setString(2, password);
+               rs = pst.executeQuery();
+               if(rs.next()){
+                   ThongBaoThongTin.ThongBao("Đăng nhập thành công", "Thông báo");
+                  return true;
+                    
+       
+               }else{
+                 ThongBaoLoi.ThongBao("Đăng nhập thất bại\n" +
+                       "Sai tên đăng nhập hoặc mật khẩu;", "Thông báo");
+                 return false;
+               }
+           }catch(Exception e){
+                 ThongBaoLoi.ThongBao("Lỗi ngoài ý muốn", "Thông báo");
+                 return false;
+           }
+       }
 
-                }
-            }
-        } catch (SQLException ex) {
-            ThongBaoLoi.ThongBao("Lỗi câu lệnh SQL", "Thông báo lỗi");
-            return false;
-        }
-
-        return true; //Nếu thông tin hợp và khớp username + password
-    }
-   
+    
+   }
 }

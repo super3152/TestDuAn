@@ -87,6 +87,7 @@ jPanel3.setVisible(false);
         hide = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +103,7 @@ jPanel3.setVisible(false);
         jLabel2.setText("Tài khoản");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
 
-        jPanel9.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel9.setBackground(new java.awt.Color(33, 36, 51));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel9.setToolTipText("Fanpage");
         jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +174,7 @@ jPanel3.setVisible(false);
         });
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 300, -1));
 
-        jPanel5.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel5.setBackground(new java.awt.Color(33, 36, 51));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -325,7 +326,7 @@ jPanel3.setVisible(false);
         });
         jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 4, 20, 20));
 
-        jPanel6.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel6.setBackground(new java.awt.Color(33, 36, 51));
         jPanel6.setToolTipText("ĐĂNG NHẬP");
 
         jLabel9.setBackground(new java.awt.Color(9, 122, 192));
@@ -336,9 +337,6 @@ jPanel3.setVisible(false);
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel9MouseEntered(evt);
             }
@@ -347,6 +345,9 @@ jPanel3.setVisible(false);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel9MousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
             }
         });
 
@@ -374,7 +375,7 @@ jPanel3.setVisible(false);
         });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(9, 122, 192));
+        jLabel14.setForeground(new java.awt.Color(33, 36, 51));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Hiện");
 
@@ -417,7 +418,7 @@ jPanel3.setVisible(false);
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 270, 40, 20));
 
-        jPanel8.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel8.setBackground(new java.awt.Color(33, 36, 51));
         jPanel8.setToolTipText("Fanpage");
         jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -443,7 +444,7 @@ jPanel3.setVisible(false);
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 60, 20));
 
-        jPanel7.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel7.setBackground(new java.awt.Color(33, 36, 51));
         jPanel7.setToolTipText("Fanpage");
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -469,7 +470,7 @@ jPanel3.setVisible(false);
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 60, 20));
 
-        jPanel3.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel3.setBackground(new java.awt.Color(33, 36, 51));
         jPanel3.setToolTipText("Fanpage");
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -525,7 +526,7 @@ jPanel3.setVisible(false);
         });
         jPanel1.add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 296, 20, 20));
 
-        jPanel12.setBackground(new java.awt.Color(9, 122, 192));
+        jPanel12.setBackground(new java.awt.Color(33, 36, 51));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -544,12 +545,20 @@ jPanel3.setVisible(false);
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 128, 140, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logocuoicung1.jpg"))); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText(" CHAUNGAN");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 360, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logocuoicung12.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 560));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, -1));
@@ -623,17 +632,12 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-       String username = txtUser.getText();
-        String password = String.valueOf(txtPass.getPassword());
-        boolean kq = BLL.BLLlogin.KiemTra(username, password);
-        if (kq) {
+   
+      if (  BLLlogin.login() == true ) {
             this.dispose();
             frmmain frm = new frmmain();
-            //frm.setExtendedState(JFrame.MAXIMIZED_BOTH);
             frm.setVisible(true);
         }
-        
-      
         
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -827,6 +831,7 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

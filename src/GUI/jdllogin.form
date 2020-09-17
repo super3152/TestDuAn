@@ -63,7 +63,7 @@
         <Container class="javax.swing.JPanel" name="jPanel9">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -188,7 +188,7 @@
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -438,7 +438,7 @@
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="&#x110;&#x102;NG NH&#x1eac;P"/>
           </Properties>
@@ -489,10 +489,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel9MouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel9MouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel9MouseExited"/>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel9MousePressed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel9MouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
@@ -532,7 +532,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c0" green="7a" red="9" type="rgb"/>
+                  <Color blue="33" green="24" red="21" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Hi&#x1ec7;n"/>
@@ -586,7 +586,7 @@
         <Container class="javax.swing.JPanel" name="jPanel8">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Fanpage"/>
           </Properties>
@@ -629,7 +629,7 @@
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Fanpage"/>
           </Properties>
@@ -672,7 +672,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Fanpage"/>
           </Properties>
@@ -755,7 +755,7 @@
         <Container class="javax.swing.JPanel" name="jPanel12">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c0" green="7a" red="9" type="rgb"/>
+              <Color blue="33" green="24" red="21" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -777,7 +777,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="jLabel15" alignment="0" pref="50" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel15" pref="39" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -797,10 +800,27 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel18">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="34" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value=" CHAUNGAN"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="90" width="360" height="50"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/IMAGE/logocuoicung1.jpg"/>
+              <Image iconType="3" name="/IMAGE/logocuoicung12.jpg"/>
             </Property>
           </Properties>
           <Constraints>
