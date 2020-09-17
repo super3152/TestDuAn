@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Takemikazuchi
  */
-public class pnlkhachhang extends javax.swing.JPanel {
+public final class pnlkhachhang extends javax.swing.JPanel {
 
     /**
      * Creates new form 

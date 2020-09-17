@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import de.javasoft.synthetica.plain.SyntheticaPlainLookAndFeel;
+
 
 import java.awt.Color;
 import java.awt.Image;
@@ -26,7 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+
 
 /**
  *

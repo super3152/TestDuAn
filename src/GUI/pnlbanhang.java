@@ -28,8 +28,6 @@ public class pnlbanhang extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        pnlnendangxuat = new javax.swing.JPanel();
-        lbldangxuat = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
 
@@ -41,49 +39,15 @@ public class pnlbanhang extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        pnlnendangxuat.setBackground(new java.awt.Color(9, 122, 192));
-        pnlnendangxuat.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        lbldangxuat.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbldangxuat.setForeground(new java.awt.Color(255, 255, 255));
-        lbldangxuat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbldangxuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/money_25px.png"))); // NOI18N
-        lbldangxuat.setText("THANH TOÁN");
-        lbldangxuat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbldangxuatMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbldangxuatMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlnendangxuatLayout = new javax.swing.GroupLayout(pnlnendangxuat);
-        pnlnendangxuat.setLayout(pnlnendangxuatLayout);
-        pnlnendangxuatLayout.setHorizontalGroup(
-            pnlnendangxuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbldangxuat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-        );
-        pnlnendangxuatLayout.setVerticalGroup(
-            pnlnendangxuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbldangxuat, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlnendangxuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+            .addGap(0, 224, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlnendangxuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 616, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -135,22 +99,10 @@ public class pnlbanhang extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbldangxuatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbldangxuatMouseEntered
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_lbldangxuatMouseEntered
-
-    private void lbldangxuatMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbldangxuatMouseExited
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_lbldangxuatMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JLabel lbldangxuat;
-    private javax.swing.JPanel pnlnendangxuat;
     // End of variables declaration//GEN-END:variables
 }
