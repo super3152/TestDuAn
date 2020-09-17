@@ -5,9 +5,20 @@
  */
 package GUI;
 
+import DAO.DBConection;
+import DTO.DTOKhachHang;
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,8 +27,50 @@ import javax.swing.UIManager;
 public class pnlkhachhang extends javax.swing.JPanel {
 
     /**
-     * Creates new form pnldonhang
+     * Creates new form 
      */
+    Connection conn;
+    PreparedStatement pst;
+    ResultSet rs;
+    Statement st;
+    DTOKhachHang khachhang;
+    public ArrayList<DTOKhachHang> LayKhachHang(){
+         ArrayList<DTOKhachHang> khachhangs = new ArrayList<DTOKhachHang>();
+            conn = DBConection.getDatabase();
+            String query = "SELECT * FROM khachhang";
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                khachhang = new DTOKhachHang(rs.getInt("idkhachhang"), rs.getInt("idloaikhachhang"), rs.getInt("idnguoidung"), rs.getString("tenkhachhang"),
+                rs.getInt("sodienthoai"), rs.getString("email"), rs.getString("matkhau"), rs.getDate("ngaysinh"), rs.getString("diachi"), rs.getInt("gioitinh"),
+                rs.getString("mangxahoi"), rs.getString("mota"),rs.getString("tag"));
+                khachhangs.add(khachhang);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(pnlkhachhang.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      return khachhangs;
+    }
+    //hiễn thị lên table
+    public void HienThiKhachHang(){
+        ArrayList<DTOKhachHang> danhsachkh = LayKhachHang();
+        DefaultTableModel model = (DefaultTableModel) tblkhachhang.getModel();
+        //clead khi chạy không chồng dữ liệu lên nhau
+        model.setRowCount(0);
+        Object[] row = new Object[8];
+        for(int i =0;i<danhsachkh.size();i++){
+            row[0] = danhsachkh.get(i).getIdKhachHang();
+            row[1] = danhsachkh.get(i).getTenKhachHang();
+            row[2] = danhsachkh.get(i).getSoDienThoai();
+            row[3] = danhsachkh.get(i).getEmail();
+            row[4] = danhsachkh.get(i).getNgaySinh();
+            row[5] = danhsachkh.get(i).getDiaChi();
+            row[6] = danhsachkh.get(i).getGioiTinh();
+            row[7] = danhsachkh.get(i).getMangXaHoi();
+            model.addRow(row);
+        }
+    }
     public pnlkhachhang() {
         try{
               for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
@@ -33,6 +86,7 @@ public class pnlkhachhang extends javax.swing.JPanel {
     }
   
           initComponents();
+          HienThiKhachHang();
           jComboBox1.setBackground(Color.WHITE);
           tblkhachhang.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
           tblkhachhang.getTableHeader().setOpaque(false);        
@@ -57,9 +111,6 @@ public class pnlkhachhang extends javax.swing.JPanel {
         tblkhachhang = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        btntongquan = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -112,39 +163,39 @@ public class pnlkhachhang extends javax.swing.JPanel {
         tblkhachhang.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         tblkhachhang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Trung Nguyên", "1", "2", "55", "on"},
-                {"2", "b", "2", "2", "55", "off"},
-                {"3", "c", "3", "2", "55", null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {"", "", "", "", "", "", null, null},
+                {"", "", "", "", "", "", null, null},
+                {"", "", "", "", "", null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã khách hàng", "Tên khách hàng", "Nhóm khách hàng", "Email", "Số điện thoại", "Trạng thái"
+                "Mã khách hàng", "Tên khách hàng", "Số Điện Thoại", "Email", "Ngày Sinh", "Địa Chỉ", "Giới Tính", "Mạng Xã Hội"
             }
         ));
         tblkhachhang.setDragEnabled(true);
@@ -161,54 +212,6 @@ public class pnlkhachhang extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jButton1.setBackground(new java.awt.Color(33, 36, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton1.setText("VIP");
-
-        btntongquan.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btntongquan.setForeground(new java.awt.Color(255, 255, 255));
-        btntongquan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/button/New folder/nenbutton.jpg"))); // NOI18N
-        btntongquan.setText("Thêm loại");
-        btntongquan.setToolTipText("");
-        btntongquan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btntongquan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btntongquanMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btntongquanMouseExited(evt);
-            }
-        });
-        btntongquan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btntongquanActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btntongquan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btntongquan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
 
         jLabel2.setBackground(new java.awt.Color(33, 36, 51));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -306,9 +309,8 @@ public class pnlkhachhang extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField2)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox4, 0, 200, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -461,18 +463,6 @@ public class pnlkhachhang extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btntongquanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntongquanMouseEntered
-      
-    }//GEN-LAST:event_btntongquanMouseEntered
-
-    private void btntongquanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntongquanMouseExited
-       
-    }//GEN-LAST:event_btntongquanMouseExited
-
-    private void btntongquanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntongquanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btntongquanActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -487,8 +477,6 @@ public class pnlkhachhang extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btntongquan;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -514,7 +502,6 @@ public class pnlkhachhang extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
