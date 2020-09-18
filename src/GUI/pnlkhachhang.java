@@ -77,38 +77,63 @@ public final class pnlkhachhang extends javax.swing.JPanel {
         return loaikhachhang; 
         
 }
-        public ResultSet LayMaLoaiKhachHang(int MaLoaiKH){
-    try {
-             // TODO add your handling code here:
-             conn = DBConection.getDatabase();
-             pst = conn.prepareStatement("SELECT * FROM loaikhachhang WHERE idloaikhachhang = ?");
-             pst.setInt(1, MaLoaiKH);
-            rs = pst.executeQuery();
-         } catch (Exception ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
-         }
-    return rs;
-}
-          public void HienThiKhachHangTheoMa(JTable tbl,int MaLKH){
-          ResultSet rs = LayMaLoaiKhachHang(MaLKH);
-        DefaultTableModel model = (DefaultTableModel) tblkhachhang.getModel();
-        model.setRowCount(0);
-        Object[] obj = new Object[8];
+      
+ 
+       
+            public ArrayList<DTOKhachHang> LayKhachHangTheoMa(int MaLoaiKhachHang){
+         ArrayList<DTOKhachHang> laykhachhang = new ArrayList<DTOKhachHang>();
+            conn = DBConection.getDatabase();
+            String query = "SELECT * FROM khachhang where idloaikhachhang = '" + MaLoaiKhachHang + "'";
         try {
-            while (rs.next()) {
-                obj[0] = rs.getInt("idkhachhang");
-                obj[1] = rs.getString("tenkhachhang");
-                obj[3] = rs.getInt("sodienthoai");
-                obj[4] = rs.getString("email");
-                obj[5] = rs.getInt("ngaysinh");
-                obj[6] = rs.getString("diachi");
-                obj[7] = rs.getInt("gioitinh");
-                obj[8] = rs.getString("mangxahoi");
-               
-                model.addRow(obj);
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                khachhang = new DTOKhachHang(rs.getInt("idkhachhang"), rs.getInt("idloaikhachhang"), rs.getInt("idnguoidung"), rs.getString("tenkhachhang"),
+                rs.getInt("sodienthoai"), rs.getString("email"), rs.getString("matkhau"), rs.getDate("ngaysinh"), rs.getString("diachi"), rs.getString("gioitinh"),
+                rs.getString("mangxahoi"), rs.getString("mota"),rs.getString("tag"));
+                laykhachhang.add(khachhang);
             }
         } catch (SQLException ex) {
-            ThongBaoCanhBao.ThongBao("Lỗi đổ dữ liệu từ", "Thông báo");
+            Logger.getLogger(pnlkhachhang.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      return laykhachhang;
+    }
+            public void HienThiKhachHang1(JTable tbl){
+        ArrayList<DTOLoaiKhachHang> danhsachkh =  LayLoaiKhachHang();
+        DefaultTableModel model = (DefaultTableModel) tblkhachhang.getModel();
+        //clead khi chạy không chồng dữ liệu lên nhau
+        model.setRowCount(0);
+        Object[] row = new Object[8];
+        for(int i =0;i<danhsachkh.size();i++){
+            row[0] = danhsachkh.get(i).getIdLoaiKhachHang();
+            row[1] = danhsachkh.get(i).getTenLoaiKhachHang();
+            row[2] = danhsachkh.get(i).getUuDai();
+            row[3] = danhsachkh.get(i).getMoTa();
+
+            model.addRow(row);
+        }
+    }
+             public void HienThiKhachHangTheoMa1(JTable tbl,int MaLKH){
+        ArrayList<DTOKhachHang> danhsachkh = LayKhachHangTheoMa(MaLKH);
+        DefaultTableModel model = (DefaultTableModel) tblkhachhang.getModel();
+        //clead khi chạy không chồng dữ liệu lên nhau
+        model.setRowCount(0);
+        Object[] row = new Object[8];
+        for(int i =0;i<danhsachkh.size();i++){
+            row[0] = danhsachkh.get(i).getIdKhachHang();
+            row[1] = danhsachkh.get(i).getTenKhachHang();
+            row[2] = danhsachkh.get(i).getSoDienThoai();
+            row[3] = danhsachkh.get(i).getEmail();
+            row[4] = danhsachkh.get(i).getNgaySinh();
+            row[5] = danhsachkh.get(i).getDiaChi();
+             if (danhsachkh.get(i).getGioiTinh().equals(1)) {
+                    row[6] = "Nữ";
+                } else {
+                    row[6] = "Nam";
+                }
+      
+            row[7] = danhsachkh.get(i).getMangXaHoi();
+            model.addRow(row);
         }
     }
     public void HienThiKhachHang(){
@@ -186,7 +211,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
                     } else {
                         checkclick.set(j, true);
 
-                        HienThiKhachHangTheoMa(tblkhachhang, loaikhachhang.get(j).getIdLoaiKhachHang());
+                        HienThiKhachHangTheoMa1(tblkhachhang, loaikhachhang.get(j).getIdLoaiKhachHang());
                         for (int k = 0; k < loaikhachhang.size(); k++) {
                             if (k != j) {
                                 checkclick.set(k, false);
@@ -230,6 +255,8 @@ public final class pnlkhachhang extends javax.swing.JPanel {
     }
   
           initComponents();
+          System.out.println(LayKhachHang());
+          FillKhachHang();
           HienThiKhachHang();
           jComboBox1.setBackground(Color.WHITE);
           tblkhachhang.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
