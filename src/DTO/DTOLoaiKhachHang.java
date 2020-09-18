@@ -11,16 +11,16 @@ package DTO;
  */
 public class DTOLoaiKhachHang {
     int IdLoaiKhachHang;
-    String TenLoaiKhachHangString;
+    String TenLoaiKhachHang;
     String UuDai;
     String MoTa;
 
     public DTOLoaiKhachHang() {
     }
 
-    public DTOLoaiKhachHang(int IdLoaiKhachHang, String TenLoaiKhachHangString, String UuDai, String MoTa) {
+    public DTOLoaiKhachHang(int IdLoaiKhachHang, String TenLoaiKhachHang, String UuDai, String MoTa) {
         this.IdLoaiKhachHang = IdLoaiKhachHang;
-        this.TenLoaiKhachHangString = TenLoaiKhachHangString;
+        this.TenLoaiKhachHang = TenLoaiKhachHang;
         this.UuDai = UuDai;
         this.MoTa = MoTa;
     }
@@ -33,12 +33,12 @@ public class DTOLoaiKhachHang {
         this.IdLoaiKhachHang = IdLoaiKhachHang;
     }
 
-    public String getTenLoaiKhachHangString() {
-        return TenLoaiKhachHangString;
+    public String getTenLoaiKhachHang() {
+        return TenLoaiKhachHang;
     }
 
-    public void setTenLoaiKhachHangString(String TenLoaiKhachHangString) {
-        this.TenLoaiKhachHangString = TenLoaiKhachHangString;
+    public void setTenLoaiKhachHang(String TenLoaiKhachHang) {
+        this.TenLoaiKhachHang = TenLoaiKhachHang;
     }
 
     public String getUuDai() {
@@ -56,5 +56,6 @@ public class DTOLoaiKhachHang {
     public void setMoTa(String MoTa) {
         this.MoTa = MoTa;
     }
-    
+
+  
 }

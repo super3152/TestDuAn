@@ -7,8 +7,11 @@ package GUI;
 
 import DAO.DBConection;
 import DTO.DTOKhachHang;
+import DTO.DTOLoaiKhachHang;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +20,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,6 +41,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
     ResultSet rs;
     Statement st;
     DTOKhachHang khachhang;
+    DTOLoaiKhachHang loaikh;
     public ArrayList<DTOKhachHang> LayKhachHang(){
          ArrayList<DTOKhachHang> khachhangs = new ArrayList<DTOKhachHang>();
             conn = DBConection.getDatabase();
@@ -43,7 +51,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
             rs = st.executeQuery(query);
             while(rs.next()){
                 khachhang = new DTOKhachHang(rs.getInt("idkhachhang"), rs.getInt("idloaikhachhang"), rs.getInt("idnguoidung"), rs.getString("tenkhachhang"),
-                rs.getInt("sodienthoai"), rs.getString("email"), rs.getString("matkhau"), rs.getDate("ngaysinh"), rs.getString("diachi"), rs.getInt("gioitinh"),
+                rs.getInt("sodienthoai"), rs.getString("email"), rs.getString("matkhau"), rs.getDate("ngaysinh"), rs.getString("diachi"), rs.getString("gioitinh"),
                 rs.getString("mangxahoi"), rs.getString("mota"),rs.getString("tag"));
                 khachhangs.add(khachhang);
             }
@@ -52,7 +60,57 @@ public final class pnlkhachhang extends javax.swing.JPanel {
         }
       return khachhangs;
     }
-    //hiễn thị lên table
+        public ArrayList<DTOLoaiKhachHang> LayLoaiKhachHang() {
+        ArrayList<DTOLoaiKhachHang> loaikhachhang = new ArrayList<DTOLoaiKhachHang>();
+         conn = DBConection.getDatabase();
+        String query = "select * from loaikhachhang";
+        try {
+             st = conn.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                loaikh = new DTOLoaiKhachHang(rs.getInt("idloaikhachhang"), rs.getString("tenloaikhachhang"), rs.getString("uudai"), rs.getString("mota"));
+                loaikhachhang.add(loaikh);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(pnlkhachhang.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return loaikhachhang; 
+        
+}
+        public ResultSet LayMaLoaiKhachHang(int MaLoaiKH){
+    try {
+             // TODO add your handling code here:
+             conn = DBConection.getDatabase();
+             pst = conn.prepareStatement("SELECT * FROM loaikhachhang WHERE idloaikhachhang = ?");
+             pst.setInt(1, MaLoaiKH);
+            rs = pst.executeQuery();
+         } catch (Exception ex) {
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+         }
+    return rs;
+}
+          public void HienThiKhachHangTheoMa(JTable tbl,int MaLKH){
+          ResultSet rs = LayMaLoaiKhachHang(MaLKH);
+        DefaultTableModel model = (DefaultTableModel) tblkhachhang.getModel();
+        model.setRowCount(0);
+        Object[] obj = new Object[8];
+        try {
+            while (rs.next()) {
+                obj[0] = rs.getInt("idkhachhang");
+                obj[1] = rs.getString("tenkhachhang");
+                obj[3] = rs.getInt("sodienthoai");
+                obj[4] = rs.getString("email");
+                obj[5] = rs.getInt("ngaysinh");
+                obj[6] = rs.getString("diachi");
+                obj[7] = rs.getInt("gioitinh");
+                obj[8] = rs.getString("mangxahoi");
+               
+                model.addRow(obj);
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi đổ dữ liệu từ", "Thông báo");
+        }
+    }
     public void HienThiKhachHang(){
         ArrayList<DTOKhachHang> danhsachkh = LayKhachHang();
         DefaultTableModel model = (DefaultTableModel) tblkhachhang.getModel();
@@ -66,10 +124,96 @@ public final class pnlkhachhang extends javax.swing.JPanel {
             row[3] = danhsachkh.get(i).getEmail();
             row[4] = danhsachkh.get(i).getNgaySinh();
             row[5] = danhsachkh.get(i).getDiaChi();
-            row[6] = danhsachkh.get(i).getGioiTinh();
+             if (danhsachkh.get(i).getGioiTinh().equals(1)) {
+                    row[6] = "Nữ";
+                } else {
+                    row[6] = "Nam";
+                }
+      
             row[7] = danhsachkh.get(i).getMangXaHoi();
             model.addRow(row);
         }
+    }
+      private void FillKhachHang() {
+        pnlLoaiKhachHang.removeAll();
+
+        DefaultTableModel dtm = (DefaultTableModel) tblkhachhang.getModel();
+        dtm.setRowCount(0);
+
+        ArrayList<DTOLoaiKhachHang> loaikhachhang = LayLoaiKhachHang();
+        ArrayList<Boolean> checkclick = new ArrayList<>();
+        JPanel[] pnlBan = new JPanel[loaikhachhang.size()];
+        JLabel[] lblImgBan = new JLabel[loaikhachhang.size()];
+        JLabel[] lblTenBan = new JLabel[loaikhachhang.size()];
+        int i = 0;
+        final int fu = i;
+        for (i = 0; i < loaikhachhang.size(); i++) {
+            checkclick.add(i, false);
+            pnlBan[i] = new javax.swing.JPanel();
+            lblImgBan[i] = new javax.swing.JLabel();
+            lblTenBan[i] = new javax.swing.JLabel();
+            lblTenBan[i].setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            lblTenBan[i].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            lblTenBan[i].setText(loaikhachhang.get(i).getTenLoaiKhachHang());
+
+            javax.swing.GroupLayout pnlBanLayout = new javax.swing.GroupLayout(pnlBan[i]);
+            pnlBan[i].setLayout(pnlBanLayout);
+            pnlBanLayout.setHorizontalGroup(pnlBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBanLayout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addGroup(pnlBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblImgBan[i], javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblTenBan[i], javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(21, Short.MAX_VALUE))
+            );
+            pnlBanLayout.setVerticalGroup(pnlBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBanLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblImgBan[i])
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblTenBan[i])
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            int j = i;
+            pnlBan[j].addMouseListener(new MouseAdapter() {
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    if (checkclick.get(j)) {
+                        checkclick.set(j, false);
+
+                        e.getComponent().setBackground(Color.yellow);
+                    } else {
+                        checkclick.set(j, true);
+
+                        HienThiKhachHangTheoMa(tblkhachhang, loaikhachhang.get(j).getIdLoaiKhachHang());
+                        for (int k = 0; k < loaikhachhang.size(); k++) {
+                            if (k != j) {
+                                checkclick.set(k, false);
+                                pnlBan[k].setBackground(new java.awt.Color(240, 240, 240));
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    e.getComponent().setBackground(Color.yellow);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    if (checkclick.get(j)) {
+                        e.getComponent().setBackground(Color.yellow);
+                    } else {
+
+                        e.getComponent().setBackground(new java.awt.Color(240, 240, 240));
+                    }
+                }
+            });
+            pnlLoaiKhachHang.add(pnlBan[i]);
+        }
+        pnlLoaiKhachHang.updateUI();
     }
     public pnlkhachhang() {
         try{
@@ -110,7 +254,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblkhachhang = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        pnlLoaiKhachHang = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -210,8 +354,8 @@ public final class pnlkhachhang extends javax.swing.JPanel {
 
         jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlLoaiKhachHang.setBackground(new java.awt.Color(255, 255, 255));
+        pnlLoaiKhachHang.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setBackground(new java.awt.Color(33, 36, 51));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -231,7 +375,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlLoaiKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -243,7 +387,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlLoaiKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)))
         );
 
@@ -493,7 +637,6 @@ public final class pnlkhachhang extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -509,6 +652,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JPanel pnlLoaiKhachHang;
     private javax.swing.JTable tblkhachhang;
     // End of variables declaration//GEN-END:variables
 }

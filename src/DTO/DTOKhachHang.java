@@ -21,7 +21,7 @@ public class DTOKhachHang {
     String MatKhau;
     Date NgaySinh;
     String DiaChi;
-    int GioiTinh;
+    String GioiTinh;
     String MangXaHoi;
     String MoTa;
     String Tag;
@@ -29,7 +29,7 @@ public class DTOKhachHang {
     public DTOKhachHang() {
     }
 
-    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, Date NgaySinh, String DiaChi, int GioiTinh, String MangXaHoi, String MoTa, String Tag) {
+    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, Date NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String MoTa, String Tag) {
         this.IdKhachHang = IdKhachHang;
         this.IdLoaiKhachHang = IdLoaiKhachHang;
         this.IdNguoiDung = IdNguoiDung;
@@ -117,11 +117,11 @@ public class DTOKhachHang {
         this.DiaChi = DiaChi;
     }
 
-    public int getGioiTinh() {
+    public String getGioiTinh() {
         return GioiTinh;
     }
 
-    public void setGioiTinh(int GioiTinh) {
+    public void setGioiTinh(String GioiTinh) {
         this.GioiTinh = GioiTinh;
     }
 
@@ -148,6 +148,7 @@ public class DTOKhachHang {
     public void setTag(String Tag) {
         this.Tag = Tag;
     }
-    
+
+  
     
 }
