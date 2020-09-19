@@ -6,7 +6,7 @@
 package BLL;
 
 import DAO.DBConection;
-import DTO.DTONguoiDung;
+import DTO.DTONguoidung;
 import GUI.ThongBaoLoi;
 import GUI.ThongBaoCanhBao;
 import GUI.ThongBaoThongTin;
