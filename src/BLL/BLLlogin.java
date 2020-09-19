@@ -6,6 +6,7 @@
 package BLL;
 
 import DAO.DBConection;
+import DTO.DTONguoiDung;
 import GUI.ThongBaoLoi;
 import GUI.ThongBaoCanhBao;
 import GUI.ThongBaoThongTin;
@@ -16,7 +17,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import DTO.DTONguoidung;
 
 /**
  *
@@ -26,6 +26,7 @@ public class BLLlogin {
   public static Connection con;
    public static PreparedStatement pst;
    public static ResultSet rs;
+   
 
    public static boolean login() {
       String username = GUI.jdllogin.txtUser.getText();
@@ -47,8 +48,10 @@ public class BLLlogin {
                pst.setString(1, username);
                pst.setString(2, password);
                rs = pst.executeQuery();
+         
                if(rs.next()){
                    ThongBaoThongTin.ThongBao("Đăng nhập thành công", "Thông báo");
+                    
                   return true;
                     
        

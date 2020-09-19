@@ -50,7 +50,6 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
          
     
         initComponents();
-        
         updateTimer = new Timer(DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
