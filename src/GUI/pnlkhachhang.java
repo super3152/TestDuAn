@@ -1017,7 +1017,6 @@ public final class pnlkhachhang extends javax.swing.JPanel {
                 lblAnhDaiDien.setToolTipText(model.getValueAt(Dongduocchon, 7).toString());
                 txtTag.setText(kh.getTag());
                 txtMoTa.setText(kh.getMoTa());
-
                 tbpchuyentab.setSelectedIndex(1);
 
             }
