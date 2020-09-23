@@ -32,7 +32,7 @@ public class DBConection {
 
     public void connectToDB() {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
             System.out.println("connect successfully!");
         } catch (ClassNotFoundException ex) {
@@ -45,9 +45,10 @@ public class DBConection {
 
     public static ResultSet GetData(String cauTruyVan) {
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(cauTruyVan);
+            System.out.println("1213213");
             return rs;
         } catch (SQLException ex) {
             System.out.println("lỗi lấy dữ liệu " + ex);
@@ -56,7 +57,7 @@ public class DBConection {
     }
     public static int ExcuteTruyVan(String cauTruyVan) {
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
             Statement stm = conn.createStatement();
             int kq = stm.executeUpdate(cauTruyVan);
             return kq;
@@ -66,4 +67,12 @@ public class DBConection {
         }
     }
 
+    public void disconnect(){
+        try {
+            conn.close();
+            System.out.println("disconect");
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

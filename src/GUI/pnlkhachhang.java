@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import DAO.DBConection;
 import DTO.DTOKhachHang;
 import DTO.DTOLoaiKhachHang;
 import DTO.MyCombobox;
@@ -182,6 +183,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
         pnlloaikhachhang = new javax.swing.JPanel();
         lblloaikhachhang = new javax.swing.JLabel();
         btnreset = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         pnlthemsuakhachhang = new javax.swing.JPanel();
         pnlnenthemsuakhachhang1 = new javax.swing.JPanel();
         pnlnenngoaianhdaidienvathongtinkhac1 = new javax.swing.JPanel();
@@ -360,6 +362,18 @@ public final class pnlkhachhang extends javax.swing.JPanel {
         lblloaikhachhang.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnreset.setText("Reset");
+        btnreset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnresetActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnldanhsachLayout = new javax.swing.GroupLayout(pnldanhsach);
         pnldanhsach.setLayout(pnldanhsachLayout);
@@ -371,7 +385,9 @@ public final class pnlkhachhang extends javax.swing.JPanel {
                     .addComponent(pnlloaikhachhang, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnldanhsachLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(btnreset)))
+                        .addGroup(pnldanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(btnreset))))
                 .addGroup(pnldanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnldanhsachLayout.createSequentialGroup()
                         .addComponent(cbbloaikhachhang, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,8 +405,10 @@ public final class pnlkhachhang extends javax.swing.JPanel {
                 .addGroup(pnldanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(srcdanhsach, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                     .addGroup(pnldanhsachLayout.createSequentialGroup()
-                        .addComponent(pnlloaikhachhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlloaikhachhang, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(btnreset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -908,7 +926,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
         );
         pnlthemsuakhachhangLayout.setVerticalGroup(
             pnlthemsuakhachhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlnenthemsuakhachhang1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(pnlnenthemsuakhachhang1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
             .addGroup(pnlthemsuakhachhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlthemsuakhachhangLayout.createSequentialGroup()
                     .addGap(293, 293, 293)
@@ -1027,6 +1045,16 @@ public final class pnlkhachhang extends javax.swing.JPanel {
     private void cbbtinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbtinhActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbtinhActionPerformed
+
+    private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
+     DBConection db = new DBConection();
+     db.disconnect();
+    }//GEN-LAST:event_btnresetActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      DBConection db = new DBConection();
+     db.connectToDB();
+    }//GEN-LAST:event_jButton1ActionPerformed
     public static boolean saveLogo(File file) {
         File dir = new File("logos");
         if (!dir.exists()) {
@@ -1059,6 +1087,7 @@ public final class pnlkhachhang extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbbNhanVien;
     private javax.swing.JComboBox<String> cbbloaikhachhang;
     private javax.swing.JComboBox<String> cbbtinh;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
