@@ -805,8 +805,9 @@ public class pnlsanpham extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbblocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbblocActionPerformed
-        if (cbbloc.equals("Lọc sản phẩm")) {
-            jdllocloaisanpham jdl = new jdllocloaisanpham(new javax.swing.JFrame(), true);
+       int index = cbbloc.getSelectedIndex();
+        if (index == 1) {
+             jdllocloaisanpham jdl = new jdllocloaisanpham(new javax.swing.JFrame(), true);
             jdl.setVisible(true);
         }
     }//GEN-LAST:event_cbblocActionPerformed

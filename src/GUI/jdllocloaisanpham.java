@@ -34,6 +34,7 @@ public class jdllocloaisanpham extends javax.swing.JDialog {
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Lọc loại sản phẩm");
 
         jButton1.setText("Lọc ngay");
 
