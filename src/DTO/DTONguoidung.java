@@ -15,8 +15,8 @@ public class DTONguoidung {
     int IdNguoiDung;
     String TenNguoiDung;
     String GioiTinh;
-    Date NgaySinh;
-    Date NgayVaoLam;
+    String NgaySinh;
+    String NgayVaoLam;
     int CMND;
     String TenDangNhap;
     String MatKhau;
@@ -25,7 +25,7 @@ public class DTONguoidung {
     public DTONguoidung() {
     }
 
-    public DTONguoidung(int IdNguoiDung, String TenNguoiDung, String GioiTinh, Date NgaySinh, Date NgayVaoLam, int CMND, String TenDangNhap, String MatKhau, int Quyen) {
+    public DTONguoidung(int IdNguoiDung, String TenNguoiDung, String GioiTinh, String NgaySinh, String NgayVaoLam, int CMND, String TenDangNhap, String MatKhau, int Quyen) {
         this.IdNguoiDung = IdNguoiDung;
         this.TenNguoiDung = TenNguoiDung;
         this.GioiTinh = GioiTinh;
@@ -61,19 +61,19 @@ public class DTONguoidung {
         this.GioiTinh = GioiTinh;
     }
 
-    public Date getNgaySinh() {
+    public String getNgaySinh() {
         return NgaySinh;
     }
 
-    public void setNgaySinh(Date NgaySinh) {
+    public void setNgaySinh(String NgaySinh) {
         this.NgaySinh = NgaySinh;
     }
 
-    public Date getNgayVaoLam() {
+    public String getNgayVaoLam() {
         return NgayVaoLam;
     }
 
-    public void setNgayVaoLam(Date NgayVaoLam) {
+    public void setNgayVaoLam(String NgayVaoLam) {
         this.NgayVaoLam = NgayVaoLam;
     }
 
@@ -108,5 +108,6 @@ public class DTONguoidung {
     public void setQuyen(int Quyen) {
         this.Quyen = Quyen;
     }
-    
+
+   
 }

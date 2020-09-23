@@ -50,6 +50,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
          
     
         initComponents();
+        lbltenuser.setText(BLL.BLLlogin.nguoidung.getTenNguoiDung());
         updateTimer = new Timer(DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -869,7 +870,7 @@ if (evt.equals(btntongquan)) {
     private javax.swing.JLabel lblchat;
     private javax.swing.JLabel lbldangxuat;
     private javax.swing.JLabel lbllogo;
-    private javax.swing.JLabel lbltenuser;
+    public static javax.swing.JLabel lbltenuser;
     private javax.swing.JLabel lblthongbao;
     private javax.swing.JLabel lbltieude;
     private javax.swing.JLabel lbltime;

@@ -29,20 +29,20 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
  * @author ADMIN
  */
 public class jdllogin extends javax.swing.JFrame {
-int index;
-   
+
+    int index;
+
     public jdllogin() {
         initComponents();
-jPanel3.setVisible(false);
- jPanel7.setVisible(false);
-  jPanel8.setVisible(false);
-   
-     jPanel9.setVisible(false);
-      txtPass.setEchoChar((char)8226);
-       jPanel10.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel7.setVisible(false);
+        jPanel8.setVisible(false);
+
+        jPanel9.setVisible(false);
+        txtPass.setEchoChar((char) 8226);
+        jPanel10.setVisible(false);
         jPanel11.setVisible(false);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -574,14 +574,14 @@ jPanel3.setVisible(false);
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnThuNhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThuNhoMouseEntered
-Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini11.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini11.jpg")).getImage();
         btnThuNho.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnThuNhoMouseEntered
 
     private void btnThuNhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThuNhoMouseExited
-Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).getImage();
         btnThuNho.setIcon(new ImageIcon(photo2));
-      
+
     }//GEN-LAST:event_btnThuNhoMouseExited
 
     private void btnThuNhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThuNhoActionPerformed
@@ -598,11 +598,11 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
         Image photo3 = new ImageIcon(this.getClass().getResource("/IMAGE/exitend.jpg")).getImage();
         btnClose.setIcon(new ImageIcon(photo3));
-     
+
     }//GEN-LAST:event_btnCloseMouseExited
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-         int ketquasaukhibam = JOptionPane.showConfirmDialog(new JFrame(),
+        int ketquasaukhibam = JOptionPane.showConfirmDialog(new JFrame(),
                 "Bạn có muốn thoát chương trình ?", //thông báo 
                 "Thông báo!", //tiêu đề  
                 JOptionPane.YES_NO_OPTION, //lựa chọn 
@@ -632,13 +632,14 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-   
-      if (  BLLlogin.login() == true ) {
+        String TenDangNhap = txtUser.getText();
+        String MatKhau =String.valueOf(txtPass.getPassword());
+        if (BLLlogin.Checklogin(TenDangNhap, MatKhau) == true) {
             this.dispose();
             frmmain frm = new frmmain();
             frm.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
@@ -646,7 +647,7 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-       jLabel4.setForeground(Color.WHITE);
+        jLabel4.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
@@ -654,18 +655,18 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        jLabel6.setForeground(new Color(9,122,192));
+        jLabel6.setForeground(new Color(9, 122, 192));
         jPanel9.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
         jLabel6.setForeground(Color.BLACK);
-         jPanel9.setVisible(false);
+        jPanel9.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-      
-           String url = "www.shopmart.fun";
+
+        String url = "www.shopmart.fun";
         try {
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         } catch (IOException ex) {
@@ -674,7 +675,7 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-          String url = "https://www.facebook.com/Anh-Em-Team-%E1%BB%A8ng-D%E1%BB%A5ng-290622998371256/";
+        String url = "https://www.facebook.com/Anh-Em-Team-%E1%BB%A8ng-D%E1%BB%A5ng-290622998371256/";
         try {
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         } catch (IOException ex) {
@@ -683,11 +684,11 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jPanel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseReleased
-    
+
     }//GEN-LAST:event_jPanel3MouseReleased
 
     private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
-        
+
     }//GEN-LAST:event_jLabel5MouseReleased
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
@@ -695,11 +696,11 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-      jPanel3.setVisible(false);
+        jPanel3.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void jPanel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseReleased
-    
+
     }//GEN-LAST:event_jPanel7MouseReleased
 
     private void jPanel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseReleased
@@ -715,19 +716,19 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jLabel11MouseExited
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-       jPanel8.setVisible(true);
+        jPanel8.setVisible(true);
     }//GEN-LAST:event_jLabel10MouseEntered
 
     private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
-      hide.setVisible(true);
-      hide.setEnabled(true);
-      txtPass.setEchoChar((char)0);
-      show.setVisible(false);
-      show.setEnabled(false);
+        hide.setVisible(true);
+        hide.setEnabled(true);
+        txtPass.setEchoChar((char) 0);
+        show.setVisible(false);
+        show.setEnabled(false);
     }//GEN-LAST:event_showMouseClicked
 
     private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-         jPanel8.setVisible(false);
+        jPanel8.setVisible(false);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jPanel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseReleased
@@ -735,11 +736,11 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jPanel9MouseReleased
 
     private void hideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseClicked
-       hide.setVisible(false);
-      hide.setEnabled(false);
-      txtPass.setEchoChar((char)8226);
-      show.setVisible(true);
-      show.setEnabled(true);
+        hide.setVisible(false);
+        hide.setEnabled(false);
+        txtPass.setEchoChar((char) 8226);
+        show.setVisible(true);
+        show.setEnabled(true);
     }//GEN-LAST:event_hideMouseClicked
 
     private void jPanel10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseReleased
@@ -751,11 +752,11 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_jPanel11MouseReleased
 
     private void showMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseEntered
-       jPanel10.setVisible(true);
+        jPanel10.setVisible(true);
     }//GEN-LAST:event_showMouseEntered
 
     private void showMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseExited
-       jPanel10.setVisible(false);
+        jPanel10.setVisible(false);
     }//GEN-LAST:event_showMouseExited
 
     private void hideMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseEntered
@@ -763,20 +764,23 @@ Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).ge
     }//GEN-LAST:event_hideMouseEntered
 
     private void hideMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseExited
-         jPanel11.setVisible(false);
+        jPanel11.setVisible(false);
     }//GEN-LAST:event_hideMouseExited
 
-        void setcolorbutton(JPanel panel){
-   panel.setBackground(Color.WHITE);
-   jLabel9.setForeground(new Color(9,122,192));
-}
-        
-          void resetcolorbutton(JPanel panel){
-    panel.setBackground(new Color(9,122,192));
-    jLabel9.setForeground(Color.WHITE);
-}
+    void setcolorbutton(JPanel panel) {
+        panel.setBackground(Color.WHITE);
+        jLabel9.setForeground(new Color(9, 122, 192));
+    }
+
+    void resetcolorbutton(JPanel panel) {
+        panel.setBackground(new Color(9, 122, 192));
+        jLabel9.setForeground(Color.WHITE);
+    }
+
     /**
-    /**
+     * /
+     *
+     **
      * @param args the command line arguments
      */
     public static void main(String args[]) {

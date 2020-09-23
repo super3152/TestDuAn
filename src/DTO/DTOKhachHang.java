@@ -5,8 +5,6 @@
  */
 package DTO;
 
-import java.util.Date;
-
 /**
  *
  * @author Administrator
@@ -19,17 +17,34 @@ public class DTOKhachHang {
     int SoDienThoai;
     String Email;
     String MatKhau;
-    Date NgaySinh;
+    String NgaySinh;
     String DiaChi;
     String GioiTinh;
     String MangXaHoi;
+    String AnhDaiDien;
     String MoTa;
     String Tag;
 
     public DTOKhachHang() {
     }
 
-    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, Date NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String MoTa, String Tag) {
+    public DTOKhachHang(int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
+        this.IdLoaiKhachHang = IdLoaiKhachHang;
+        this.IdNguoiDung = IdNguoiDung;
+        this.TenKhachHang = TenKhachHang;
+        this.SoDienThoai = SoDienThoai;
+        this.Email = Email;
+        this.MatKhau = MatKhau;
+        this.NgaySinh = NgaySinh;
+        this.DiaChi = DiaChi;
+        this.GioiTinh = GioiTinh;
+        this.MangXaHoi = MangXaHoi;
+        this.AnhDaiDien = AnhDaiDien;
+        this.MoTa = MoTa;
+        this.Tag = Tag;
+    }
+
+    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
         this.IdKhachHang = IdKhachHang;
         this.IdLoaiKhachHang = IdLoaiKhachHang;
         this.IdNguoiDung = IdNguoiDung;
@@ -41,6 +56,7 @@ public class DTOKhachHang {
         this.DiaChi = DiaChi;
         this.GioiTinh = GioiTinh;
         this.MangXaHoi = MangXaHoi;
+        this.AnhDaiDien = AnhDaiDien;
         this.MoTa = MoTa;
         this.Tag = Tag;
     }
@@ -101,11 +117,11 @@ public class DTOKhachHang {
         this.MatKhau = MatKhau;
     }
 
-    public Date getNgaySinh() {
+    public String getNgaySinh() {
         return NgaySinh;
     }
 
-    public void setNgaySinh(Date NgaySinh) {
+    public void setNgaySinh(String NgaySinh) {
         this.NgaySinh = NgaySinh;
     }
 
@@ -133,6 +149,14 @@ public class DTOKhachHang {
         this.MangXaHoi = MangXaHoi;
     }
 
+    public String getAnhDaiDien() {
+        return AnhDaiDien;
+    }
+
+    public void setAnhDaiDien(String AnhDaiDien) {
+        this.AnhDaiDien = AnhDaiDien;
+    }
+
     public String getMoTa() {
         return MoTa;
     }
@@ -150,5 +174,6 @@ public class DTOKhachHang {
     }
 
   
+ 
     
 }

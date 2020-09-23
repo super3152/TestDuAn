@@ -8,38 +8,62 @@ package DAO;
 import GUI.ThongBaoLoi;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Takemikazuchi
  */
 public class DBConection {
-     public static Connection conn;
- 
-    public static Connection getDatabase(){
+
+
+
+    private static String DB_URL = "jdbc:mysql://shopmart.fun/sho71306_ChauNganProject";   
+    private static String USER_NAME = "sho71306_Adminchaungan";
+    private static String PASSWORD = "Duanchaungan2020";
+    public static Connection conn;
+
+
+    public void connectToDB() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            try {
-                conn = DriverManager.getConnection("jdbc:mysql://shopmart.fun/sho71306_shopmart","sho71306_duanshopmart","Duantotnghiep2020");
-                System.out.println("Kết nối CSDL thành công");
-               
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(DBConection.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("Kết nối CSDL thất bại");
-                ThongBaoLoi.ThongBao("Lỗi kết nối, vui lòng kiểm tra lại đường truyền mạng", "Thông báo");
-            }
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            System.out.println("connect successfully!");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DBConection.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Lỗi kết nối ngoài ý muốn");
-             ThongBaoLoi.ThongBao("Lỗi kết nối ngoài ý muốn", "Thông báo");
+            System.out.println("Lỗi , thiếu thư viện kết nối");
+        } catch (SQLException ex) {
+            System.out.println("Lỗi kết nối CSDL" + ex);
         }
-    return conn;
+
     }
-       
+
+    public static ResultSet GetData(String cauTruyVan) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(cauTruyVan);
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println("lỗi lấy dữ liệu " + ex);
+            return null;
+        }
+    }
+    public static int ExcuteTruyVan(String cauTruyVan) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            Statement stm = conn.createStatement();
+            int kq = stm.executeUpdate(cauTruyVan);
+            return kq;
+        } catch (SQLException ex) {
+            System.out.println("Lỗi Thực Thi lệnh SQL");
+            return -1;
+        }
+    }
+
 }
