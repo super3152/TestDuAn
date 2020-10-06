@@ -36,6 +36,8 @@ public class BLLlogin {
                     ThongBaoCanhBao.ThongBao("Mật khẩu không đúng", "Thông báo");
                     return false;
                 } else {
+                    nguoidung.setAnhDaiDien(rs.getString("anhdaidien"));
+                    nguoidung.setIdNguoiDung(rs.getInt("idnguoidung"));
                     nguoidung.setTenDangNhap(username);
                     nguoidung.setTenNguoiDung(rs.getString("tennguoidung"));
                 }

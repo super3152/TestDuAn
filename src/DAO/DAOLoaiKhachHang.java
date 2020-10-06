@@ -27,7 +27,6 @@ public class DAOLoaiKhachHang {
             while (rs.next()) {
                 DTOLoaiKhachHang kh = new DTOLoaiKhachHang(rs.getInt("idloaikhachhang"), rs.getString("tenloaikhachhang"),rs.getString("uudai"), rs.getString("mota"));
                 loaikh.add(kh);
-                System.out.println(loaikh);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOLoaiKhachHang.class.getName()).log(Level.SEVERE, null, ex);

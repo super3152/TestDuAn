@@ -6,6 +6,7 @@
 package GUI;
 
 import BLL.BLLlogin;
+import DAO.DBConection;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -29,20 +30,20 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
  * @author ADMIN
  */
 public class jdllogin extends javax.swing.JFrame {
-
-    int index;
-
+int index;
+   
     public jdllogin() {
         initComponents();
-        jPanel3.setVisible(false);
-        jPanel7.setVisible(false);
-        jPanel8.setVisible(false);
-
-        jPanel9.setVisible(false);
-        txtPass.setEchoChar((char) 8226);
-        jPanel10.setVisible(false);
+jPanel3.setVisible(false);
+ jPanel7.setVisible(false);
+  jPanel8.setVisible(false);
+   
+     jPanel9.setVisible(false);
+      txtPass.setEchoChar((char)8226);
+       jPanel10.setVisible(false);
         jPanel11.setVisible(false);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,9 +86,10 @@ public class jdllogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         show = new javax.swing.JLabel();
         hide = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -161,7 +163,7 @@ public class jdllogin extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 110, -1));
 
-        txtUser.setBackground(new java.awt.Color(9, 122, 192));
+        txtUser.setBackground(new java.awt.Color(33, 36, 51));
         txtUser.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtUser.setForeground(new java.awt.Color(255, 255, 255));
         txtUser.setText("admin");
@@ -204,7 +206,7 @@ public class jdllogin extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 1));
 
-        txtPass.setBackground(new java.awt.Color(9, 122, 192));
+        txtPass.setBackground(new java.awt.Color(33, 36, 51));
         txtPass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setText("123123");
@@ -232,7 +234,7 @@ public class jdllogin extends javax.swing.JFrame {
                 jLabel5MouseReleased(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 40, 40));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 40, 40));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Website: shopmart.fun");
@@ -276,7 +278,7 @@ public class jdllogin extends javax.swing.JFrame {
                 jLabel10MouseExited(evt);
             }
         });
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, 40, 40));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 40, 40));
 
         jLabel11.setBackground(new java.awt.Color(9, 122, 192));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -337,6 +339,9 @@ public class jdllogin extends javax.swing.JFrame {
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel9MouseEntered(evt);
             }
@@ -345,9 +350,6 @@ public class jdllogin extends javax.swing.JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel9MousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
             }
         });
 
@@ -442,7 +444,7 @@ public class jdllogin extends javax.swing.JFrame {
             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 60, 20));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 60, 20));
 
         jPanel7.setBackground(new java.awt.Color(33, 36, 51));
         jPanel7.setToolTipText("Fanpage");
@@ -487,14 +489,14 @@ public class jdllogin extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 60, 20));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 60, 20));
 
         show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/hide_20px.png"))); // NOI18N
         show.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -526,6 +528,12 @@ public class jdllogin extends javax.swing.JFrame {
         });
         jPanel1.add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 296, 20, 20));
 
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/textchaungan.png"))); // NOI18N
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 360, 50));
+
         jPanel12.setBackground(new java.awt.Color(33, 36, 51));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -543,22 +551,23 @@ public class jdllogin extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 128, 140, 50));
+        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 128, 140, 40));
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText(" CHAUNGAN");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 360, 50));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logomini.png"))); // NOI18N
+        jLabel19.setToolTipText("");
+        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 360, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logocuoicung12.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logochaungan.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 560));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, -1));
@@ -572,48 +581,6 @@ public class jdllogin extends javax.swing.JFrame {
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
-
-    private void btnThuNhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThuNhoMouseEntered
-        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini11.jpg")).getImage();
-        btnThuNho.setIcon(new ImageIcon(photo2));
-    }//GEN-LAST:event_btnThuNhoMouseEntered
-
-    private void btnThuNhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThuNhoMouseExited
-        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).getImage();
-        btnThuNho.setIcon(new ImageIcon(photo2));
-
-    }//GEN-LAST:event_btnThuNhoMouseExited
-
-    private void btnThuNhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThuNhoActionPerformed
-
-        this.setExtendedState(jdllogin.ICONIFIED);
-    }//GEN-LAST:event_btnThuNhoActionPerformed
-
-    private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
-
-        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/exitend1.jpg")).getImage();
-        btnClose.setIcon(new ImageIcon(photo2));
-    }//GEN-LAST:event_btnCloseMouseEntered
-
-    private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
-        Image photo3 = new ImageIcon(this.getClass().getResource("/IMAGE/exitend.jpg")).getImage();
-        btnClose.setIcon(new ImageIcon(photo3));
-
-    }//GEN-LAST:event_btnCloseMouseExited
-
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-        int ketquasaukhibam = JOptionPane.showConfirmDialog(new JFrame(),
-                "Bạn có muốn thoát chương trình ?", //thông báo 
-                "Thông báo!", //tiêu đề  
-                JOptionPane.YES_NO_OPTION, //lựa chọn 
-                JOptionPane.WARNING_MESSAGE); // icon 
-
-        if (ketquasaukhibam == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        } else {
-            this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        }
-    }//GEN-LAST:event_btnCloseActionPerformed
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
 
@@ -632,14 +599,15 @@ public class jdllogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        String TenDangNhap = txtUser.getText();
+   
+    String TenDangNhap = txtUser.getText();
         String MatKhau =String.valueOf(txtPass.getPassword());
         if (BLLlogin.Checklogin(TenDangNhap, MatKhau) == true) {
             this.dispose();
+            ThongBaoThongTin.ThongBao("Đăng nhập thành công", "Thông báo");
             frmmain frm = new frmmain();
             frm.setVisible(true);
         }
-
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
@@ -647,7 +615,7 @@ public class jdllogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        jLabel4.setForeground(Color.WHITE);
+       jLabel4.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
@@ -655,18 +623,18 @@ public class jdllogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        jLabel6.setForeground(new Color(9, 122, 192));
+        jLabel6.setForeground(new Color(33,36,51));
         jPanel9.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
         jLabel6.setForeground(Color.BLACK);
-        jPanel9.setVisible(false);
+         jPanel9.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-
-        String url = "www.shopmart.fun";
+      
+           String url = "www.shopmart.fun";
         try {
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         } catch (IOException ex) {
@@ -674,73 +642,20 @@ public class jdllogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        String url = "https://www.facebook.com/Anh-Em-Team-%E1%BB%A8ng-D%E1%BB%A5ng-290622998371256/";
-        try {
-            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-        } catch (IOException ex) {
-            Logger.getLogger(frmmain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jPanel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseReleased
-
-    }//GEN-LAST:event_jPanel3MouseReleased
-
-    private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
-
-    }//GEN-LAST:event_jLabel5MouseReleased
-
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        jPanel3.setVisible(true);
-    }//GEN-LAST:event_jLabel5MouseEntered
-
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        jPanel3.setVisible(false);
-    }//GEN-LAST:event_jLabel5MouseExited
-
-    private void jPanel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseReleased
-
-    }//GEN-LAST:event_jPanel7MouseReleased
-
-    private void jPanel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel8MouseReleased
-
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        jPanel7.setVisible(true);
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        jPanel7.setVisible(false);
-    }//GEN-LAST:event_jLabel11MouseExited
-
-    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-        jPanel8.setVisible(true);
-    }//GEN-LAST:event_jLabel10MouseEntered
-
     private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
-        hide.setVisible(true);
-        hide.setEnabled(true);
-        txtPass.setEchoChar((char) 0);
-        show.setVisible(false);
-        show.setEnabled(false);
+      hide.setVisible(true);
+      hide.setEnabled(true);
+      txtPass.setEchoChar((char)0);
+      show.setVisible(false);
+      show.setEnabled(false);
     }//GEN-LAST:event_showMouseClicked
 
-    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-        jPanel8.setVisible(false);
-    }//GEN-LAST:event_jLabel10MouseExited
-
-    private void jPanel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel9MouseReleased
-
     private void hideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseClicked
-        hide.setVisible(false);
-        hide.setEnabled(false);
-        txtPass.setEchoChar((char) 8226);
-        show.setVisible(true);
-        show.setEnabled(true);
+       hide.setVisible(false);
+      hide.setEnabled(false);
+      txtPass.setEchoChar((char)8226);
+      show.setVisible(true);
+      show.setEnabled(true);
     }//GEN-LAST:event_hideMouseClicked
 
     private void jPanel10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseReleased
@@ -752,11 +667,11 @@ public class jdllogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel11MouseReleased
 
     private void showMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseEntered
-        jPanel10.setVisible(true);
+       jPanel10.setVisible(true);
     }//GEN-LAST:event_showMouseEntered
 
     private void showMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseExited
-        jPanel10.setVisible(false);
+       jPanel10.setVisible(false);
     }//GEN-LAST:event_showMouseExited
 
     private void hideMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseEntered
@@ -764,23 +679,115 @@ public class jdllogin extends javax.swing.JFrame {
     }//GEN-LAST:event_hideMouseEntered
 
     private void hideMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseExited
-        jPanel11.setVisible(false);
+         jPanel11.setVisible(false);
     }//GEN-LAST:event_hideMouseExited
 
-    void setcolorbutton(JPanel panel) {
-        panel.setBackground(Color.WHITE);
-        jLabel9.setForeground(new Color(9, 122, 192));
-    }
+    private void btnThuNhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThuNhoActionPerformed
 
-    void resetcolorbutton(JPanel panel) {
-        panel.setBackground(new Color(9, 122, 192));
-        jLabel9.setForeground(Color.WHITE);
-    }
+        this.setExtendedState(jdllogin.ICONIFIED);
+    }//GEN-LAST:event_btnThuNhoActionPerformed
 
+    private void btnThuNhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThuNhoMouseExited
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini1.jpg")).getImage();
+        btnThuNho.setIcon(new ImageIcon(photo2));
+
+    }//GEN-LAST:event_btnThuNhoMouseExited
+
+    private void btnThuNhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThuNhoMouseEntered
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/mini11.jpg")).getImage();
+        btnThuNho.setIcon(new ImageIcon(photo2));
+    }//GEN-LAST:event_btnThuNhoMouseEntered
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        int ketquasaukhibam = JOptionPane.showConfirmDialog(new JFrame(),
+            "Bạn có muốn thoát chương trình ?", //thông báo
+            "Thông báo!", //tiêu đề
+            JOptionPane.YES_NO_OPTION, //lựa chọn
+            JOptionPane.WARNING_MESSAGE); // icon
+
+        if (ketquasaukhibam == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        } else {
+            this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        }
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
+        Image photo3 = new ImageIcon(this.getClass().getResource("/IMAGE/exitend.jpg")).getImage();
+        btnClose.setIcon(new ImageIcon(photo3));
+
+    }//GEN-LAST:event_btnCloseMouseExited
+
+    private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
+
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/exitend1.jpg")).getImage();
+        btnClose.setIcon(new ImageIcon(photo2));
+    }//GEN-LAST:event_btnCloseMouseEntered
+
+    private void jPanel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel8MouseReleased
+
+    private void jPanel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseReleased
+
+    }//GEN-LAST:event_jPanel7MouseReleased
+
+    private void jPanel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel9MouseReleased
+
+    private void jPanel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseReleased
+
+    }//GEN-LAST:event_jPanel3MouseReleased
+
+    private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
+
+    }//GEN-LAST:event_jLabel5MouseReleased
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        jPanel3.setVisible(false);
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        jPanel3.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        String url = "https://www.facebook.com/Anh-Em-Team-%E1%BB%A8ng-D%E1%BB%A5ng-290622998371256/";
+        try {
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(frmmain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+        jPanel8.setVisible(false);
+    }//GEN-LAST:event_jLabel10MouseExited
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+        jPanel8.setVisible(true);
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        jPanel7.setVisible(false);
+    }//GEN-LAST:event_jLabel11MouseExited
+
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        jPanel7.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+        void setcolorbutton(JPanel panel){
+   panel.setBackground(Color.WHITE);
+   jLabel9.setForeground(new Color(33,36,51));
+}
+        
+          void resetcolorbutton(JPanel panel){
+    panel.setBackground(new Color(33,36,51));
+    jLabel9.setForeground(Color.WHITE);
+}
     /**
-     * /
-     *
-     **
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -818,6 +825,7 @@ public class jdllogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new jdllogin().setVisible(true);
+               
             }
         });
     }
@@ -836,6 +844,7 @@ public class jdllogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

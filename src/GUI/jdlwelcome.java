@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import DAO.DBConection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
@@ -37,9 +38,10 @@ public void Start(){
                 index +=1;
 //                lblPhanTram.setText(Integer.toString(index)+"%");
                 pgbLoading.setValue(index);
-                if (index == 100) {
+                if (index == 150) {
                     ((Timer) e.getSource()).stop();
                     jdlwelcome.this.dispose();
+                     DBConection co = new DBConection();
                     showjdlDangNhap();
                 }
             }
@@ -65,11 +67,12 @@ void showjdlDangNhap(){
     private void initComponents() {
 
         pnlNenChao = new javax.swing.JPanel();
-        pgbLoading = new javax.swing.JProgressBar();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
+        pgbLoading = new javax.swing.JProgressBar();
+        jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,29 +81,18 @@ void showjdlDangNhap(){
 
         pnlNenChao.setOpaque(false);
         pnlNenChao.setLayout(null);
-        pnlNenChao.add(pgbLoading);
-        pgbLoading.setBounds(27, 388, 545, 15);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        pnlNenChao.add(jPanel1);
-        jPanel1.setBounds(20, 380, 560, 30);
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/icon/Infinity-1s-40px.gif"))); // NOI18N
+        jLabel2.setText("Đang kết nối . . .");
+        pnlNenChao.add(jLabel2);
+        jLabel2.setBounds(230, 360, 180, 30);
 
         jPanel2.setBackground(new java.awt.Color(33, 36, 51));
         jPanel2.setForeground(new java.awt.Color(9, 122, 192));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Phiên bản 0.0.1");
 
@@ -120,10 +112,28 @@ void showjdlDangNhap(){
         pnlNenChao.add(jPanel2);
         jPanel2.setBounds(490, 420, 110, 30);
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/logo24.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/welcome.jpg"))); // NOI18N
         lblBackground.setOpaque(true);
         pnlNenChao.add(lblBackground);
         lblBackground.setBounds(0, 0, 600, 450);
+        pnlNenChao.add(pgbLoading);
+        pgbLoading.setBounds(27, 388, 545, 15);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 560, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        pnlNenChao.add(jPanel1);
+        jPanel1.setBounds(20, 380, 560, 30);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/img_loader (2).gif"))); // NOI18N
         pnlNenChao.add(jLabel15);
@@ -190,6 +200,7 @@ void showjdlDangNhap(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBackground;

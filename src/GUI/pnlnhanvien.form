@@ -2,21 +2,21 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JPopupMenu" name="ppmKhachHang">
+    <Container class="javax.swing.JPopupMenu" name="ppmNhanVien">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <MenuItem class="javax.swing.JMenuItem" name="mniXoaKhachHang">
+        <MenuItem class="javax.swing.JMenuItem" name="mniXoaNhanVien">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/IMAGE/delete_20px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="X&#xf3;a kh&#xe1;ch h&#xe0;ng"/>
+            <Property name="text" type="java.lang.String" value="X&#xf3;a nh&#xe2;n vi&#xea;n"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniXoaKhachHangActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniXoaNhanVienActionPerformed"/>
           </Events>
         </MenuItem>
       </SubComponents>
@@ -24,7 +24,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="33" green="24" red="21" type="rgb"/>
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[980, 620]"/>
@@ -52,7 +52,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="tbpchuyentab" alignment="0" pref="620" max="32767" attributes="0"/>
+          <Component id="tbpchuyentab" alignment="0" pref="621" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -80,8 +80,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Danh s&#xe1;ch kha&#x301;ch ha&#x300;ng">
-                <Property name="tabTitle" type="java.lang.String" value="Danh s&#xe1;ch kha&#x301;ch ha&#x300;ng"/>
+              <JTabbedPaneConstraints tabName="Danh s&#xe1;ch nh&#xe2;n vi&#xea;n">
+                <Property name="tabTitle" type="java.lang.String" value="Danh s&#xe1;ch nh&#xe2;n vi&#xea;n"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/IMAGE/list_20px.png"/>
                 </Property>
@@ -92,25 +92,25 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="lblloaikhachhang" min="-2" pref="170" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                       <Component id="cbbloaikhachhang" min="-2" pref="180" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="txtTimKiem" max="32767" attributes="0"/>
+                      <Component id="txtTimKiemNV" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="jCheckBox1" min="-2" pref="180" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pnlloaikhachhang" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Component id="pnlChucVu" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jButton2" alignment="0" pref="149" max="32767" attributes="0"/>
                                   <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButton3" max="32767" attributes="0"/>
+                                  <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -120,16 +120,16 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblloaikhachhang" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="cbbloaikhachhang" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="txtTimKiem" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblloaikhachhang" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbbloaikhachhang" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtTimKiemNV" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jCheckBox1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="pnlloaikhachhang" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="pnlChucVu" max="32767" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButton3" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                               <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Component id="srcdanhsach" pref="556" max="32767" attributes="0"/>
+                          <Component id="srcdanhsach" alignment="0" pref="556" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -176,7 +176,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="L&#x1ecd;c kh&#xe1;ch h&#xe0;ng"/>
+                    <StringItem index="0" value="L&#x1ecd;c nh&#xe2;n vi&#xea;n"/>
                   </StringArray>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -189,11 +189,6 @@
                 </Property>
                 <Property name="focusCycleRoot" type="boolean" value="true"/>
               </Properties>
-              <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="cbbloaikhachhang"/>
-                </Property>
-              </AccessibilityProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbbloaikhachhangActionPerformed"/>
               </Events>
@@ -208,7 +203,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblkhachhang">
+                <Component class="javax.swing.JTable" name="tblNguoiDung">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -219,8 +214,8 @@
                       <Font name="Segoe UI" size="11" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="30">
-                        <Column editable="false" title="M&#xe3; kh&#xe1;ch h&#xe0;ng" type="java.lang.Object">
+                      <Table columnCount="11" rowCount="30">
+                        <Column editable="false" title="M&#xe3; Nh&#xe2;n Vi&#xea;n" type="java.lang.Object">
                           <Data value=""/>
                           <Data value=""/>
                           <Data value=""/>
@@ -252,7 +247,7 @@
                           <Data value="null"/>
                           <Data value="null"/>
                         </Column>
-                        <Column editable="false" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object">
+                        <Column editable="false" title="T&#xea;n nh&#xe2;n vi&#xea;n" type="java.lang.Object">
                           <Data value=""/>
                           <Data value=""/>
                           <Data value=""/>
@@ -348,6 +343,7 @@
                           <Data value="null"/>
                           <Data value="null"/>
                         </Column>
+                        <Column editable="false" title="Gi&#x1edb;i T&#xed;nh" type="java.lang.Object"/>
                         <Column editable="false" title="Ng&#xe0;y Sinh" type="java.lang.Object">
                           <Data value=""/>
                           <Data value=""/>
@@ -380,44 +376,30 @@
                           <Data value="null"/>
                           <Data value="null"/>
                         </Column>
-                        <Column editable="false" title="&#x110;&#x1ecb;a Ch&#x1ec9;" type="java.lang.Object">
-                          <Data value=""/>
-                          <Data value=""/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                        </Column>
-                        <Column editable="false" title="Gi&#x1edb;i T&#xed;nh" type="java.lang.Object"/>
+                        <Column editable="false" title="Ng&#xe0;y V&#xe0;o L&#xe0;m" type="java.lang.Object"/>
                         <Column editable="false" title="H&#xec;nh &#x1ea2;nh" type="java.lang.Object"/>
+                        <Column editable="false" title="Ch&#x1ee9;c V&#x1ee5;" type="java.lang.Object"/>
+                        <Column editable="false" title="Tr&#x1ea1;ng Th&#xe1;i" type="java.lang.Object"/>
+                        <Column editable="false" title="L&#x1b0;&#x1a1;ng" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -476,13 +458,13 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblkhachhangMouseClicked"/>
-                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblkhachhangMouseReleased"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblNguoiDungMouseClicked"/>
+                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblNguoiDungMouseReleased"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txtTimKiem">
+            <Component class="javax.swing.JTextField" name="txtTimKiemNV">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -491,14 +473,14 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemKeyPressed"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemKeyTyped"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemNVKeyPressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemNVKeyTyped"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
             </Component>
-            <Container class="javax.swing.JPanel" name="pnlloaikhachhang">
+            <Container class="javax.swing.JPanel" name="pnlChucVu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -524,7 +506,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i kh&#xe1;ch h&#xe0;ng"/>
+                <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5;"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
@@ -537,7 +519,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/IMAGE/delete_20px_1.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="X&#xf3;a K.H&#xe0;ng"/>
+                <Property name="text" type="java.lang.String" value="X&#xf3;a N.Vi&#xea;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -548,14 +530,14 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/IMAGE/maintenance_20px.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="S&#x1eed;a K.H&#xe0;ng"/>
+                <Property name="text" type="java.lang.String" value="S&#x1eed;a N.Vi&#xea;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator4">
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Th&#xea;m lo&#x1ea1;i KH"/>
+                <Property name="text" type="java.lang.String" value="Th&#xea;m ch&#x1ee9;c v&#x1ee5;"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -563,8 +545,8 @@
         <Container class="javax.swing.JPanel" name="pnlthemsuakhachhang">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Th&#xea;m - S&#x1eed;a kh&#xe1;ch h&#xe0;ng">
-                <Property name="tabTitle" type="java.lang.String" value="Th&#xea;m - S&#x1eed;a kh&#xe1;ch h&#xe0;ng"/>
+              <JTabbedPaneConstraints tabName="Th&#xea;m - S&#x1eed;a nh&#xe2;n vi&#xea;n">
+                <Property name="tabTitle" type="java.lang.String" value="Th&#xea;m - S&#x1eed;a nh&#xe2;n vi&#xea;n"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -589,7 +571,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
                           <Component id="FileChooser" min="-2" pref="0" max="-2" attributes="0"/>
-                          <EmptySpace pref="293" max="32767" attributes="0"/>
+                          <EmptySpace pref="294" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -723,12 +705,12 @@
                                       <Layout>
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblAnhDaiDien" alignment="1" pref="201" max="32767" attributes="0"/>
+                                              <Component id="lblAnhDaiDien" alignment="1" min="-2" pref="201" max="-2" attributes="0"/>
                                           </Group>
                                         </DimensionLayout>
                                         <DimensionLayout dim="1">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblAnhDaiDien" alignment="1" pref="201" max="32767" attributes="0"/>
+                                              <Component id="lblAnhDaiDien" alignment="1" min="-2" pref="201" max="-2" attributes="0"/>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
@@ -847,10 +829,10 @@
                                       <Layout>
                                         <DimensionLayout dim="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblthongtinkhac" min="-2" pref="247" max="-2" attributes="0"/>
-                                                      <Group type="102" attributes="0">
+                                                      <Component id="lblthongtinkhac" alignment="0" min="-2" pref="247" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="pnlnennhomkhachhang" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
@@ -865,14 +847,14 @@
                                         </DimensionLayout>
                                         <DimensionLayout dim="1">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
                                                   <Component id="lblthongtinkhac" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="pnlnennhomkhachhang" min="-2" pref="49" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="pnlnennhanvienphutrach" min="-2" pref="49" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="pnlnenmota" pref="96" max="32767" attributes="0"/>
+                                                  <Component id="pnlnenmota" pref="88" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -904,7 +886,7 @@
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                                 </Property>
-                                                <Property name="text" type="java.lang.String" value="Nh&#xf3;m kh&#xe1;ch h&#xe0;ng"/>
+                                                <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5;"/>
                                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                                   <Dimension value="[75, 20]"/>
                                                 </Property>
@@ -915,10 +897,13 @@
                                                 </Constraint>
                                               </Constraints>
                                             </Component>
-                                            <Component class="javax.swing.JComboBox" name="cbbLoaiKhachHang">
+                                            <Component class="javax.swing.JComboBox" name="cbbChucVu">
                                               <Properties>
                                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                                  <StringArray count="0"/>
+                                                  <StringArray count="2">
+                                                    <StringItem index="0" value="Qu&#x1ea3;n Tr&#x1ecb;"/>
+                                                    <StringItem index="1" value="Nh&#xe2;n Vi&#xea;n"/>
+                                                  </StringArray>
                                                 </Property>
                                                 <Property name="toolTipText" type="java.lang.String" value=""/>
                                               </Properties>
@@ -947,7 +932,7 @@
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                                 </Property>
-                                                <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n ph&#x1ee5; tr&#xe1;ch"/>
+                                                <Property name="text" type="java.lang.String" value="ID"/>
                                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                                   <Dimension value="[75, 20]"/>
                                                 </Property>
@@ -958,7 +943,13 @@
                                                 </Constraint>
                                               </Constraints>
                                             </Component>
-                                            <Component class="javax.swing.JTextField" name="txtNhanVien">
+                                            <Component class="javax.swing.JTextField" name="txtId">
+                                              <Properties>
+                                                <Property name="enabled" type="boolean" value="false"/>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdActionPerformed"/>
+                                              </Events>
                                               <Constraints>
                                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                                   <BorderConstraints direction="Center"/>
@@ -1106,7 +1097,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jSeparator2" max="32767" attributes="0"/>
+                                              <Component id="jSeparator2" alignment="1" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="pnlemail" pref="318" max="32767" attributes="0"/>
                                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -1141,7 +1132,7 @@
                                               </Group>
                                               <Component id="lblthongtindiachi" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
                                                   <Component id="jLabel5" min="-2" pref="375" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1326,14 +1317,11 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="H&#x1ecd; t&#xea;n kh&#xe1;ch h&#xe0;ng"/>
+                                        <Property name="text" type="java.lang.String" value="H&#x1ecd; t&#xea;n nh&#xe2;n vi&#xea;n"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[106, 20]"/>
                                         </Property>
                                       </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="First"/>
@@ -1374,7 +1362,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="ID"/>
+                                        <Property name="text" type="java.lang.String" value="Ch&#x1ee9;ng Minh Nh&#xe2;n D&#xe2;n"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[52, 20]"/>
                                         </Property>
@@ -1385,10 +1373,7 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="txtId">
-                                      <Properties>
-                                        <Property name="editable" type="boolean" value="false"/>
-                                      </Properties>
+                                    <Component class="javax.swing.JTextField" name="txtCMND">
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1411,7 +1396,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="M&#x1ea1;ng x&#xe3; h&#x1ed9;i"/>
+                                        <Property name="text" type="java.lang.String" value="Ng&#xe0;y V&#xe0;o L&#xe0;m"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[31, 20]"/>
                                         </Property>
@@ -1422,7 +1407,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="txtMangXaHoi">
+                                    <Component class="com.toedter.calendar.JDateChooser" name="jdcNgayVaoLam">
+                                      <Properties>
+                                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy" noResource="true"/>
+                                      </Properties>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1503,7 +1491,7 @@
                                     </Component>
                                     <Component class="com.toedter.calendar.JDateChooser" name="jdcNgaySinh">
                                       <Properties>
-                                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+                                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy" noResource="true"/>
                                       </Properties>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -1535,7 +1523,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="ID Ng&#x1b0;&#x1edd;i D&#xf9;ng"/>
+                                        <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[52, 20]"/>
                                         </Property>
@@ -1546,10 +1534,18 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="txtIdNguoiDung">
+                                    <Component class="javax.swing.JComboBox" name="cbbTrangThai">
                                       <Properties>
-                                        <Property name="editable" type="boolean" value="false"/>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="2">
+                                            <StringItem index="0" value="&#x110;ang l&#xe0;m vi&#x1ec7;c"/>
+                                            <StringItem index="1" value="&#x110;&#xe3; ngh&#x1ec9; l&#xe0;m"/>
+                                          </StringArray>
+                                        </Property>
                                       </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1572,7 +1568,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="Tag"/>
+                                        <Property name="text" type="java.lang.String" value="M&#x1ee9;c L&#x1b0;&#x1a1;ng"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[31, 20]"/>
                                         </Property>
@@ -1583,7 +1579,15 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="txtTag">
+                                    <Component class="javax.swing.JComboBox" name="cbbLuong">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="0"/>
+                                        </Property>
+                                      </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1606,7 +1610,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="T&#x1ec9;nh"/>
+                                        <Property name="text" type="java.lang.String" value="T&#xea;n &#x110;&#x103;ng Nh&#x1ead;p"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[75, 20]"/>
                                         </Property>
@@ -1617,84 +1621,7 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JComboBox" name="cbbtinh">
-                                      <Properties>
-                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="63">
-                                            <StringItem index="0" value="An Giang"/>
-                                            <StringItem index="1" value="B&#xe0; R&#x1ecb;a - V&#x169;ng T&#xe0;u"/>
-                                            <StringItem index="2" value="B&#x1eaf;c Giang"/>
-                                            <StringItem index="3" value="B&#x1eaf;c K&#x1ea1;n"/>
-                                            <StringItem index="4" value="B&#x1ea1;c Li&#xea;u"/>
-                                            <StringItem index="5" value="B&#x1eaf;c Ninh"/>
-                                            <StringItem index="6" value="B&#x1ebf;n Tre"/>
-                                            <StringItem index="7" value="B&#xec;nh &#x110;&#x1ecb;nh"/>
-                                            <StringItem index="8" value="B&#xec;nh D&#x1b0;&#x1a1;ng"/>
-                                            <StringItem index="9" value="B&#xec;nh Ph&#x1b0;&#x1edb;c"/>
-                                            <StringItem index="10" value="B&#xec;nh Thu&#x1ead;n"/>
-                                            <StringItem index="11" value="C&#xe0; Mau"/>
-                                            <StringItem index="12" value="Cao B&#x1eb1;ng"/>
-                                            <StringItem index="13" value="&#x110;&#x1eaf;k L&#x1eaf;k"/>
-                                            <StringItem index="14" value="&#x110;&#x1eaf;k N&#xf4;ng"/>
-                                            <StringItem index="15" value="&#x110;i&#x1ec7;n Bi&#xea;n"/>
-                                            <StringItem index="16" value="&#x110;&#x1ed3;ng Nai"/>
-                                            <StringItem index="17" value="&#x110;&#x1ed3;ng Th&#xe1;p"/>
-                                            <StringItem index="18" value="Gia Lai"/>
-                                            <StringItem index="19" value="H&#xe0; Giang"/>
-                                            <StringItem index="20" value="H&#xe0; Nam"/>
-                                            <StringItem index="21" value="H&#xe0; T&#x129;nh"/>
-                                            <StringItem index="22" value="H&#x1ea3;i D&#x1b0;&#x1a1;ng"/>
-                                            <StringItem index="23" value="H&#x1ead;u Giang"/>
-                                            <StringItem index="24" value="H&#xf2;a B&#xec;nh"/>
-                                            <StringItem index="25" value="H&#x1b0;ng Y&#xea;n"/>
-                                            <StringItem index="26" value="Kh&#xe1;nh H&#xf2;a"/>
-                                            <StringItem index="27" value="Ki&#xea;n Giang"/>
-                                            <StringItem index="28" value="Kon Tum"/>
-                                            <StringItem index="29" value="Lai Ch&#xe2;u"/>
-                                            <StringItem index="30" value="L&#xe2;m &#x110;&#x1ed3;ng"/>
-                                            <StringItem index="31" value="L&#x1ea1;ng S&#x1a1;n"/>
-                                            <StringItem index="32" value="L&#xe0;o Cai"/>
-                                            <StringItem index="33" value="Long An"/>
-                                            <StringItem index="34" value="Nam &#x110;&#x1ecb;nh"/>
-                                            <StringItem index="35" value="Ngh&#x1ec7; An"/>
-                                            <StringItem index="36" value="Ninh B&#xec;nh"/>
-                                            <StringItem index="37" value="Ninh Thu&#x1ead;n"/>
-                                            <StringItem index="38" value="Ph&#xfa; Th&#x1ecd;"/>
-                                            <StringItem index="39" value="Qu&#x1ea3;ng B&#xec;nh"/>
-                                            <StringItem index="40" value="Qu&#x1ea3;ng Nam"/>
-                                            <StringItem index="41" value="Qu&#x1ea3;ng Ng&#xe3;i"/>
-                                            <StringItem index="42" value="Qu&#x1ea3;ng Ninh"/>
-                                            <StringItem index="43" value="Qu&#x1ea3;ng Tr&#x1ecb;"/>
-                                            <StringItem index="44" value="S&#xf3;c Tr&#x103;ng"/>
-                                            <StringItem index="45" value="S&#x1a1;n La"/>
-                                            <StringItem index="46" value="T&#xe2;y Ninh"/>
-                                            <StringItem index="47" value="Th&#xe1;i B&#xec;nh"/>
-                                            <StringItem index="48" value="Th&#xe1;i Nguy&#xea;n"/>
-                                            <StringItem index="49" value="Thanh H&#xf3;a"/>
-                                            <StringItem index="50" value="Th&#x1eeb;a Thi&#xea;n Hu&#x1ebf;"/>
-                                            <StringItem index="51" value="Ti&#x1ec1;n Giang"/>
-                                            <StringItem index="52" value="Tr&#xe0; Vinh"/>
-                                            <StringItem index="53" value="Tuy&#xea;n Quang"/>
-                                            <StringItem index="54" value="V&#x129;nh Long"/>
-                                            <StringItem index="55" value="V&#x129;nh Ph&#xfa;c"/>
-                                            <StringItem index="56" value="Y&#xea;n B&#xe1;i"/>
-                                            <StringItem index="57" value="Ph&#xfa; Y&#xea;n"/>
-                                            <StringItem index="58" value="C&#x1ea7;n Th&#x1a1;"/>
-                                            <StringItem index="59" value="&#x110;&#xe0; N&#x1eb5;ng"/>
-                                            <StringItem index="60" value="H&#x1ea3;i Ph&#xf2;ng"/>
-                                            <StringItem index="61" value="H&#xe0; N&#x1ed9;i"/>
-                                            <StringItem index="62" value="TP HCM"/>
-                                          </StringArray>
-                                        </Property>
-                                      </Properties>
-                                      <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbbtinhActionPerformed"/>
-                                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cbbtinhKeyPressed"/>
-                                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cbbtinhKeyReleased"/>
-                                      </Events>
-                                      <AuxValues>
-                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                      </AuxValues>
+                                    <Component class="javax.swing.JTextField" name="txtTenDangNhap">
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1717,7 +1644,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9; hi&#x1ec7;n t&#x1ea1;i (X&#xe3;, Ph&#x1b0;&#x1edd;ng - Qu&#x1ead;n, Huy&#x1ec7;n) *"/>
+                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9; hi&#x1ec7;n t&#x1ea1;i (X&#xe3;, Ph&#x1b0;&#x1edd;ng - Qu&#x1ead;n, Huy&#x1ec7;n) "/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[106, 20]"/>
                                         </Property>
@@ -1775,7 +1702,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pnlnenbtn" max="32767" attributes="0"/>
+                          <Component id="pnlnenbtn" alignment="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1796,9 +1723,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblghichu" min="-2" pref="496" max="-2" attributes="0"/>
-                                  <EmptySpace pref="87" max="32767" attributes="0"/>
+                                  <EmptySpace pref="593" max="32767" attributes="0"/>
                                   <Component id="btnlammoi" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="btnsua" min="-2" pref="120" max="-2" attributes="0"/>
@@ -1811,14 +1736,13 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnthem" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="btnsua" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="btnlammoi" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="lblghichu" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               </Group>
@@ -1858,19 +1782,11 @@
                             <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
                             <Property name="horizontalTextPosition" type="int" value="4"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlammoiActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator1">
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblghichu">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="13" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="0" green="0" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="* Vui l&#xf2;ng nh&#x1ead;p &#x111;&#xfa;ng &#x111;&#x1ecb;a ch&#x1ec9; &#x111;&#x1ec3; &#x111;&#x1b0;&#x1ee3;c h&#x1ed7; tr&#x1ee3; giao h&#xe0;ng nhanh nh&#x1ea5;t"/>
-                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1883,6 +1799,718 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FileChooserActionPerformed"/>
               </Events>
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="L&#x1b0;&#x1a1;ng nh&#xe2;n vi&#xea;n">
+                <Property name="tabTitle" type="java.lang.String" value="L&#x1b0;&#x1a1;ng nh&#xe2;n vi&#xea;n"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="975" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Component id="pnlnenthemsuakhachhang2" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="587" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Component id="pnlnenthemsuakhachhang2" alignment="0" pref="587" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="pnlnenthemsuakhachhang2">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="pnlnenlonthongtincoban1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder thickness="5">
+                          <Color PropertyName="color" blue="f8" green="f6" red="f4" type="rgb"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[700, 550]"/>
+                    </Property>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="pnlnenlonngoaithongtin1">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                            <EtchetBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                          <BorderConstraints direction="Center"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                      <SubComponents>
+                        <Container class="javax.swing.JPanel" name="pnlnenngoaithongtin1">
+                          <Properties>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                <LineBorder thickness="5">
+                                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                                </LineBorder>
+                              </Border>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                              <BorderConstraints direction="Center"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                          <SubComponents>
+                            <Container class="javax.swing.JPanel" name="pnlnenthongtin1">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                    <EtchetBorder/>
+                                  </Border>
+                                </Property>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                  <BorderConstraints direction="Center"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="pnlemail2" pref="455" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                          <Component id="pnlnenmatkhau2" pref="456" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="pnlnenhotenkhachhang2" pref="455" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                          <Component id="pnlnensodienthoai2" pref="456" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="pnlemail3" pref="455" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                          <Component id="pnlnenmatkhau3" pref="456" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="pnlnenhotenkhachhang3" pref="455" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                          <Component id="pnlnensodienthoai3" pref="456" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="466" max="-2" attributes="0"/>
+                                                  <Component id="jLabel6" min="-2" pref="375" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel3" max="32767" attributes="0"/>
+                                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="pnlnenhotenkhachhang4" min="-2" pref="356" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnPhatluong" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel2" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jSeparator5" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jSeparator6" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane3" pref="927" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="pnlnensodienthoai2" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Component id="pnlnenhotenkhachhang2" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="pnlnenmatkhau2" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Component id="pnlemail2" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="pnlnensodienthoai3" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Component id="pnlnenhotenkhachhang3" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="pnlnenmatkhau3" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Component id="pnlemail3" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                          <Component id="jSeparator5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel3" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
+                                              <Component id="btnPhatluong" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="pnlnenhotenkhachhang4" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="jLabel2" alignment="1" min="-2" pref="49" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                          <Component id="jSeparator6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" pref="76" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
+                                              <Component id="jScrollPane3" pref="192" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="tblPhatluong">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="10" rowCount="4">
+                                            <Column editable="false" title="ID" type="java.lang.Object"/>
+                                            <Column editable="false" title="T&#xea;n nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
+                                            <Column editable="false" title="M&#x1ee9;c l&#x1b0;&#x1a1;ng" type="java.lang.Object"/>
+                                            <Column editable="false" title="Ng&#xe0;y ph&#xe1;t" type="java.lang.Object"/>
+                                            <Column editable="false" title="S&#x1ed1; ng&#xe0;y &#x111;i l&#xe0;m" type="java.lang.Object"/>
+                                            <Column editable="false" title="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;" type="java.lang.Object"/>
+                                            <Column editable="false" title="Ti&#x1ec1;n th&#x1b0;&#x1edf;ng" type="java.lang.Object"/>
+                                            <Column editable="false" title="Ti&#x1ec1;n ph&#x1ea1;t" type="java.lang.Object"/>
+                                            <Column editable="false" title="L&#x1b0;&#x1a1;ng" type="java.lang.Object"/>
+                                            <Column editable="false" title="Ghi ch&#xfa;" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblPhatluongMouseClicked"/>
+                                      </Events>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Component class="javax.swing.JLabel" name="jLabel6">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="jLabel5"/>
+                                  </Properties>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="pnlnenmatkhau2">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblmatkhau2">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n ph&#x1ea1;t"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[52, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtTienPhat">
+                                      <Events>
+                                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTienPhatKeyReleased"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlemail2">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblemail2">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Ng&#xe0;y ph&#xe1;t"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[31, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="com.toedter.calendar.JDateChooser" name="jdcNgayPhat">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlnensodienthoai2">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblsodienthoai2">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n th&#x1b0;&#x1edf;ng"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[75, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtTienThuong">
+                                      <Events>
+                                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTienThuongKeyReleased"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlnenhotenkhachhang2">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblhotenkhachhang2">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[106, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="cbbNhanVienPL">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="0"/>
+                                        </Property>
+                                        <Property name="toolTipText" type="java.lang.String" value=""/>
+                                      </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                      </AuxValues>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlnenmatkhau3">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblmatkhau3">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[52, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="cbbLuongPL">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="0"/>
+                                        </Property>
+                                      </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                      </AuxValues>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlemail3">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblemail3">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[31, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtSoNgayNghi">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="0"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSoNgayNghiKeyReleased"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlnensodienthoai3">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblsodienthoai3">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Ghi ch&#xfa;"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[75, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtGhichu">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlnenhotenkhachhang3">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblhotenkhachhang3">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y &#x111;i l&#xe0;m"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[106, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtSoNgayLam">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="30"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSoNgayLamActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="pnlnenhotenkhachhang4">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="lblhotenkhachhang4">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Segoe UI" size="13" style="1"/>
+                                        </Property>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="horizontalAlignment" type="int" value="0"/>
+                                        <Property name="text" type="java.lang.String" value="T&#x1ed5;ng ti&#x1ec1;n l&#x1b0;&#x1a1;ng:"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[106, 20]"/>
+                                        </Property>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="First"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtTong">
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTongActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="Center"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Component class="javax.swing.JButton" name="btnPhatluong">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Ph&#xe1;t l&#x1b0;&#x1a1;ng"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel2">
+                                  <Properties>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="jLabel2"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel3">
+                                  <Properties>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="jLabel3"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JSeparator" name="jSeparator5">
+                                </Component>
+                                <Component class="javax.swing.JSeparator" name="jSeparator6">
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

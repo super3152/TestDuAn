@@ -14,7 +14,7 @@ public class DTOKhachHang {
     int IdLoaiKhachHang;
     int IdNguoiDung;
     String TenKhachHang;
-    int SoDienThoai;
+    String SoDienThoai;
     String Email;
     String MatKhau;
     String NgaySinh;
@@ -28,7 +28,7 @@ public class DTOKhachHang {
     public DTOKhachHang() {
     }
 
-    public DTOKhachHang(int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
+    public DTOKhachHang(int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, String SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
         this.IdLoaiKhachHang = IdLoaiKhachHang;
         this.IdNguoiDung = IdNguoiDung;
         this.TenKhachHang = TenKhachHang;
@@ -44,7 +44,7 @@ public class DTOKhachHang {
         this.Tag = Tag;
     }
 
-    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, int SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
+    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, String SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
         this.IdKhachHang = IdKhachHang;
         this.IdLoaiKhachHang = IdLoaiKhachHang;
         this.IdNguoiDung = IdNguoiDung;
@@ -93,11 +93,11 @@ public class DTOKhachHang {
         this.TenKhachHang = TenKhachHang;
     }
 
-    public int getSoDienThoai() {
+    public String getSoDienThoai() {
         return SoDienThoai;
     }
 
-    public void setSoDienThoai(int SoDienThoai) {
+    public void setSoDienThoai(String SoDienThoai) {
         this.SoDienThoai = SoDienThoai;
     }
 

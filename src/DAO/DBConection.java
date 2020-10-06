@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,13 +25,13 @@ public class DBConection {
 
 
 
-    private static String DB_URL = "jdbc:mysql://shopmart.fun/sho71306_ChauNganProject";   
+    private static String DB_URL = "jdbc:mysql://shopmart.fun/sho71306_ChauNganProject?useUnicode=yes&characterEncoding=UTF-8";   
     private static String USER_NAME = "sho71306_Adminchaungan";
-    private static String PASSWORD = "Duanchaungan2020";
+    private static String PASSWORD = "Duantotnghiep2020";
     public static Connection conn;
 
 
-    public void connectToDB() {
+    public  DBConection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
@@ -45,10 +46,9 @@ public class DBConection {
 
     public static ResultSet GetData(String cauTruyVan) {
         try {
-             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            // conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(cauTruyVan);
-            System.out.println("1213213");
             return rs;
         } catch (SQLException ex) {
             System.out.println("lỗi lấy dữ liệu " + ex);
@@ -57,16 +57,28 @@ public class DBConection {
     }
     public static int ExcuteTruyVan(String cauTruyVan) {
         try {
-             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+         //    conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
             Statement stm = conn.createStatement();
-            int kq = stm.executeUpdate(cauTruyVan);
-            return kq;
+            return stm.executeUpdate(cauTruyVan);
+ 
         } catch (SQLException ex) {
             System.out.println("Lỗi Thực Thi lệnh SQL");
             return -1;
         }
     }
+ public static int XoaKhachHang(String cauTruyVan) {
+        try {
+           //  conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            Statement stm = conn.createStatement();
+            return stm.executeUpdate(cauTruyVan);
 
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(new JFrame(),
+                "Không xóa được khách hàng này vì có dữ liệu liên quan",
+                "Thông báo lỗi", JOptionPane.OK_OPTION);
+            return -1;
+        }
+    }
     public void disconnect(){
         try {
             conn.close();

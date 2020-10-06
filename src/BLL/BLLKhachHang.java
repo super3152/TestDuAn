@@ -70,7 +70,7 @@ public class BLLKhachHang {
                 obj[1] = rs.getString("tenkhachhang");
                 obj[2] = rs.getInt("sodienthoai");
                 obj[3] = rs.getString("email");
-                 obj[4] = ChuyenDoi.GetNgay(rs.getDate("ngaysinh"));
+                obj[4] = ChuyenDoi.GetNgay(rs.getDate("ngaysinh"));
                 obj[5] = rs.getString("diachi");
                 if (rs.getString("gioitinh").equals("1")) {
                     obj[6] = "Nam";
@@ -87,8 +87,9 @@ public class BLLKhachHang {
 
     }
 
-    public static void HienThiKhachHang(JTable tbl) {
-        ResultSet rs = DAO.DAOKhachHang.LayKhachHang();
+
+    public static void HienThiKhachHang(JTable tbl, String TuKhoa) {
+        ResultSet rs = DAO.DAOKhachHang.LayKhachHang(TuKhoa);
         DefaultTableModel tbModel = (DefaultTableModel) tbl.getModel();
         tbModel.setRowCount(0);
         Object obj[] = new Object[8];
@@ -105,7 +106,7 @@ public class BLLKhachHang {
                 } else {
                     obj[6] = "Nữ";
                 }
-                obj[7] = rs.getString("mangxahoi");
+               obj[7] = rs.getString("anhdaidien");
 
                 tbModel.addRow(obj);
             }
@@ -124,7 +125,7 @@ public class BLLKhachHang {
                 kh.setIdLoaiKhachHang(rs.getInt("idloaikhachhang"));
                 kh.setIdNguoiDung(rs.getInt("idnguoidung"));
                 kh.setTenKhachHang(rs.getString("tenkhachhang"));
-                kh.setSoDienThoai(rs.getInt("sodienthoai"));
+                kh.setSoDienThoai(rs.getString("sodienthoai"));
                 kh.setEmail(rs.getString("email"));
                 kh.setMatKhau(rs.getString("matkhau"));
                 kh.setNgaySinh(ChuyenDoi.GetNgay(rs.getDate("ngaysinh")));
@@ -143,13 +144,211 @@ public class BLLKhachHang {
         }
         return null;
     }
-     public static void ThemKhachHang(DTOKhachHang kh) {
+
+    public static void ThemKhachHang(DTOKhachHang kh) {
         DAO.DAOKhachHang.ThemKhachHang(kh);
     }
-      public static boolean KiemTraThemKhachHang( String TenKhachHang) {
+
+    public static boolean KiemTraThemKhachHang(String TenKhachHang, String SDT, String Email, String MatKhau, String NgaySinh, String DiaChi, String MangXaHoi, String Tag, String MoTa) {
         if (TenKhachHang.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Tên khách hàng không được bỏ trống!"
                     + "\nVui lòng nhập lại họ tên! ", "Thông báo");
+            return false;
+        }
+        String retenNH = "^[a-z A-z ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$";
+        if (!TenKhachHang.matches(retenNH)) {
+            ThongBaoCanhBao.ThongBao("Tên khách hàng phải đúng định dạng"
+                    + "\nVui lòng nhập lại họ tên! ", "Thông báo");
+            return false;
+        }
+        ResultSet rstenkh = DAO.DAOKhachHang.LayTenKhachHang(TenKhachHang);
+        try {
+            if (rstenkh.next()) {
+                ThongBaoCanhBao.ThongBao("Tên khách hàng đã tồn tại "
+                        + "\nVui lòng nhập số điện thoại khác! ", "Thông báo");
+                return false;
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+            return false;
+        }
+        String resdt = "0\\d{9}";
+        if (SDT.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Số điện thoại không được bỏ trống!", "Thông báo");
+            return false;
+        } else if (!SDT.matches(resdt)) {
+            ThongBaoCanhBao.ThongBao("Số điện thoại không đúng định dạng!", "Thông báo");
+            return false;
+        }
+        ResultSet rssdtkh = DAO.DAOKhachHang.LaySDTKhachHang(SDT);
+        try {
+            if (rssdtkh.next()) {
+                ThongBaoCanhBao.ThongBao("Số điện thoai khách hàng đã tồn tại "
+                        + "\nVui lòng nhập số điện thoại khác! ", "Thông báo");
+                return false;
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+            return false;
+        }
+         if (Email.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Email không được bỏ trông!", "Thông báo");
+            return false;
+        } else if (!Email.matches("\\w+@\\w+(\\.\\w+){1,2}")) {
+            ThongBaoCanhBao.ThongBao("Email không đúng định dạng!", "Thông báo");
+            return false;
+        }
+        ResultSet rsemail = DAO.DAOKhachHang.LayEmailKhachHang(Email);
+        try {
+            if (rsemail.next()) {
+                ThongBaoCanhBao.ThongBao("Email đã tồn tại "
+                        + "\nVui lòng nhập email khác! ", "Thông báo");
+                return false;
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+            return false;
+        }
+         String Pass = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
+        if (MatKhau.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Mật khẩu không được bỏ trống!", "Thông báo");
+            return false;
+        } else if (!MatKhau.matches(Pass)) {
+            ThongBaoCanhBao.ThongBao("Mật khẩu không đúng định dạng!"
+                    + "Phải có số từ 0-9"
+                    + "Phải có kí tự thường a-z"
+                    + "Phải có kí tự hoa A-Z"
+                    + "Phải có kí tự đặc biệt trong mảng \"@#$%\""
+                    + "Mật khẩu phải có chiều dài từ 6 đến 20 kí tự", "Thông báo");
+            return false;
+        }
+         if (NgaySinh.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Ngày sinh không được bỏ trống", "Thông báo");
+            return false;
+        }
+                 String MXH = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+         if (MangXaHoi.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Mạng xã hội  không được bỏ trống!", "Thông báo");
+            return false;
+        } else if (!MangXaHoi.matches(MXH)) {
+            ThongBaoCanhBao.ThongBao("Mạng xã hội không đúng định dạng!", "Thông báo");
+            return false;
+        }
+        if (DiaChi.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Địa chỉ khách hàng không được bỏ trống!"
+                    + "\nVui lòng nhập lại địa chỉ! ", "Thông báo");
+            return false;
+        }
+         if (Tag.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Tag không được bỏ trống", "Thông báo");
+            return false;
+        }
+          if (MoTa.trim().length() < 5 || MoTa.trim().length() > 255) {
+            ThongBaoCanhBao.ThongBao("Mô tả không được nhỏ hơn 5 và lớn hơn 255 kí tự", "Thông báo");
+            return false;
+        }
+       
+        return true;
+    }
+    public static void SuaKhachHang(DTOKhachHang kh) {
+        DAO.DAOKhachHang.SuaKhachHang(kh);
+    }
+       public static boolean KiemTraSuaKhachHang(String TenKhachHang, String SDT, String Email, String MatKhau, String NgaySinh, String DiaChi, String MangXaHoi, String Tag, String MoTa) {
+        if (TenKhachHang.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Tên khách hàng không được bỏ trống!"
+                    + "\nVui lòng nhập lại họ tên! ", "Thông báo");
+            return false;
+        }
+        String retenNH = "^[a-z A-z ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$";
+        if (!TenKhachHang.matches(retenNH)) {
+            ThongBaoCanhBao.ThongBao("Tên khách hàng phải đúng định dạng"
+                    + "\nVui lòng nhập lại họ tên! ", "Thông báo");
+            return false;
+        }
+        ResultSet rstenkh = DAO.DAOKhachHang.LayTenKhachHang(TenKhachHang);
+        try {
+            if (rstenkh.next()) {
+                ThongBaoCanhBao.ThongBao("Tên khách hàng đã tồn tại "
+                        + "\nVui lòng nhập số điện thoại khác! ", "Thông báo");
+                return false;
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+            return false;
+        }
+        String resdt = "0\\d{9}";
+        if (SDT.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Số điện thoại không được bỏ trống!", "Thông báo");
+            return false;
+        } else if (!SDT.matches(resdt)) {
+            ThongBaoCanhBao.ThongBao("Số điện thoại không đúng định dạng!", "Thông báo");
+            return false;
+        }
+        ResultSet rssdtkh = DAO.DAOKhachHang.LaySDTKhachHang(SDT);
+        try {
+            if (rssdtkh.next()) {
+                ThongBaoCanhBao.ThongBao("Số điện thoai khách hàng đã tồn tại "
+                        + "\nVui lòng nhập số điện thoại khác! ", "Thông báo");
+                return false;
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+            return false;
+        }
+         if (Email.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Email không được bỏ trông!", "Thông báo");
+            return false;
+        } else if (!Email.matches("\\w+@\\w+(\\.\\w+){1,2}")) {
+            ThongBaoCanhBao.ThongBao("Email không đúng định dạng!", "Thông báo");
+            return false;
+        }
+        ResultSet rsemail = DAO.DAOKhachHang.LayEmailKhachHang(Email);
+        try {
+            if (rsemail.next()) {
+                ThongBaoCanhBao.ThongBao("Email đã tồn tại "
+                        + "\nVui lòng nhập email khác! ", "Thông báo");
+                return false;
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+            return false;
+        }
+         String Pass = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
+        if (MatKhau.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Mật khẩu không được bỏ trống!", "Thông báo");
+            return false;
+        } else if (!MatKhau.matches(Pass)) {
+            ThongBaoCanhBao.ThongBao("Mật khẩu không đúng định dạng!"
+                    + "Phải có số từ 0-9"
+                    + "Phải có kí tự thường a-z"
+                    + "Phải có kí tự hoa A-Z"
+                    + "Phải có kí tự đặc biệt trong mảng \"@#$%\""
+                    + "Mật khẩu phải có chiều dài từ 6 đến 20 kí tự", "Thông báo");
+            return false;
+        }
+         if (NgaySinh.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Ngày sinh không được bỏ trống", "Thông báo");
+            return false;
+        }
+                 String MXH = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+         if (MangXaHoi.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Mạng xã hội  không được bỏ trống!", "Thông báo");
+            return false;
+        } else if (!MangXaHoi.matches(MXH)) {
+            ThongBaoCanhBao.ThongBao("Mạng xã hội không đúng định dạng!", "Thông báo");
+            return false;
+        }
+        if (DiaChi.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Địa chỉ khách hàng không được bỏ trống!"
+                    + "\nVui lòng nhập lại địa chỉ! ", "Thông báo");
+            return false;
+        }
+         if (Tag.trim().equals("")) {
+            ThongBaoCanhBao.ThongBao("Tag không được bỏ trống", "Thông báo");
+            return false;
+        }
+          if (MoTa.trim().length() < 5 || MoTa.trim().length() > 255) {
+            ThongBaoCanhBao.ThongBao("Mô tả không được nhỏ hơn 5 và lớn hơn 255 kí tự", "Thông báo");
             return false;
         }
        
