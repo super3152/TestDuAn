@@ -7,6 +7,7 @@ package GUI;
 
 import BLL.BLLlogin;
 import DAO.DBConection;
+import DTO.DTOHoatDong;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.UIManager;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
@@ -33,6 +35,15 @@ public class jdllogin extends javax.swing.JFrame {
 int index;
    
     public jdllogin() {
+          try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+        }
         initComponents();
 jPanel3.setVisible(false);
  jPanel7.setVisible(false);
@@ -599,12 +610,17 @@ jPanel3.setVisible(false);
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-   
     String TenDangNhap = txtUser.getText();
         String MatKhau =String.valueOf(txtPass.getPassword());
         if (BLLlogin.Checklogin(TenDangNhap, MatKhau) == true) {
-            this.dispose();
+          
             ThongBaoThongTin.ThongBao("Đăng nhập thành công", "Thông báo");
+            int idhoatdong = 1;
+            int idnguoidung;
+             idnguoidung = BLL.BLLlogin.nguoidung.getIdNguoiDung(); 
+            DTOHoatDong nd = new DTOHoatDong(idhoatdong, idnguoidung);
+            BLL.BLLHoatDong.ThemHoatDong(nd);
+              this.dispose();
             frmmain frm = new frmmain();
             frm.setVisible(true);
         }

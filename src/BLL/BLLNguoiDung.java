@@ -84,22 +84,21 @@ public class BLLNguoiDung {
 
     }
 
-    public static void SetCBBNguoiDung(JComboBox cbb, int MaLuong) {
+    public static void SetCBBNguoiDung(JComboBox cbb, int MaND) {
         try {
-            ResultSet rs = DAO.DAONguoiDung.LayMaLuongCBB(MaLuong);
+            ResultSet rs = DAO.DAONguoiDung.LayNguoiDungTheoMa(MaND);
 
             DefaultComboBoxModel cbbModel = (DefaultComboBoxModel) cbb.getModel();
             cbbModel.removeAllElements();
             if (rs.next()) {
-                MyCombobox mb = new MyCombobox(ChuyenDoi.DinhDangTien(rs.getDouble("mucluong")),
-                        rs.getInt("idluong"));
+                MyCombobox mb = new MyCombobox(rs.getString("tennguoidung"),
+                        rs.getInt("idnguoidung"));
 
                 cbbModel.setSelectedItem(mb);
-
             }
         } catch (SQLException ex) {
 
-            ThongBaoCanhBao.ThongBao("Lỗi truy vấn dữ liệu", "Thông báo");
+            ThongBaoCanhBao.ThongBao("Lỗi truy vấn dữ liệu nhà cung cấp", "Thông báo");
         }
     }
 
@@ -107,7 +106,7 @@ public class BLLNguoiDung {
         ResultSet rs = DAO.DAONguoiDung.LayNguoiDungTheoChucVu(ChucVu);
         DefaultTableModel tbModel = (DefaultTableModel) tbl.getModel();
         tbModel.setRowCount(0);
-        Object obj[] = new Object[10];
+        Object obj[] = new Object[11];
         try {
              while (rs.next()) {
                 obj[0] = rs.getInt("idnguoidung");
@@ -428,5 +427,24 @@ public class BLLNguoiDung {
     }
         public static void SuaNguoiDung(DTONguoidung nd) {
         DAO.DAONguoiDung.SuaNhanVien(nd);
+    }
+          public static boolean KiemTraPhatLuong(int MaNV, String NgayPhat, String SoNgayDiLam, String SoNgayNghi, String TienThuong, String TienPhat, String GhiChu, int MaLuong, String Tong) {
+        if (TienThuong.length() == 1) {
+            ThongBaoCanhBao.ThongBao("Vui lòng phập tiền thưởng!", "Thông báo");
+            return false;
+        }
+        if (TienPhat.length() == 1) {
+            ThongBaoCanhBao.ThongBao("Vui lòng phập tiền phạt!", "Thông báo");
+            return false;
+        }
+        if (GhiChu.length() < 1 || GhiChu.length() > 255) {
+            ThongBaoCanhBao.ThongBao("Ghi chú không được bỏ trống và lớn hơn 255 kí tự!", "Thông báo");
+            return false;
+        }
+
+        return true;
+    }
+          public static void PhatLuong(DTO.DTOPhatLuong pl) {
+        DAO.DAOPhatLuong.PhatLuong(pl);
     }
 }

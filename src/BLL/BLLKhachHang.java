@@ -6,6 +6,7 @@
 package BLL;
 
 import DTO.DTOKhachHang;
+import DTO.DTOLoaiKhachHang;
 import DTO.MyCombobox;
 import GUI.ThongBaoCanhBao;
 import java.sql.ResultSet;
@@ -20,6 +21,36 @@ import javax.swing.table.DefaultTableModel;
  * @author Administrator
  */
 public class BLLKhachHang {
+
+    public static void HienThiChiTietKhachHang(JTable tbl, int MaKH) {
+        ResultSet rs = DAO.DAOKhachHang.LaySoKhachHangTrongHD(MaKH);
+        DefaultTableModel tbModel = (DefaultTableModel) tbl.getModel();
+        tbModel.setRowCount(0);
+        Object obj[] = new Object[7];
+        try {
+            while (rs.next()) {
+                obj[0] = rs.getInt("idkhachhang");
+                obj[1] = tbModel.getRowCount() + 1;
+                obj[2] = rs.getString("sohoadon");
+                obj[3] = ChuyenDoi.GetNgay(rs.getDate("ngaytaohoadon"));
+                int MaHD = rs.getInt("idhoadon");
+                ResultSet srSL = DAO.DAOChiTietHoaDon.LayCTHDTheoMaHD(MaHD);
+                int SoLuong = 0;
+                if (srSL.next()) {
+                    int SoLuongCT = srSL.getInt("soluong");
+                    SoLuong = SoLuong + SoLuongCT;
+                    obj[4] = SoLuong;
+                }
+                obj[5] = ChuyenDoi.DinhDangTien(rs.getDouble("tongtien"));
+                obj[6] = ChuyenDoi.DinhDangTien(rs.getDouble("congno"));
+
+                tbModel.addRow(obj);
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi đổ dữ liệu từ", "Thông báo");
+        }
+
+    }
 
     public static void DoDuLieuVaoCBBLoaiKhachHang(JComboBox cbb) {
         try {
@@ -38,6 +69,41 @@ public class BLLKhachHang {
             ThongBaoCanhBao.ThongBao("Lỗi truy vấn dữ liệu", "Thông báo");
         }
 
+    }
+
+    public static void DoDuLieuVaoCBBKhachHang(JComboBox cbb) {
+        try {
+            ResultSet rs = DAO.DAOKhachHang.LayKhachHangCBB();
+
+            DefaultComboBoxModel cbbModel = (DefaultComboBoxModel) cbb.getModel();
+            cbbModel.removeAllElements();
+            while (rs.next()) {
+                MyCombobox mb = new MyCombobox(rs.getString("tenkhachhang"),
+                        rs.getInt("idkhachhang"));
+                cbbModel.addElement(mb);
+
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi truy vấn dữ liệu!", "Thông Báo !");
+        }
+    }
+
+    public static void SetCBBKhachHang(JComboBox cbb, int MaKH) {
+        try {
+            ResultSet rs = DAO.DAOKhachHang.LayKhachHangTheoMa(MaKH);
+
+            DefaultComboBoxModel cbbModel = (DefaultComboBoxModel) cbb.getModel();
+            cbbModel.removeAllElements();
+            if (rs.next()) {
+                MyCombobox mb = new MyCombobox(rs.getString("tenkhachhang"),
+                        rs.getInt("idkhachhang"));
+
+                cbbModel.setSelectedItem(mb);
+            }
+        } catch (SQLException ex) {
+
+            ThongBaoCanhBao.ThongBao("Lỗi truy vấn dữ liệu nhà cung cấp", "Thông báo");
+        }
     }
 
     public static void SetCBBLoaiKhachHang(JComboBox cbb, int MaLoaiKhachHang) {
@@ -77,7 +143,6 @@ public class BLLKhachHang {
                 } else {
                     obj[6] = "Nữ";
                 }
-                obj[7] = rs.getString("anhdaidien");
 
                 tbModel.addRow(obj);
             }
@@ -86,7 +151,6 @@ public class BLLKhachHang {
         }
 
     }
-
 
     public static void HienThiKhachHang(JTable tbl, String TuKhoa) {
         ResultSet rs = DAO.DAOKhachHang.LayKhachHang(TuKhoa);
@@ -106,7 +170,6 @@ public class BLLKhachHang {
                 } else {
                     obj[6] = "Nữ";
                 }
-               obj[7] = rs.getString("anhdaidien");
 
                 tbModel.addRow(obj);
             }
@@ -132,7 +195,8 @@ public class BLLKhachHang {
                 kh.setDiaChi(rs.getString("diachi"));
                 kh.setGioiTinh(rs.getString("gioitinh"));
                 kh.setMangXaHoi(rs.getString("mangxahoi"));
-                kh.setAnhDaiDien(rs.getString("anhdaidien"));
+                kh.setTongTienHang(rs.getDouble("tongtienhang"));
+                kh.setCongNo(rs.getDouble("congno"));
                 kh.setMoTa(rs.getString("mota"));
                 kh.setTag(rs.getString("tag"));
 
@@ -141,6 +205,53 @@ public class BLLKhachHang {
             }
         } catch (SQLException ex) {
             ThongBaoCanhBao.ThongBao("Lỗi truy vấn từ bảng khách hàng", "Thông báo");
+        }
+        return null;
+    }
+
+    public static DTO.DTOKhachHang GetTenKH(String TenKH) {
+        try {
+            ResultSet rs = DAO.DAOKhachHang.LayKhachHangTheoTen(TenKH);
+            if (rs.next()) {
+                DTOKhachHang kh = new DTOKhachHang();
+                kh.setIdKhachHang(rs.getInt("idkhachhang"));
+                kh.setIdLoaiKhachHang(rs.getInt("idloaikhachhang"));
+                kh.setIdNguoiDung(rs.getInt("idnguoidung"));
+                kh.setTenKhachHang(rs.getString("tenkhachhang"));
+                kh.setSoDienThoai(rs.getString("sodienthoai"));
+                kh.setEmail(rs.getString("email"));
+                kh.setMatKhau(rs.getString("matkhau"));
+                kh.setNgaySinh(ChuyenDoi.GetNgay(rs.getDate("ngaysinh")));
+                kh.setDiaChi(rs.getString("diachi"));
+                kh.setGioiTinh(rs.getString("gioitinh"));
+                kh.setMangXaHoi(rs.getString("mangxahoi"));
+                kh.setMoTa(rs.getString("mota"));
+                kh.setTag(rs.getString("tag"));
+
+                return kh;
+
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi truy vấn từ bảng khách hàng", "Thông báo");
+        }
+        return null;
+    }
+
+    public static DTO.DTOLoaiKhachHang GetMaLoaiKH(int MaLoaiKH) {
+        try {
+            ResultSet rs = DAO.DAOKhachHang.LayMaLoaiKhachHangCBB(MaLoaiKH);
+            if (rs.next()) {
+                DTOLoaiKhachHang lkh = new DTOLoaiKhachHang();
+                lkh.setIdLoaiKhachHang(rs.getInt("idloaikhachhang"));
+                lkh.setTenLoaiKhachHang(rs.getString("tenloaikhachhang"));
+                lkh.setUuDai(rs.getString("uudai"));
+                lkh.setMoTa(rs.getString("mota"));
+
+                return lkh;
+
+            }
+        } catch (SQLException ex) {
+            ThongBaoCanhBao.ThongBao("Lỗi truy vấn từ bảng loại khách hàng", "Thông báo");
         }
         return null;
     }
@@ -191,7 +302,7 @@ public class BLLKhachHang {
             ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
             return false;
         }
-         if (Email.trim().equals("")) {
+        if (Email.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Email không được bỏ trông!", "Thông báo");
             return false;
         } else if (!Email.matches("\\w+@\\w+(\\.\\w+){1,2}")) {
@@ -209,7 +320,7 @@ public class BLLKhachHang {
             ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
             return false;
         }
-         String Pass = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
+        String Pass = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
         if (MatKhau.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Mật khẩu không được bỏ trống!", "Thông báo");
             return false;
@@ -222,12 +333,12 @@ public class BLLKhachHang {
                     + "Mật khẩu phải có chiều dài từ 6 đến 20 kí tự", "Thông báo");
             return false;
         }
-         if (NgaySinh.trim().equals("")) {
+        if (NgaySinh.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Ngày sinh không được bỏ trống", "Thông báo");
             return false;
         }
-                 String MXH = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-         if (MangXaHoi.trim().equals("")) {
+        String MXH = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+        if (MangXaHoi.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Mạng xã hội  không được bỏ trống!", "Thông báo");
             return false;
         } else if (!MangXaHoi.matches(MXH)) {
@@ -239,21 +350,23 @@ public class BLLKhachHang {
                     + "\nVui lòng nhập lại địa chỉ! ", "Thông báo");
             return false;
         }
-         if (Tag.trim().equals("")) {
+        if (Tag.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Tag không được bỏ trống", "Thông báo");
             return false;
         }
-          if (MoTa.trim().length() < 5 || MoTa.trim().length() > 255) {
+        if (MoTa.trim().length() < 5 || MoTa.trim().length() > 255) {
             ThongBaoCanhBao.ThongBao("Mô tả không được nhỏ hơn 5 và lớn hơn 255 kí tự", "Thông báo");
             return false;
         }
-       
+
         return true;
     }
+
     public static void SuaKhachHang(DTOKhachHang kh) {
         DAO.DAOKhachHang.SuaKhachHang(kh);
     }
-       public static boolean KiemTraSuaKhachHang(String TenKhachHang, String SDT, String Email, String MatKhau, String NgaySinh, String DiaChi, String MangXaHoi, String Tag, String MoTa) {
+
+    public static boolean KiemTraSuaKhachHang(String TenKhachHang, String SDT, String Email, String MatKhau, String NgaySinh, String DiaChi, String MangXaHoi, String Tag, String MoTa) {
         if (TenKhachHang.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Tên khách hàng không được bỏ trống!"
                     + "\nVui lòng nhập lại họ tên! ", "Thông báo");
@@ -295,7 +408,7 @@ public class BLLKhachHang {
             ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
             return false;
         }
-         if (Email.trim().equals("")) {
+        if (Email.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Email không được bỏ trông!", "Thông báo");
             return false;
         } else if (!Email.matches("\\w+@\\w+(\\.\\w+){1,2}")) {
@@ -313,7 +426,7 @@ public class BLLKhachHang {
             ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
             return false;
         }
-         String Pass = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
+        String Pass = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
         if (MatKhau.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Mật khẩu không được bỏ trống!", "Thông báo");
             return false;
@@ -326,12 +439,12 @@ public class BLLKhachHang {
                     + "Mật khẩu phải có chiều dài từ 6 đến 20 kí tự", "Thông báo");
             return false;
         }
-         if (NgaySinh.trim().equals("")) {
+        if (NgaySinh.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Ngày sinh không được bỏ trống", "Thông báo");
             return false;
         }
-                 String MXH = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-         if (MangXaHoi.trim().equals("")) {
+        String MXH = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+        if (MangXaHoi.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Mạng xã hội  không được bỏ trống!", "Thông báo");
             return false;
         } else if (!MangXaHoi.matches(MXH)) {
@@ -343,17 +456,26 @@ public class BLLKhachHang {
                     + "\nVui lòng nhập lại địa chỉ! ", "Thông báo");
             return false;
         }
-         if (Tag.trim().equals("")) {
+        if (Tag.trim().equals("")) {
             ThongBaoCanhBao.ThongBao("Tag không được bỏ trống", "Thông báo");
             return false;
         }
-          if (MoTa.trim().length() < 5 || MoTa.trim().length() > 255) {
+        if (MoTa.trim().length() < 5 || MoTa.trim().length() > 255) {
             ThongBaoCanhBao.ThongBao("Mô tả không được nhỏ hơn 5 và lớn hơn 255 kí tự", "Thông báo");
             return false;
         }
-       
+
         return true;
     }
 
+    public static void SuaHoaDonKhachHang(DTOKhachHang kh) {
+        DAO.DAOKhachHang.SuaHoaDonKhachHang(kh);
+    }
 
+    public static void SuaNoTraHangKhachHang(DTOKhachHang kh) {
+        DAO.DAOKhachHang.SuaNoTraHangKhachHang(kh);
+    }
+     public static void SuaLoaiKhachHang(DTOKhachHang kh) {
+        DAO.DAOKhachHang.SuaLoaiKhachHang(kh);
+    }
 }

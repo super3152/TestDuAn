@@ -17,6 +17,10 @@ public class DTOSize {
     public DTOSize() {
     }
 
+    public DTOSize(String TenSize) {
+        this.TenSize = TenSize;
+    }
+
     public DTOSize(int IDSize, String TenSize, String MoTa) {
         this.IDSize = IDSize;
         this.TenSize = TenSize;

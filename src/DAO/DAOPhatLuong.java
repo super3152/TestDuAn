@@ -32,4 +32,21 @@ public class DAOPhatLuong {
             ResultSet rs = DAO.DBConection.GetData(query);
             return rs;
         }
+         public static int PhatLuong(DTO.DTOPhatLuong pl) {
+        String cauTruyVan = "INSERT INTO `phatluong`"
+                + "(`idnguoidung`, `idluong`, `ngayphat`, `songaydilam`, `songaynghi`, `tienthuong`, `tienphat`, `tongluong`, `ghichu`)"
+                + " VALUES "
+                + "('"+pl.getMaNV()+"',"
+                + "'"+pl.getMaLuong()+"',"
+                + "'"+pl.getNgayPhat()+"',"
+                + "'"+pl.getSoNgayDiLam()+"',"
+                + "'"+pl.getSoNgayNghi()+"',"
+                + "'"+pl.getTienThuong()+"',"
+                + "'"+pl.getTienPhat()+"',"
+                + "'"+pl.getTongLuong()+"',"
+                + "'"+pl.getGhiChu()+"')";
+        System.out.println(cauTruyVan);
+         return  DBConection.ExcuteTruyVan(cauTruyVan);
+       
+    }
 }

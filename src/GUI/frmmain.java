@@ -5,114 +5,142 @@
  */
 package GUI;
 
-
-
-import static GUI.pnlnhanvien.readLogo;
+import BLL.ChuyenDoi;
+import static GUI.jdlCameraScanners.jTextField13;
+import static GUI.pnlbanhang.tblChiTietHoaDon;
+import static GUI.pnlbanhang.txtSoHoaDon;
+import static GUI.pnlbanhang.txtTongTien;
+import static GUI.pnlbanhang.txtUuDai;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamPanel;
+import com.github.sarxos.webcam.WebcamResolution;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalTime;
+
 import java.util.Date;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.UIManager;
-
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Takemikazuchi
  */
-public class frmmain extends javax.swing.JFrame implements ActionListener{ 
+public class frmmain extends javax.swing.JFrame implements Runnable, ThreadFactory, ActionListener {
+
     pnltongquan tq = new pnltongquan();
-    pnlbanhang bh = new pnlbanhang(); 
+    pnlbanhang bh = new pnlbanhang();
     pnlsanpham sp = new pnlsanpham();
-    pnldonhang dh = new pnldonhang();  
+    pnlhanghoa gh = new pnlhanghoa();
     pnlkhachhang kh = new pnlkhachhang();
-    pnlgiaohang gh = new pnlgiaohang(); 
+    pnlgiaohang dh = new pnlgiaohang();
     pnlnhanvien tg = new pnlnhanvien();
     pnlthongke tk = new pnlthongke();
-    
+
     Timer updateTimer;
     int DELAY = 100;
-    
+
+    public static WebcamPanel panelcam = null;
+    private Webcam webcam = null;
+
+    private static final long serialVersionUID = 6441489157408381878L;
+    private Executor executor = Executors.newSingleThreadExecutor(this);
+
     public frmmain() {
-        
-         
-    
+
         initComponents();
-     
+
         lbltenuser.setText(BLL.BLLlogin.nguoidung.getTenNguoiDung());
         updateTimer = new Timer(DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Date currenTime = new Date();
-                String formatTimeStr = "dd/MM/yy" +" - "+ "hh:mm:ss" ;
+                String formatTimeStr = "dd/MM/yy" + " - " + "hh:mm:ss";
                 DateFormat formatTime = new SimpleDateFormat(formatTimeStr);
                 String formatedTimeStr = formatTime.format(currenTime);
-                
-               lbltime.setText(formatedTimeStr );
-                
+
+                lbltime.setText(formatedTimeStr);
+
             }
-            
+
         });
         updateTimer.start();
-        
-        
-        
-        
-        
+
         btntongquan.addActionListener(this);
         btnbanhang.addActionListener(this);
         btnsanpham.addActionListener(this);
         btndonhang.addActionListener(this);
         btnkhachhang.addActionListener(this);
-        btngiaohang.addActionListener(this);
+        btnhanghoa.addActionListener(this);
         btntragop.addActionListener(this);
         btnthongke.addActionListener(this);
     }
-  public void dsnut() {
+
+    public void dsnut() {
         btntongquan.setEnabled(true);
         btnbanhang.setEnabled(true);
         btnsanpham.setEnabled(true);
         btndonhang.setEnabled(true);
         btnkhachhang.setEnabled(true);
-        btngiaohang.setEnabled(true);
+        btnhanghoa.setEnabled(true);
         btntragop.setEnabled(true);
         btnthongke.setEnabled(true);
-        
-       
 
     }
-   public void nut() {
+
+    public void nut() {
         if (tq.isVisible()) {
             dsnut();
         } else if (bh.isVisible()) {
             dsnut();
-        }else if (sp.isVisible()) {
+        } else if (sp.isVisible()) {
             dsnut();
-        }else if (dh.isVisible()) {
+        } else if (dh.isVisible()) {
             dsnut();
-        }else if (kh.isVisible()) {
+        } else if (kh.isVisible()) {
             dsnut();
-        }else if (gh.isVisible()) {
+        } else if (gh.isVisible()) {
             dsnut();
-        }else if (tg.isVisible()) {
+        } else if (tg.isVisible()) {
             dsnut();
-        }else if (tk.isVisible()) {
+        } else if (tk.isVisible()) {
             dsnut();
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -122,6 +150,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         pnlnen = new javax.swing.JPanel();
         pnlnenmenu = new javax.swing.JPanel();
         btncauhinh = new javax.swing.JButton();
@@ -130,7 +159,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
         btnsanpham = new javax.swing.JButton();
         btndonhang = new javax.swing.JButton();
         btnkhachhang = new javax.swing.JButton();
-        btngiaohang = new javax.swing.JButton();
+        btnhanghoa = new javax.swing.JButton();
         btntragop = new javax.swing.JButton();
         btnthongke = new javax.swing.JButton();
         btnwebsite = new javax.swing.JButton();
@@ -152,6 +181,8 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
         lbltime = new javax.swing.JLabel();
         lbluser = new javax.swing.JLabel();
         lbltenuser = new javax.swing.JLabel();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÝ SHOP QUẦN ÁO");
@@ -210,6 +241,11 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
                 btnbanhangMouseExited(evt);
             }
         });
+        btnbanhang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbanhangActionPerformed(evt);
+            }
+        });
 
         btnsanpham.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnsanpham.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,6 +274,11 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
                 btndonhangMouseExited(evt);
             }
         });
+        btndonhang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndonhangActionPerformed(evt);
+            }
+        });
 
         btnkhachhang.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnkhachhang.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,18 +294,18 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
             }
         });
 
-        btngiaohang.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btngiaohang.setForeground(new java.awt.Color(255, 255, 255));
-        btngiaohang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/button/vanchuyen.jpg"))); // NOI18N
-        btngiaohang.setText(" GIAO HÀNG");
-        btngiaohang.setToolTipText("");
-        btngiaohang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btngiaohang.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnhanghoa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnhanghoa.setForeground(new java.awt.Color(255, 255, 255));
+        btnhanghoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/button/hanghoa.jpg"))); // NOI18N
+        btnhanghoa.setText("HÀNG HÓA");
+        btnhanghoa.setToolTipText("");
+        btnhanghoa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnhanghoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btngiaohangMouseEntered(evt);
+                btnhanghoaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btngiaohangMouseExited(evt);
+                btnhanghoaMouseExited(evt);
             }
         });
 
@@ -393,7 +434,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
             .addComponent(btnsanpham, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btndonhang, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnkhachhang, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btngiaohang, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnhanghoa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btntragop, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnthongke, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnwebsite, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -416,7 +457,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
                 .addGap(0, 0, 0)
                 .addComponent(btnkhachhang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btngiaohang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnhanghoa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btntragop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -591,10 +632,10 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      jPanel2.removeAll();
-        jPanel2.add(bh);
+        jPanel2.removeAll();
+        jPanel2.add(tq);
         jPanel2.validate();
-       
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btntongquanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntongquanActionPerformed
@@ -607,7 +648,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_btntongquanMouseEntered
 
     private void btntongquanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntongquanMouseExited
-         Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/home.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/home.jpg")).getImage();
         btntongquan.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btntongquanMouseExited
 
@@ -625,8 +666,8 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
 
     private void btnwebsiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwebsiteActionPerformed
         // TODO add your handling code here:
-        
-           String url = "www.shopmart.fun";
+
+        String url = "www.shopmart.fun";
         try {
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         } catch (IOException ex) {
@@ -635,17 +676,17 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_btnwebsiteActionPerformed
 
     private void btnfanpageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfanpageMouseEntered
-             Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/fb2.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/fb2.jpg")).getImage();
         btnfanpage.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnfanpageMouseEntered
 
     private void btnfanpageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfanpageMouseExited
-          Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/fb.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/fb.jpg")).getImage();
         btnfanpage.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnfanpageMouseExited
 
     private void btnfanpageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfanpageActionPerformed
-       String url = "https://www.facebook.com/Anh-Em-Team-%E1%BB%A8ng-D%E1%BB%A5ng-290622998371256/";
+        String url = "https://www.facebook.com/Anh-Em-Team-%E1%BB%A8ng-D%E1%BB%A5ng-290622998371256/";
         try {
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         } catch (IOException ex) {
@@ -654,7 +695,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_btnfanpageActionPerformed
 
     private void btnbanhangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbanhangMouseEntered
-         Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/banhang2.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/banhang2.jpg")).getImage();
         btnbanhang.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnbanhangMouseEntered
 
@@ -669,7 +710,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_btnsanphamMouseEntered
 
     private void btnsanphamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsanphamMouseExited
-     Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/sanpham.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/sanpham.jpg")).getImage();
         btnsanpham.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnsanphamMouseExited
 
@@ -685,7 +726,7 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
 
     private void btnkhachhangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkhachhangMouseEntered
         // TODO add your handling code here:
-         Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/khachhang2.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/khachhang2.jpg")).getImage();
         btnkhachhang.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnkhachhangMouseEntered
 
@@ -694,23 +735,23 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
         btnkhachhang.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnkhachhangMouseExited
 
-    private void btngiaohangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btngiaohangMouseEntered
-        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/vanchuyen2.jpg")).getImage();
-        btngiaohang.setIcon(new ImageIcon(photo2));
-    }//GEN-LAST:event_btngiaohangMouseEntered
+    private void btnhanghoaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhanghoaMouseEntered
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/hanghoa2.jpg")).getImage();
+        btnhanghoa.setIcon(new ImageIcon(photo2));
+    }//GEN-LAST:event_btnhanghoaMouseEntered
 
-    private void btngiaohangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btngiaohangMouseExited
-        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/vanchuyen.jpg")).getImage();
-        btngiaohang.setIcon(new ImageIcon(photo2));
-    }//GEN-LAST:event_btngiaohangMouseExited
+    private void btnhanghoaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhanghoaMouseExited
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/hanghoa.jpg")).getImage();
+        btnhanghoa.setIcon(new ImageIcon(photo2));
+    }//GEN-LAST:event_btnhanghoaMouseExited
 
     private void btntragopMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntragopMouseEntered
-         Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/tragop2.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/tragop2.jpg")).getImage();
         btntragop.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btntragopMouseEntered
 
     private void btntragopMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntragopMouseExited
-         Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/tragop.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/tragop.jpg")).getImage();
         btntragop.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btntragopMouseExited
 
@@ -720,17 +761,17 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_btnthongkeMouseEntered
 
     private void btnthongkeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnthongkeMouseExited
-          Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/thongke.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/thongke.jpg")).getImage();
         btnthongke.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btnthongkeMouseExited
 
     private void btncauhinhMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncauhinhMouseEntered
-         Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/caidat2.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/caidat2.jpg")).getImage();
         btncauhinh.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btncauhinhMouseEntered
 
     private void btncauhinhMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncauhinhMouseExited
-          Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/caidat.jpg")).getImage();
+        Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/caidat.jpg")).getImage();
         btncauhinh.setIcon(new ImageIcon(photo2));
     }//GEN-LAST:event_btncauhinhMouseExited
 
@@ -748,162 +789,209 @@ public class frmmain extends javax.swing.JFrame implements ActionListener{
         // TODO add your handling code here:
     }//GEN-LAST:event_btntragopActionPerformed
 
+    private void btndonhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndonhangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btndonhangActionPerformed
 
-    
-        void setcolorbutton(JPanel panel){
-   panel.setBackground(Color.WHITE);
-   lbldangxuat2.setForeground(new Color(9,122,192));
-}
-        
-          void resetcolorbutton(JPanel panel){
-    panel.setBackground(new Color(9,122,192));
-    lbldangxuat2.setForeground(Color.WHITE);
-}
-    void setcolor(JPanel panel){
-         panel.setBackground(new Color(33,36,51));
-  
+    private void btnbanhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbanhangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbanhangActionPerformed
+
+    void setcolorbutton(JPanel panel) {
+        panel.setBackground(Color.WHITE);
+        lbldangxuat2.setForeground(new Color(9, 122, 192));
     }
-    
-     void resetcolor(JPanel panel){
-         panel.setBackground(new Color(68,71,82));
-  
+
+    void resetcolorbutton(JPanel panel) {
+        panel.setBackground(new Color(9, 122, 192));
+        lbldangxuat2.setForeground(Color.WHITE);
     }
-    
-   
-      @Override
+
+    void setcolor(JPanel panel) {
+        panel.setBackground(new Color(33, 36, 51));
+
+    }
+
+    void resetcolor(JPanel panel) {
+        panel.setBackground(new Color(68, 71, 82));
+
+    }
+
+    @Override
     public void actionPerformed(ActionEvent e) {
         Object evt = e.getSource();
-if (evt.equals(btntongquan)) {    
-     Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/home2.jpg")).getImage();
-        btntongquan.setIcon(new ImageIcon(photo2));
+        if (evt.equals(btntongquan)) {
+             if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
+            Image photo2 = new ImageIcon(this.getClass().getResource("/IMAGE/home2.jpg")).getImage();
+            btntongquan.setIcon(new ImageIcon(photo2));
             tq.setVisible(true);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(false);
             dh.setVisible(false);
             kh.setVisible(false);
             gh.setVisible(false);
             tg.setVisible(false);
             tk.setVisible(false);
-           
+
             lbltieude.setText("TỔNG QUAN");
             jPanel2.add(tq);
             jPanel2.validate();
             nut();
-            
+
         } else if (evt.equals(btnbanhang)) {
             tq.setVisible(false);
-            bh.setVisible(true);  
+            bh.setVisible(true);
             sp.setVisible(false);
             dh.setVisible(false);
             kh.setVisible(false);
             gh.setVisible(false);
             tg.setVisible(false);
-            tk.setVisible(false);   
-          
+            tk.setVisible(false);
+
             lbltieude.setText("BÁN HÀNG");
             jPanel2.add(bh);
             jPanel2.validate();
+            
+            
+            
+            
             nut();
-        }
-
-            else if (evt.equals(btnsanpham)) {
+            Dimension size = WebcamResolution.QVGA.getSize();
+            webcam = Webcam.getWebcams().get(0);
+            webcam.setViewSize(size);
+            panelcam = new WebcamPanel(webcam);
+            panelcam.setPreferredSize(size);
+            panelcam.setFPSDisplayed(true);
+            executor.execute(this);
+            
+            
+            
+            
+        } else if (evt.equals(btnsanpham)) {
+          if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
             tq.setVisible(false);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(true);
             dh.setVisible(false);
             kh.setVisible(false);
             gh.setVisible(false);
             tg.setVisible(false);
-            tk.setVisible(false);    
-           
+            tk.setVisible(false);
+
             lbltieude.setText("SẢN PHẨM");
             jPanel2.add(sp);
             jPanel2.validate();
             nut();
-        }
-
-        else if (evt.equals(btndonhang)) {
+        } else if (evt.equals(btndonhang)) {
+            if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
             tq.setVisible(false);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(false);
             dh.setVisible(true);
             kh.setVisible(false);
             gh.setVisible(false);
             tg.setVisible(false);
-            tk.setVisible(false); 
-           
+            tk.setVisible(false);
+
             lbltieude.setText("ĐƠN HÀNG");
             jPanel2.add(dh);
             jPanel2.validate();
             nut();
-        }
-
-        else if (evt.equals(btnkhachhang)) {
+        } else if (evt.equals(btnkhachhang)) {
+            if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
             tq.setVisible(false);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(false);
             dh.setVisible(false);
             kh.setVisible(true);
             gh.setVisible(false);
             tg.setVisible(false);
-            tk.setVisible(false);  
-          
+            tk.setVisible(false);
+
             lbltieude.setText("KHÁCH HÀNG");
             jPanel2.add(kh);
             jPanel2.validate();
             nut();
-        }
-
-        else if (evt.equals(btngiaohang)) {
+        } else if (evt.equals(btnhanghoa)) {
+           if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
             tq.setVisible(false);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(false);
             dh.setVisible(false);
             kh.setVisible(false);
             gh.setVisible(true);
             tg.setVisible(false);
-            tk.setVisible(false); 
-           
-            lbltieude.setText("GIAO HÀNG");
+            tk.setVisible(false);
+
+            lbltieude.setText("HÀNG HÓA");
             jPanel2.add(gh);
             jPanel2.validate();
             nut();
-        }
-
-        else if (evt.equals(btntragop)) {
+        } else if (evt.equals(btntragop)) {
+           if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
             tq.setVisible(false);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(false);
             dh.setVisible(false);
             kh.setVisible(false);
             gh.setVisible(false);
             tg.setVisible(true);
-            tk.setVisible(false);   
-           
+            tk.setVisible(false);
+
             lbltieude.setText("TRẢ GÓP");
             jPanel2.add(tg);
             jPanel2.validate();
             nut();
-        }
-
-        else if (evt.equals(btnthongke)) {
+        } else if (evt.equals(btnthongke)) {
+            
+            if (webcam == null) {
+                
+            }else{
+                 webcam.close();
+            }
+            
             tq.setVisible(false);
-            bh.setVisible(false);  
+            bh.setVisible(false);
             sp.setVisible(false);
             dh.setVisible(false);
             kh.setVisible(false);
             gh.setVisible(false);
             tg.setVisible(false);
-            tk.setVisible(true);      
-          
+            tk.setVisible(true);
+
             lbltieude.setText("THỐNG KÊ");
             jPanel2.add(tk);
             jPanel2.validate();
             nut();
         }
     }
+
     public static void main(String args[]) {
-       try {
+        try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
@@ -913,8 +1001,7 @@ if (evt.equals(btntongquan)) {
         } catch (Exception ex) {
 
         }
-        
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmmain().setVisible(true);
@@ -927,7 +1014,7 @@ if (evt.equals(btntongquan)) {
     private javax.swing.JButton btncauhinh;
     private javax.swing.JButton btndonhang;
     private javax.swing.JButton btnfanpage;
-    private javax.swing.JButton btngiaohang;
+    private javax.swing.JButton btnhanghoa;
     private javax.swing.JButton btnkhachhang;
     private javax.swing.JButton btnsanpham;
     private javax.swing.JButton btnthongke;
@@ -939,6 +1026,7 @@ if (evt.equals(btntongquan)) {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    public static javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblchat;
     private javax.swing.JLabel lbldangxuat2;
     private javax.swing.JLabel lbllogo;
@@ -954,4 +1042,141 @@ if (evt.equals(btntongquan)) {
     private javax.swing.JPanel pnlnennoidung;
     private javax.swing.JPanel pnlnoidung;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        do {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (NullPointerException ex) {
+
+            }
+
+            Result result = null;
+            BufferedImage image = null;
+
+            if (webcam.isOpen()) {
+                if ((image = webcam.getImage()) == null) {
+                    continue;
+                }
+            }
+
+            LuminanceSource source = new BufferedImageLuminanceSource(image);
+            
+            BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
+            try {
+                result = new MultiFormatReader().decode(bitmap);
+            }
+            catch(NotFoundException exx){
+                
+            }
+            
+            catch (NullPointerException ex) {
+
+            }
+
+            if (result != null) {
+                jTextField1.setText(result.getText());
+                String MaSanPham = result.getText();
+                int MaSP = BLL.BLLHoaDon.LayMaSanPhamString(MaSanPham);
+                DTO.DTOSanPham sp = BLL.BLLSanPham.GetMaSP(MaSP);
+
+                int MaSPB = 0;
+                int SoLuongB = 0;
+                double UuDaiB = 0;
+                double TongTien = 0;
+
+                for (int i = 0; i < tblChiTietHoaDon.getRowCount(); i++) {
+                    MaSPB = (int) tblChiTietHoaDon.getValueAt(i, 0);
+                    SoLuongB = (int) tblChiTietHoaDon.getValueAt(i, 6);
+                    UuDaiB = ChuyenDoi.ChuyenSangSo(tblChiTietHoaDon.getValueAt(i, 8).toString());
+                    TongTien = ChuyenDoi.ChuyenSangSo(tblChiTietHoaDon.getValueAt(i, 9).toString());
+                }
+
+                ResultSet rsksp = DAO.DAOHoaDon.GetByMaSP(MaSanPham);
+                try {
+                    if (!rsksp.next()) {
+                        ThongBaoCanhBao.ThongBao("Không phải sản phẩm! "
+                                + "\nVui lòng quét lại mã! ", "Thông báo");
+
+                    } else {
+
+                        if (sp.getTonKho() <= 0) {
+                            ThongBaoCanhBao.ThongBao("Sản phẩm đã hết hàng!", "Thông Báo");
+                        } else {
+
+                            if (MaSP == MaSPB) {
+                                for (int i = 0; i < tblChiTietHoaDon.getRowCount(); i++) {
+                                    DefaultTableModel model = (DefaultTableModel) tblChiTietHoaDon.getModel();
+                                    model.removeRow(i);
+                                }
+                                double tongTien = BLL.BLLHoaDon.NhapSanPhamVaoChiTietHoaDonTrung(tblChiTietHoaDon, sp, SoLuongB, UuDaiB);
+                                double TongTienCu = ChuyenDoi.ChuyenSangSo(txtTongTien.getText());
+                                double TongTienTru = TongTienCu - TongTien;
+                                double TongTienMoi = TongTienTru + tongTien;
+                                txtTongTien.setText(ChuyenDoi.DinhDangTien(TongTienMoi));
+
+                            } else {
+                                int SoLuong = 1;
+                                double UuDai = 0;
+
+                                double tongTien = BLL.BLLHoaDon.NhapSanPhamVaoChiTietHoaDon(tblChiTietHoaDon, sp, SoLuong, UuDai);
+                                txtTongTien.setText(BLL.ChuyenDoi.DinhDangTien(tongTien));
+
+                                double TongUuDai = BLL.ChuyenDoi.ChuyenTien(txtUuDai.getText());
+                                txtUuDai.setText(ChuyenDoi.DinhDangTien(TongUuDai));
+
+                                if (txtSoHoaDon.getText().equals("")) {
+
+                                    txtSoHoaDon.setText(BLL.BLLHoaDon.TaoSoHoaDon());
+
+                                }
+                            }
+
+                        }
+
+                    }
+                } catch (SQLException ex) {
+                    ThongBaoCanhBao.ThongBao("Lỗi lệnh SQL", "Thông báo");
+
+                }
+                try {
+
+                    // Open an audio input stream.
+                    URL url = this.getClass().getClassLoader().getResource("MP3/beep.wav");
+                    AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                    // Get a sound clip resource.
+                    Clip clip = AudioSystem.getClip();
+                    // Open audio clip and load samples from the audio input stream.
+                    clip.open(audioIn);
+                    clip.start();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(pnlkhachhang.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        } while (true);
+    }
+
+    @Override
+    public Thread newThread(Runnable r) {
+        
+        
+        Thread t = new Thread(r, "My Thread");
+        t.setDaemon(true);
+        return t;
+    }
 }

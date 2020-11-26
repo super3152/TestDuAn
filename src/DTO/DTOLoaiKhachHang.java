@@ -25,6 +25,13 @@ public class DTOLoaiKhachHang {
         this.MoTa = MoTa;
     }
 
+    public DTOLoaiKhachHang(String TenLoaiKhachHang, String UuDai, String MoTa) {
+        this.TenLoaiKhachHang = TenLoaiKhachHang;
+        this.UuDai = UuDai;
+        this.MoTa = MoTa;
+    }
+    
+
     public int getIdLoaiKhachHang() {
         return IdLoaiKhachHang;
     }

@@ -28,11 +28,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="590" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="587" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                  <Component id="pnldanhsach" pref="590" max="32767" attributes="0"/>
+                  <Component id="pnldanhsach" pref="587" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -65,7 +65,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="587" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
@@ -199,6 +199,9 @@
                                         </LineBorder>
                                       </Border>
                                     </Property>
+                                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                      <Dimension value="[261, 513]"/>
+                                    </Property>
                                   </Properties>
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -237,19 +240,21 @@
                                               <Group type="102" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="pnlnennhomkhachhang3" alignment="0" pref="227" max="32767" attributes="0"/>
                                                       <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="pnlnennhomkhachhang" alignment="0" pref="226" max="32767" attributes="0"/>
-                                                              <Component id="pnlnennhanvienphutrach" alignment="0" pref="226" max="32767" attributes="0"/>
-                                                              <Component id="pnlnennhomkhachhang1" alignment="0" pref="226" max="32767" attributes="0"/>
-                                                              <Component id="pnlnennhanvienphutrach1" alignment="0" pref="226" max="32767" attributes="0"/>
-                                                              <Component id="pnlnennhomkhachhang2" alignment="0" pref="226" max="32767" attributes="0"/>
-                                                              <Component id="pnlnennhanvienphutrach2" alignment="0" pref="226" max="32767" attributes="0"/>
-                                                              <Component id="lblthongtinkhac" alignment="0" max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                  <Component id="pnlnennhomkhachhang" alignment="0" pref="226" max="32767" attributes="0"/>
+                                                                  <Component id="lblthongtinkhac" alignment="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                                                  <Component id="pnlnennhanvienphutrach1" alignment="0" pref="226" max="32767" attributes="0"/>
+                                                                  <Component id="pnlnennhomkhachhang2" alignment="0" pref="226" max="32767" attributes="0"/>
+                                                                  <Component id="pnlnennhanvienphutrach2" alignment="0" pref="226" max="32767" attributes="0"/>
+                                                              </Group>
                                                           </Group>
-                                                          <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="lblthongtinkhac1" alignment="1" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
@@ -262,19 +267,15 @@
                                                   <Component id="lblthongtinkhac" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                                   <Component id="pnlnennhomkhachhang" min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="pnlnennhanvienphutrach" min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="pnlnennhomkhachhang1" min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <Component id="lblthongtinkhac1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="pnlnennhanvienphutrach1" min="-2" pref="49" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                                                   <Component id="pnlnennhomkhachhang2" min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="pnlnennhanvienphutrach2" pref="127" max="32767" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="pnlnennhomkhachhang3" min="-2" pref="49" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="pnlnennhanvienphutrach2" pref="237" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -305,7 +306,7 @@
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                                 </Property>
-                                                <Property name="text" type="java.lang.String" value="Gi&#xe1; m&#x1eb7;c &#x111;&#x1ecb;nh"/>
+                                                <Property name="text" type="java.lang.String" value="ID Nh&#xe0; cung c&#x1ea5;p"/>
                                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                                   <Dimension value="[75, 20]"/>
                                                 </Property>
@@ -316,104 +317,12 @@
                                                 </Constraint>
                                               </Constraints>
                                             </Component>
-                                            <Component class="javax.swing.JComboBox" name="jComboBox2">
+                                            <Component class="javax.swing.JTextField" name="txtid">
                                               <Properties>
-                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                                  <StringArray count="4">
-                                                    <StringItem index="0" value="Item 1"/>
-                                                    <StringItem index="1" value="Item 2"/>
-                                                    <StringItem index="2" value="Item 3"/>
-                                                    <StringItem index="3" value="Item 4"/>
-                                                  </StringArray>
-                                                </Property>
+                                                <Property name="editable" type="boolean" value="false"/>
                                               </Properties>
                                               <AuxValues>
-                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                              </AuxValues>
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                                  <BorderConstraints direction="Center"/>
-                                                </Constraint>
-                                              </Constraints>
-                                            </Component>
-                                          </SubComponents>
-                                        </Container>
-                                        <Container class="javax.swing.JPanel" name="pnlnennhanvienphutrach">
-                                          <Properties>
-                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                            </Property>
-                                          </Properties>
-
-                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-                                          <SubComponents>
-                                            <Component class="javax.swing.JLabel" name="lblnhanvienphutrach">
-                                              <Properties>
-                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                                </Property>
-                                                <Property name="text" type="java.lang.String" value="Thu&#x1ebf; m&#x1eb7;c &#x111;&#x1ecb;nh"/>
-                                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                                  <Dimension value="[75, 20]"/>
-                                                </Property>
-                                              </Properties>
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                                  <BorderConstraints direction="First"/>
-                                                </Constraint>
-                                              </Constraints>
-                                            </Component>
-                                            <Component class="javax.swing.JComboBox" name="cbbNhanVien">
-                                              <Properties>
-                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                                  <StringArray count="0"/>
-                                                </Property>
-                                              </Properties>
-                                              <AuxValues>
-                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                              </AuxValues>
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                                  <BorderConstraints direction="Center"/>
-                                                </Constraint>
-                                              </Constraints>
-                                            </Component>
-                                          </SubComponents>
-                                        </Container>
-                                        <Container class="javax.swing.JPanel" name="pnlnennhomkhachhang1">
-                                          <Properties>
-                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                            </Property>
-                                          </Properties>
-
-                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-                                          <SubComponents>
-                                            <Component class="javax.swing.JLabel" name="lblnhomkhachhang1">
-                                              <Properties>
-                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                                </Property>
-                                                <Property name="text" type="java.lang.String" value="H&#xec;nh th&#x1ee9;c thanh to&#xe1;n"/>
-                                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                                  <Dimension value="[75, 20]"/>
-                                                </Property>
-                                              </Properties>
-                                              <Constraints>
-                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                                  <BorderConstraints direction="First"/>
-                                                </Constraint>
-                                              </Constraints>
-                                            </Component>
-                                            <Component class="javax.swing.JComboBox" name="cbbLoaiKhachHang1">
-                                              <Properties>
-                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                                  <StringArray count="0"/>
-                                                </Property>
-                                                <Property name="toolTipText" type="java.lang.String" value=""/>
-                                              </Properties>
-                                              <AuxValues>
-                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                               </AuxValues>
                                               <Constraints>
                                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -448,19 +357,15 @@
                                                 </Constraint>
                                               </Constraints>
                                             </Component>
-                                            <Component class="javax.swing.JComboBox" name="jComboBox3">
+                                            <Component class="javax.swing.JComboBox" name="cbbidnguoidung">
                                               <Properties>
                                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                                  <StringArray count="4">
-                                                    <StringItem index="0" value="Item 1"/>
-                                                    <StringItem index="1" value="Item 2"/>
-                                                    <StringItem index="2" value="Item 3"/>
-                                                    <StringItem index="3" value="Item 4"/>
-                                                  </StringArray>
+                                                  <StringArray count="0"/>
                                                 </Property>
                                               </Properties>
                                               <AuxValues>
                                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                               </AuxValues>
                                               <Constraints>
                                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -495,13 +400,29 @@
                                                 </Constraint>
                                               </Constraints>
                                             </Component>
-                                            <Component class="javax.swing.JTextField" name="jTextField4">
+                                            <Container class="javax.swing.JScrollPane" name="scrpanemota">
+                                              <AuxValues>
+                                                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                              </AuxValues>
                                               <Constraints>
                                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                                   <BorderConstraints direction="Center"/>
                                                 </Constraint>
                                               </Constraints>
-                                            </Component>
+
+                                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                              <SubComponents>
+                                                <Component class="javax.swing.JTextArea" name="txamota">
+                                                  <Properties>
+                                                    <Property name="columns" type="int" value="20"/>
+                                                    <Property name="rows" type="int" value="5"/>
+                                                  </Properties>
+                                                  <AuxValues>
+                                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                                  </AuxValues>
+                                                </Component>
+                                              </SubComponents>
+                                            </Container>
                                           </SubComponents>
                                         </Container>
                                         <Container class="javax.swing.JPanel" name="pnlnennhomkhachhang2">
@@ -529,7 +450,10 @@
                                                 </Constraint>
                                               </Constraints>
                                             </Component>
-                                            <Component class="javax.swing.JTextField" name="jTextField3">
+                                            <Component class="javax.swing.JTextField" name="txttag">
+                                              <AuxValues>
+                                                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                              </AuxValues>
                                               <Constraints>
                                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                                   <BorderConstraints direction="Center"/>
@@ -538,17 +462,52 @@
                                             </Component>
                                           </SubComponents>
                                         </Container>
-                                        <Component class="javax.swing.JLabel" name="lblthongtinkhac1">
+                                        <Container class="javax.swing.JPanel" name="pnlnennhomkhachhang3">
                                           <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                              <Font name="Segoe UI" size="13" style="1"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin kh&#xe1;c"/>
-                                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                              <Dimension value="[34, 20]"/>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                             </Property>
                                           </Properties>
-                                        </Component>
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JLabel" name="lblnhomkhachhang3">
+                                              <Properties>
+                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                                </Property>
+                                                <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
+                                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                                  <Dimension value="[75, 20]"/>
+                                                </Property>
+                                              </Properties>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                                  <BorderConstraints direction="First"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                            <Component class="javax.swing.JComboBox" name="cbbtrangthai">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                                  <StringArray count="2">
+                                                    <StringItem index="0" value="&#x110;ang ho&#x1ea1;t &#x111;&#x1ed9;ng"/>
+                                                    <StringItem index="1" value="Ng&#x1eeb;ng ho&#x1ea1;t &#x111;&#x1ed9;ng"/>
+                                                  </StringArray>
+                                                </Property>
+                                              </Properties>
+                                              <AuxValues>
+                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                              </AuxValues>
+                                              <Constraints>
+                                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                                  <BorderConstraints direction="Center"/>
+                                                </Constraint>
+                                              </Constraints>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
                                       </SubComponents>
                                     </Container>
                                   </SubComponents>
@@ -739,7 +698,7 @@
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Tahoma" size="13" style="1"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Th&#xea;m nh&#xe0; cung c&#x1ea5;p"/>
+                                    <Property name="text" type="java.lang.String" value="Nh&#xe0; cung c&#x1ea5;p"/>
                                   </Properties>
                                 </Component>
                                 <Container class="javax.swing.JPanel" name="pnlnenhotenkhachhang">
@@ -756,7 +715,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="Nh&#xe0; cung c&#x1ea5;p"/>
+                                        <Property name="text" type="java.lang.String" value="Nh&#xe0; cung c&#x1ea5;p "/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[106, 20]"/>
                                         </Property>
@@ -767,10 +726,13 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="txtHoTen">
+                                    <Component class="javax.swing.JTextField" name="txtTenncc">
                                       <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHoTenActionPerformed"/>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTennccActionPerformed"/>
                                       </Events>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -804,19 +766,79 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JComboBox" name="jComboBox6">
+                                    <Component class="javax.swing.JComboBox" name="cbbTinh">
                                       <Properties>
                                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="4">
-                                            <StringItem index="0" value="Item 1"/>
-                                            <StringItem index="1" value="Item 2"/>
-                                            <StringItem index="2" value="Item 3"/>
-                                            <StringItem index="3" value="Item 4"/>
+                                          <StringArray count="63">
+                                            <StringItem index="0" value="An Giang"/>
+                                            <StringItem index="1" value="B&#xe0; R&#x1ecb;a - V&#x169;ng T&#xe0;u"/>
+                                            <StringItem index="2" value="B&#x1eaf;c Giang"/>
+                                            <StringItem index="3" value="B&#x1eaf;c K&#x1ea1;n"/>
+                                            <StringItem index="4" value="B&#x1ea1;c Li&#xea;u"/>
+                                            <StringItem index="5" value="B&#x1eaf;c Ninh"/>
+                                            <StringItem index="6" value="B&#x1ebf;n Tre"/>
+                                            <StringItem index="7" value="B&#xec;nh &#x110;&#x1ecb;nh"/>
+                                            <StringItem index="8" value="B&#xec;nh D&#x1b0;&#x1a1;ng"/>
+                                            <StringItem index="9" value="B&#xec;nh Ph&#x1b0;&#x1edb;c"/>
+                                            <StringItem index="10" value="B&#xec;nh Thu&#x1ead;n"/>
+                                            <StringItem index="11" value="C&#xe0; Mau"/>
+                                            <StringItem index="12" value="Cao B&#x1eb1;ng"/>
+                                            <StringItem index="13" value="&#x110;&#x1eaf;k L&#x1eaf;k"/>
+                                            <StringItem index="14" value="&#x110;&#x1eaf;k N&#xf4;ng"/>
+                                            <StringItem index="15" value="&#x110;i&#x1ec7;n Bi&#xea;n"/>
+                                            <StringItem index="16" value="&#x110;&#x1ed3;ng Nai"/>
+                                            <StringItem index="17" value="&#x110;&#x1ed3;ng Th&#xe1;p"/>
+                                            <StringItem index="18" value="Gia Lai"/>
+                                            <StringItem index="19" value="H&#xe0; Giang"/>
+                                            <StringItem index="20" value="H&#xe0; Nam"/>
+                                            <StringItem index="21" value="H&#xe0; T&#x129;nh"/>
+                                            <StringItem index="22" value="H&#x1ea3;i D&#x1b0;&#x1a1;ng"/>
+                                            <StringItem index="23" value="H&#x1ead;u Giang"/>
+                                            <StringItem index="24" value="H&#xf2;a B&#xec;nh"/>
+                                            <StringItem index="25" value="H&#x1b0;ng Y&#xea;n"/>
+                                            <StringItem index="26" value="Kh&#xe1;nh H&#xf2;a"/>
+                                            <StringItem index="27" value="Ki&#xea;n Giang"/>
+                                            <StringItem index="28" value="Kon Tum"/>
+                                            <StringItem index="29" value="Lai Ch&#xe2;u"/>
+                                            <StringItem index="30" value="L&#xe2;m &#x110;&#x1ed3;ng"/>
+                                            <StringItem index="31" value="L&#x1ea1;ng S&#x1a1;n"/>
+                                            <StringItem index="32" value="L&#xe0;o Cai"/>
+                                            <StringItem index="33" value="Long An"/>
+                                            <StringItem index="34" value="Nam &#x110;&#x1ecb;nh"/>
+                                            <StringItem index="35" value="Ngh&#x1ec7; An"/>
+                                            <StringItem index="36" value="Ninh B&#xec;nh"/>
+                                            <StringItem index="37" value="Ninh Thu&#x1ead;n"/>
+                                            <StringItem index="38" value="Ph&#xfa; Th&#x1ecd;"/>
+                                            <StringItem index="39" value="Qu&#x1ea3;ng B&#xec;nh"/>
+                                            <StringItem index="40" value="Qu&#x1ea3;ng Nam"/>
+                                            <StringItem index="41" value="Qu&#x1ea3;ng Ng&#xe3;i"/>
+                                            <StringItem index="42" value="Qu&#x1ea3;ng Ninh"/>
+                                            <StringItem index="43" value="Qu&#x1ea3;ng Tr&#x1ecb;"/>
+                                            <StringItem index="44" value="S&#xf3;c Tr&#x103;ng"/>
+                                            <StringItem index="45" value="S&#x1a1;n La"/>
+                                            <StringItem index="46" value="T&#xe2;y Ninh"/>
+                                            <StringItem index="47" value="Th&#xe1;i B&#xec;nh"/>
+                                            <StringItem index="48" value="Th&#xe1;i Nguy&#xea;n"/>
+                                            <StringItem index="49" value="Thanh H&#xf3;a"/>
+                                            <StringItem index="50" value="Th&#x1eeb;a Thi&#xea;n Hu&#x1ebf;"/>
+                                            <StringItem index="51" value="Ti&#x1ec1;n Giang"/>
+                                            <StringItem index="52" value="Tr&#xe0; Vinh"/>
+                                            <StringItem index="53" value="Tuy&#xea;n Quang"/>
+                                            <StringItem index="54" value="V&#x129;nh Long"/>
+                                            <StringItem index="55" value="V&#x129;nh Ph&#xfa;c"/>
+                                            <StringItem index="56" value="Y&#xea;n B&#xe1;i"/>
+                                            <StringItem index="57" value="Ph&#xfa; Y&#xea;n"/>
+                                            <StringItem index="58" value="C&#x1ea7;n Th&#x1a1;"/>
+                                            <StringItem index="59" value="&#x110;&#xe0; N&#x1eb5;ng"/>
+                                            <StringItem index="60" value="H&#x1ea3;i Ph&#xf2;ng"/>
+                                            <StringItem index="61" value="H&#xe0; N&#x1ed9;i"/>
+                                            <StringItem index="62" value="TP HCM"/>
                                           </StringArray>
                                         </Property>
                                       </Properties>
                                       <AuxValues>
                                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                       </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -851,10 +873,13 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField12">
+                                    <Component class="javax.swing.JTextField" name="txtdiachi">
                                       <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField12ActionPerformed"/>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdiachiActionPerformed"/>
                                       </Events>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -896,7 +921,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField9">
+                                    <Component class="javax.swing.JTextField" name="txtMancc">
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -919,7 +947,7 @@
                                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="Nh&#xf3;m nh&#xe0; cung c&#x1ea5;p"/>
+                                        <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i nh&#xe0; cung c&#x1ea5;p"/>
                                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                           <Dimension value="[52, 20]"/>
                                         </Property>
@@ -930,19 +958,15 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                                    <Component class="javax.swing.JComboBox" name="cbbLoaincc">
                                       <Properties>
                                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="4">
-                                            <StringItem index="0" value="Item 1"/>
-                                            <StringItem index="1" value="Item 2"/>
-                                            <StringItem index="2" value="Item 3"/>
-                                            <StringItem index="3" value="Item 4"/>
-                                          </StringArray>
+                                          <StringArray count="0"/>
                                         </Property>
                                       </Properties>
                                       <AuxValues>
                                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                       </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
@@ -977,7 +1001,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField10">
+                                    <Component class="javax.swing.JTextField" name="txtSDT">
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1011,7 +1038,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField11">
+                                    <Component class="javax.swing.JTextField" name="txtEmail">
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1045,7 +1075,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField1">
+                                    <Component class="javax.swing.JTextField" name="txtFax">
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1079,7 +1112,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField7">
+                                    <Component class="javax.swing.JTextField" name="txtMathue">
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1113,7 +1149,10 @@
                                         </Constraint>
                                       </Constraints>
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="jTextField8">
+                                    <Component class="javax.swing.JTextField" name="txtWeb">
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                      </AuxValues>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                           <BorderConstraints direction="Center"/>
@@ -1241,6 +1280,9 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnthemActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnsua">
                           <Properties>

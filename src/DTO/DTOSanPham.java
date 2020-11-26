@@ -15,16 +15,16 @@ public class DTOSanPham {
     String NgayTao;
     String MaSanPham;
     String MoTaSanPham;
-    String GiaBanLe;
-    String GiaBanBuon;
-    String GiaNhap;
-    String KhoiLuong;
+    double GiaBanLe;
+    double GiaBanBuon;
+    double GiaNhap;
+    int KhoiLuong;
     String DonViTinh;
     int TonKho;
     int IDLoaiSanPham;
     int IDHangSanPham;
-    String Tag;
-    String AnhSanPham;
+    String ThuocTinhKhachHang;
+    byte[] AnhSanPham;
     int IDSize;
     int IDMauSanPham;
     int IDKe;
@@ -32,7 +32,12 @@ public class DTOSanPham {
     public DTOSanPham() {
     }
 
-    public DTOSanPham(int IDSanPham, String TenSanPham, String NgayTao, String MaSanPham, String MoTaSanPham, String GiaBanLe, String GiaBanBuon, String GiaNhap, String KhoiLuong, String DonViTinh, int TonKho, int IDLoaiSanPham, int IDHangSanPham, String Tag, String AnhSanPham, int IDSize, int IDMauSanPham, int IDKe) {
+    public DTOSanPham(int IDSanPham, int TonKho) {
+        this.IDSanPham = IDSanPham;
+        this.TonKho = TonKho;
+    }
+
+    public DTOSanPham(int IDSanPham, String TenSanPham, String NgayTao, String MaSanPham, String MoTaSanPham, double GiaBanLe, double GiaBanBuon, double GiaNhap, int KhoiLuong, String DonViTinh, int TonKho, int IDLoaiSanPham, int IDHangSanPham, String ThuocTinhKhachHang, byte[] AnhSanPham, int IDSize, int IDMauSanPham, int IDKe) {
         this.IDSanPham = IDSanPham;
         this.TenSanPham = TenSanPham;
         this.NgayTao = NgayTao;
@@ -46,14 +51,14 @@ public class DTOSanPham {
         this.TonKho = TonKho;
         this.IDLoaiSanPham = IDLoaiSanPham;
         this.IDHangSanPham = IDHangSanPham;
-        this.Tag = Tag;
+        this.ThuocTinhKhachHang = ThuocTinhKhachHang;
         this.AnhSanPham = AnhSanPham;
         this.IDSize = IDSize;
         this.IDMauSanPham = IDMauSanPham;
         this.IDKe = IDKe;
     }
 
-    public DTOSanPham(String TenSanPham, String NgayTao, String MaSanPham, String MoTaSanPham, String GiaBanLe, String GiaBanBuon, String GiaNhap, String KhoiLuong, String DonViTinh, int TonKho, int IDLoaiSanPham, int IDHangSanPham, String Tag, String AnhSanPham, int IDSize, int IDMauSanPham, int IDKe) {
+    public DTOSanPham(String TenSanPham, String NgayTao, String MaSanPham, String MoTaSanPham, double GiaBanLe, double GiaBanBuon, double GiaNhap, int KhoiLuong, String DonViTinh, int TonKho, int IDLoaiSanPham, int IDHangSanPham, String ThuocTinhKhachHang, byte[] AnhSanPham, int IDSize, int IDMauSanPham, int IDKe) {
         this.TenSanPham = TenSanPham;
         this.NgayTao = NgayTao;
         this.MaSanPham = MaSanPham;
@@ -66,11 +71,24 @@ public class DTOSanPham {
         this.TonKho = TonKho;
         this.IDLoaiSanPham = IDLoaiSanPham;
         this.IDHangSanPham = IDHangSanPham;
-        this.Tag = Tag;
+        this.ThuocTinhKhachHang = ThuocTinhKhachHang;
         this.AnhSanPham = AnhSanPham;
         this.IDSize = IDSize;
         this.IDMauSanPham = IDMauSanPham;
         this.IDKe = IDKe;
+    }
+
+    public DTOSanPham(String TenSanPham, byte[] AnhSanPham) {
+        this.TenSanPham = TenSanPham;
+        this.AnhSanPham = AnhSanPham;
+    }
+    
+   
+
+    public DTOSanPham(int IDSanPham, double GiaNhap, int TonKho) {
+        this.IDSanPham = IDSanPham;
+        this.GiaNhap = GiaNhap;
+        this.TonKho = TonKho;
     }
 
     public int getIDSanPham() {
@@ -113,35 +131,35 @@ public class DTOSanPham {
         this.MoTaSanPham = MoTaSanPham;
     }
 
-    public String getGiaBanLe() {
+    public double getGiaBanLe() {
         return GiaBanLe;
     }
 
-    public void setGiaBanLe(String GiaBanLe) {
+    public void setGiaBanLe(double GiaBanLe) {
         this.GiaBanLe = GiaBanLe;
     }
 
-    public String getGiaBanBuon() {
+    public double getGiaBanBuon() {
         return GiaBanBuon;
     }
 
-    public void setGiaBanBuon(String GiaBanBuon) {
+    public void setGiaBanBuon(double GiaBanBuon) {
         this.GiaBanBuon = GiaBanBuon;
     }
 
-    public String getGiaNhap() {
+    public double getGiaNhap() {
         return GiaNhap;
     }
 
-    public void setGiaNhap(String GiaNhap) {
+    public void setGiaNhap(double GiaNhap) {
         this.GiaNhap = GiaNhap;
     }
 
-    public String getKhoiLuong() {
+    public int getKhoiLuong() {
         return KhoiLuong;
     }
 
-    public void setKhoiLuong(String KhoiLuong) {
+    public void setKhoiLuong(int KhoiLuong) {
         this.KhoiLuong = KhoiLuong;
     }
 
@@ -177,19 +195,19 @@ public class DTOSanPham {
         this.IDHangSanPham = IDHangSanPham;
     }
 
-    public String getTag() {
-        return Tag;
+    public String getThuocTinhKhachHang() {
+        return ThuocTinhKhachHang;
     }
 
-    public void setTag(String Tag) {
-        this.Tag = Tag;
+    public void setThuocTinhKhachHang(String ThuocTinhKhachHang) {
+        this.ThuocTinhKhachHang = ThuocTinhKhachHang;
     }
 
-    public String getAnhSanPham() {
+    public byte[] getAnhSanPham() {
         return AnhSanPham;
     }
 
-    public void setAnhSanPham(String AnhSanPham) {
+    public void setAnhSanPham(byte[] AnhSanPham) {
         this.AnhSanPham = AnhSanPham;
     }
 
@@ -216,6 +234,8 @@ public class DTOSanPham {
     public void setIDKe(int IDKe) {
         this.IDKe = IDKe;
     }
-    
-    
+
+   
+
+
 }

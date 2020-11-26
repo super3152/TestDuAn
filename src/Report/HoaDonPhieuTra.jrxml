@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e644e47c-200f-4454-86da-c7e00df0ae64">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+    <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="dataset1" uuid="0eb500c0-d6ca-47cf-a4c1-2f1a811c33ea"/>
+    <parameter name="ID" class="java.lang.String"/>
+    <parameter name="duongdan" class="java.lang.String"/>
+    <queryString language="SQL">
+		<![CDATA[SELECT
+     chitiettrahang.`soluong` AS chitiettrahang_soluong,
+     chitiettrahang.`phitra` AS chitiettrahang_phitra,
+     chitiettrahang.`thanhtien` AS chitiettrahang_thanhtien,
+     hoadon.`sohoadon` AS hoadon_sohoadon,
+     khachhang.`tenkhachhang` AS khachhang_tenkhachhang,
+     khachhang.`diachi` AS khachhang_diachi,
+     khachhang.`sodienthoai` AS khachhang_sodienthoai,
+     sanpham.`tensanpham` AS sanpham_tensanpham,
+     trahang.`sotrahang` AS trahang_sotrahang,
+     trahang.`tongtien` AS trahang_tongtien,
+     trahang.`ngaynhan` AS trahang_ngaynhan,
+     trahang.`lydotra` AS trahang_lydotra,
+     trahang.`congno` AS trahang_congno
+FROM
+     `khachhang` khachhang INNER JOIN `hoadon` hoadon ON khachhang.`idkhachhang` = hoadon.`idkhachhang`
+     INNER JOIN `trahang` trahang ON khachhang.`idkhachhang` = trahang.`idkhachhang`
+     AND hoadon.`idhoadon` = trahang.`idhoadon`
+     INNER JOIN `chitiettrahang` chitiettrahang ON trahang.`idtrahang` = chitiettrahang.`idtrahang`
+     INNER JOIN `sanpham` sanpham ON chitiettrahang.`idsanpham` = sanpham.`idsanpham`
+WHERE
+     sotrahang = $P{ID}]]>
+    </queryString>
+    <field name="chitiettrahang_soluong" class="java.lang.Integer"/>
+    <field name="chitiettrahang_phitra" class="java.math.BigDecimal"/>
+    <field name="chitiettrahang_thanhtien" class="java.math.BigDecimal"/>
+    <field name="hoadon_sohoadon" class="java.lang.String"/>
+    <field name="khachhang_tenkhachhang" class="java.lang.String"/>
+    <field name="khachhang_diachi" class="java.lang.String"/>
+    <field name="khachhang_sodienthoai" class="java.lang.String"/>
+    <field name="sanpham_tensanpham" class="java.lang.String"/>
+    <field name="trahang_sotrahang" class="java.lang.String"/>
+    <field name="trahang_tongtien" class="java.math.BigDecimal"/>
+    <field name="trahang_ngaynhan" class="java.sql.Date"/>
+    <field name="trahang_lydotra" class="java.lang.String"/>
+    <field name="trahang_congno" class="java.lang.Double"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="132" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="0" y="0" width="555" height="95" backcolor="#000000" uuid="fd52ec6c-901b-4310-8898-50f74616a37f"/>
+                <staticText>
+                    <reportElement style="Title" x="0" y="0" width="555" height="66" uuid="30ee3e8e-777d-45bf-8415-c0479325947d"/>
+                    <textElement textAlignment="Center">
+                        <font isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[CHÂU NGÂN]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="341caed1-c616-476c-b77f-e922e02c73f9"/>
+                    <textElement textAlignment="Center">
+                        <font size="22" isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[PHIẾU TRẢ]]></text>
+                </staticText>
+            </frame>
+            <frame>
+                <reportElement mode="Opaque" x="0" y="100" width="555" height="32" forecolor="#000000" backcolor="#CC0000" uuid="083eb82d-92a8-43c4-9c9e-e72f4f387564"/>
+                <textField pattern="d/M/yyyy">
+                    <reportElement x="354" y="12" width="199" height="20" forecolor="#FFFFFF" uuid="7406a1b6-c4cb-4717-9ff6-9226436c7f31"/>
+                    <textElement textAlignment="Right">
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Hôm nay" + " " + new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="55" splitType="Stretch">
+            <staticText>
+                <reportElement style="Column header" x="274" y="14" width="80" height="26" forecolor="#000000" uuid="01b2d25d-da48-4385-936d-d4287fd9a3c5"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Số Lượng]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="365" y="14" width="90" height="26" forecolor="#000000" uuid="54f87509-d9c5-4689-b020-67cae771f530"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Phí Trả]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="141" y="14" width="121" height="26" forecolor="#000000" uuid="10daa87b-cbe0-4d84-aef2-aa7d06c2f635"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tên Sản Phẩm]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="455" y="14" width="98" height="26" forecolor="#000000" uuid="369ddf78-6f79-4343-a16a-d796c0f1dad2"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Thành Tiền]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="10" y="14" width="121" height="26" forecolor="#000000" uuid="25533fef-7665-4eaf-9ee3-9609ad7c80bd"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Mã Trả Hàng]]></text>
+            </staticText>
+            <line>
+                <reportElement x="3" y="53" width="552" height="1" uuid="aa22dc90-662d-41f8-8ea0-36e9d6d600d4"/>
+            </line>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="73" splitType="Stretch">
+            <frame>
+                <reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="e65c9797-6b99-4186-a900-53744ec243f7"/>
+            </frame>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="141" y="18" width="121" height="27" uuid="1c7c0bb9-fc30-4d65-9af7-e05c3afe9f78"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{sanpham_tensanpham}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="274" y="18" width="80" height="27" uuid="d073020a-c667-4d00-8d43-7b047cabeeae"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{chitiettrahang_soluong}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="3" y="58" width="552" height="1" uuid="9dbe6f58-7c1f-42dd-88a2-14c4c1051c71"/>
+            </line>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="365" y="18" width="90" height="27" uuid="5d47b618-fb4d-431c-bc50-9068d487ac91"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{chitiettrahang_phitra}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="455" y="18" width="98" height="27" uuid="e067697b-649c-4445-98e8-cc8850833aae"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{chitiettrahang_thanhtien}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="10" y="18" width="121" height="27" uuid="11084408-002b-4206-b912-6e17b9584a59"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{trahang_sotrahang}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="354" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f9eedc16-c22d-4eb2-bfe7-438be9ec6d0f"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+            <staticText>
+                <reportElement style="Column header" x="0" y="27" width="111" height="20" forecolor="#000000" uuid="bcbbc592-f80e-4460-8224-12b5899a2ec3"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Số Hóa Đơn:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="111" y="27" width="169" height="20" uuid="b6e9e69c-1345-4ccb-8699-9c496cfe8d9d"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{hoadon_sohoadon}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="389" y="27" width="167" height="20" uuid="ba7ef2a7-15d2-4b66-9a15-aec5614d827a"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{khachhang_tenkhachhang}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" x="292" y="27" width="97" height="20" forecolor="#000000" uuid="50d98b4c-5b68-4ace-8f56-e7453119c566"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Khách Hàng:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" pattern="d/M/yyyy">
+                <reportElement style="Detail" positionType="Float" x="403" y="81" width="150" height="20" uuid="8381095f-5cdd-474f-83ba-9b47e0577fee"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{trahang_ngaynhan}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" x="2" y="81" width="97" height="20" forecolor="#000000" uuid="ba8015e6-eaf2-4171-9a96-1f6609364d52"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Số Điện Thoại:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="292" y="81" width="111" height="20" forecolor="#000000" uuid="b672b1dc-0c09-46ce-80db-309f0a6574e1"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Ngày Nhận:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="111" y="81" width="155" height="20" uuid="2ad0c619-ad9c-402f-80c1-31bffbeb3560"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{khachhang_sodienthoai}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" x="0" y="132" width="111" height="20" forecolor="#000000" uuid="487083e7-c8b4-4e26-b380-ad6f0120972b"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Địa Chỉ:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="111" y="132" width="442" height="20" uuid="773db168-5755-42bf-a868-ae0b9301d1ec"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{khachhang_diachi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" x="3" y="182" width="111" height="20" forecolor="#000000" uuid="f969ad74-a057-4126-8edb-00bb7fba44b0"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Lý Do Trả:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="114" y="182" width="442" height="20" uuid="a9630442-25d6-42b5-95d2-8d67fc7eb10c"/>
+                <textElement>
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{trahang_lydotra}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" x="3" y="298" width="121" height="26" forecolor="#000000" uuid="900b3a83-3443-4be6-a755-9b1fae1ea75d"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tổng Tiền]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="310" y="298" width="242" height="27" uuid="fda1d654-81a0-44e3-847c-7c8db3cc9bb8"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{trahang_tongtien}+ " " + "(VNĐ)"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" x="0" y="237" width="121" height="26" forecolor="#000000" uuid="26ef43a1-bd92-47e3-b135-6617698772e1"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Công Nợ]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="Detail" positionType="Float" x="307" y="237" width="242" height="27" uuid="7bd001b0-1e59-4597-994a-efb6a1701469"/>
+                <textElement>
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{trahang_congno}+ " " + "(VNĐ)"]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="25" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="f36e3dce-cf5b-4050-b19a-7b8a8cfedbd0"/>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="483c2b9c-ccde-406b-b021-b63ce44c914f"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="6f09db83-991f-430d-b672-3107d5dd513f"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Trang "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+                </textField>
+                <textField pattern="d/M/yyyy">
+                    <reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="51eade00-b783-4bd7-b674-ac5fa41be8bd"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Hôm nay" + " " + new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>

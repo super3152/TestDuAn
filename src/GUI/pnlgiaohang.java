@@ -4,7 +4,45 @@
  * and open the template in the editor.
  */
 package GUI;
+import BLL.BLLDonHang;
+import static BLL.BLLDonHang.DoDuLieucbbHinhThuc;
+import static BLL.BLLDonHang.HienThiChiTietDonHangSanPham;
+import static BLL.BLLDonHang.HienThiDonHang;
+import BLL.ChuyenDoi;
+import DAO.DAODonHang;
+import DAO.DBConection;
+import DTO.DTODonHang;
+import DTO.DTOKhachHang;
+import DTO.MyCombobox;
+import static GUI.jdlDonHang.btthuydon;
+import static GUI.jdlDonHang.bttxacnhan;
+import static GUI.jdlDonHang.cbbHinhthuc;
+import static GUI.jdlDonHang.tblChiTietHoaDonSanPham;
+import static GUI.jdlDonHang.txtDiachi;
+import static GUI.jdlDonHang.txtHinhthuc;
+import static GUI.jdlDonHang.txtID;
+import static GUI.jdlDonHang.txtSoHD;
+import static GUI.jdlDonHang.txtTienhang;
+import static GUI.jdlDonHang.txtTime;
+import static GUI.jdlDonHang.txtTinhtrang;
+import static GUI.jdlDonHang.txtUudai;
 
+import static GUI.pnlkhachhang.tblkhachhang;
+import static GUI.jdlDonHang.txtSDT;
+import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.table.TableModel;
+import static GUI.jdlDonHang.txtTenKhachHang;
+import static GUI.jdlDonHang.txtNgayTao;
+import static GUI.jdlDonHang.txtPhigiaohang;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author Takemikazuchi
@@ -15,7 +53,21 @@ public class pnlgiaohang extends javax.swing.JPanel {
      * Creates new form pnldonhang
      */
     public pnlgiaohang() {
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+        }
         initComponents();
+        DBConection db = new DBConection();
+         tblDonHang1.getColumnModel().getColumn(0).setPreferredWidth(7);
+           tblDonHang1.getColumnModel().getColumn(1).setPreferredWidth(7);
+            tblDonHang1.getColumnModel().getColumn(9).setPreferredWidth(7);
+         HienThiDonHang(tblDonHang1, txttimkiem1.getText());
     }
 
     /**
@@ -27,35 +79,707 @@ public class pnlgiaohang extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        pnldanhsach3 = new javax.swing.JPanel();
+        srcdanhsach3 = new javax.swing.JScrollPane();
+        tblDonHang1 = new javax.swing.JTable();
+        txttimkiem1 = new javax.swing.JTextField();
+        jPanel22 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        pnlhoanthanh = new javax.swing.JPanel();
+        srcdanhsach4 = new javax.swing.JScrollPane();
+        tblDonHang2 = new javax.swing.JTable();
+        txttimkiem2 = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(980, 620));
         setRequestFocusEnabled(false);
         setVerifyInputWhenFocusTarget(false);
 
-        jLabel1.setText("giao hàng");
+        jTabbedPane2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+
+        pnldanhsach3.setBackground(new java.awt.Color(33, 36, 51));
+        pnldanhsach3.setPreferredSize(new java.awt.Dimension(980, 618));
+
+        tblDonHang1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblDonHang1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        tblDonHang1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "STT", "ID", "Mã đơn hàng", "Ngày tạo đơn", "Thời gian", "Khách hàng", "Trạng thái đơn hàng", "Thanh toán", "Tổng tiền", "Ghi chú"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblDonHang1.setDragEnabled(true);
+        tblDonHang1.setFocusable(false);
+        tblDonHang1.setIntercellSpacing(new java.awt.Dimension(0, 1));
+        tblDonHang1.setName(""); // NOI18N
+        tblDonHang1.setRowHeight(55);
+        tblDonHang1.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tblDonHang1.setShowVerticalLines(false);
+        tblDonHang1.getTableHeader().setReorderingAllowed(false);
+        tblDonHang1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDonHang1MouseClicked(evt);
+            }
+        });
+        srcdanhsach3.setViewportView(tblDonHang1);
+
+        txttimkiem1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txttimkiem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttimkiem1ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Làm mới");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Đơn chưa xem: ");
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/filter_edit_20px.png"))); // NOI18N
+        jButton7.setText("Lọc đơn hàng");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Tìm kiếm");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnldanhsach3Layout = new javax.swing.GroupLayout(pnldanhsach3);
+        pnldanhsach3.setLayout(pnldanhsach3Layout);
+        pnldanhsach3Layout.setHorizontalGroup(
+            pnldanhsach3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnldanhsach3Layout.createSequentialGroup()
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txttimkiem1)
+                .addGap(0, 0, 0)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(srcdanhsach3, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
+            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnldanhsach3Layout.setVerticalGroup(
+            pnldanhsach3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnldanhsach3Layout.createSequentialGroup()
+                .addGroup(pnldanhsach3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txttimkiem1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(srcdanhsach3, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane2.addTab("Danh sách đơn hàng", new javax.swing.ImageIcon(getClass().getResource("/IMAGE/list_20px.png")), pnldanhsach3); // NOI18N
+
+        pnlhoanthanh.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblDonHang2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblDonHang2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        tblDonHang2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "STT", "ID", "Mã đơn hàng", "Ngày tạo đơn", "Thời gian", "Khách hàng", "Trạng thái đơn hàng", "Thanh toán", "Tổng tiền", "Ghi chú"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblDonHang2.setDragEnabled(true);
+        tblDonHang2.setFocusable(false);
+        tblDonHang2.setIntercellSpacing(new java.awt.Dimension(0, 1));
+        tblDonHang2.setName(""); // NOI18N
+        tblDonHang2.setRowHeight(55);
+        tblDonHang2.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tblDonHang2.setShowVerticalLines(false);
+        tblDonHang2.getTableHeader().setReorderingAllowed(false);
+        tblDonHang2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDonHang2MouseClicked(evt);
+            }
+        });
+        srcdanhsach4.setViewportView(tblDonHang2);
+
+        pnlhoanthanh.add(srcdanhsach4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 975, 556));
+
+        txttimkiem2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txttimkiem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttimkiem2ActionPerformed(evt);
+            }
+        });
+        pnlhoanthanh.add(txttimkiem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 750, 30));
+
+        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/search_20px.png"))); // NOI18N
+        jButton10.setText("Tìm kiếm");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        pnlhoanthanh.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
+
+        jButton11.setText("Tìm kiếm");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        pnlhoanthanh.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 105, 30));
+
+        jTabbedPane2.addTab("Đã hoàn thành", new javax.swing.ImageIcon(getClass().getResource("/IMAGE/checked_checkbox_20px.png")), pnlhoanthanh); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(jLabel1)
-                .addContainerGap(752, Short.MAX_VALUE))
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel1)
-                .addContainerGap(496, Short.MAX_VALUE))
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tblDonHang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDonHang1MouseClicked
+        int Dongduocchon = tblDonHang1.getSelectedRow();
+
+        if (evt.getClickCount() == 2) {
+            if (Dongduocchon >= 0) {
+
+                if (tblDonHang1.getValueAt(Dongduocchon, 9).equals("<html><body style='color:blue;'>Đã Xem</body></html>")) {
+                    System.out.println("Đã xem");
+                }else{
+                    String id = tblDonHang1.getValueAt(Dongduocchon, 1).toString();
+                    System.out.println(id);
+                    DTODonHang dhv = new DTODonHang(Integer.parseInt(id), 1);
+                    BLLDonHang.KiemTraSuaDonHangView(Integer.parseInt(id), "1");
+                    BLLDonHang.SuaDonHangView(dhv);
+
+                }
+
+                int MaDH = Integer.parseInt(tblDonHang1.getValueAt(Dongduocchon, 1).toString());
+                DTODonHang dh = BLL.BLLDonHang.GetMaDH(MaDH);
+
+                String dongtrangthai = tblDonHang1.getValueAt(Dongduocchon, 6).toString();
+                if (dongtrangthai.equals("<html><body style='color:red;'>Chờ duyệt</body></html>")) {
+                    jdlDonHang donhang = new jdlDonHang(new javax.swing.JFrame(), true);
+
+                    jdlDonHang.txtTrangthai.setForeground(Color.red);
+                    jdlDonHang.txtTrangthai.setText("CHỜ DUYỆT");
+
+                    if (dh.getTinhtrang()== 0) {
+                        txtTinhtrang.setForeground(Color.red);
+                        txtTinhtrang.setText("CHƯA THANH TOÁN");
+                    }else{
+                        txtTinhtrang.setForeground(Color.blue);
+                        txtTinhtrang.setText("ĐÃ THANH TOÁN");
+                    }
+                    txtTenKhachHang.setText(dh.getMaKhachHang()+"");
+                    txtDiachi.setText(dh.getDiachi());
+                    txtSDT.setText(dh.getSodienthoai()+"");
+                    txtID.setText(dh.getIdhoadon()+"");
+                    txtSoHD.setText(dh.getSoHoaDon());
+                    txtNgayTao.setText(dh.getNgayTaoHoaDon());
+                    txtTime.setText(dh.getTimeTaoHoaDon());
+
+                    ResultSet rsSize = DAO.DAODonHang.LayHinhThucTheoID(dh.getHinhthucvanchuyen());
+                    try {
+                        while (rsSize.next()) {
+                            DefaultComboBoxModel cbbModel1 = (DefaultComboBoxModel) cbbHinhthuc.getModel();
+                            for (int i = 0; i < cbbHinhthuc.getItemCount(); i++) {
+                                MyCombobox mb1 = (MyCombobox) cbbModel1.getElementAt(i);
+                                String tenCV = mb1.Text.toString();
+                                if (tenCV.equals(rsSize.getString("tenhinhthuc"))) {
+                                    cbbHinhthuc.setSelectedIndex(i);
+                                }
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        ThongBaoLoi.ThongBao("Lỗi Lấy dữ liệu ComboBox Hình thức", "Thông Báo");
+
+                    }
+
+                    txtPhigiaohang.setText(ChuyenDoi.DinhDangTien(dh.getTiengiaohang()));
+
+                    if (dh.getHinhthucthanhtoan() == 0) {
+                        txtHinhthuc.setText("Thu COD sau khi thanh toán");
+                    }else{
+                        txtHinhthuc.setText("Thanh toán ATM");
+                    }
+
+                    txtTienhang.setText(ChuyenDoi.DinhDangTien(dh.getTongTien())+" VND");
+
+                    if (tblChiTietHoaDonSanPham != null) {
+
+                        Double sum = 0.0;
+                        for(int i = 0; i < tblChiTietHoaDonSanPham.getRowCount(); i++)
+                        {
+                            sum = sum + Double.parseDouble(tblChiTietHoaDonSanPham.getValueAt(i, 8).toString());
+                        }
+
+                        txtUudai.setText(ChuyenDoi.DinhDangTien(sum)+" VND");
+                    }
+
+                    HienThiChiTietDonHangSanPham(tblChiTietHoaDonSanPham, Integer.parseInt(txtID.getText()));
+
+                    txtPhigiaohang.setEnabled(false);
+                    cbbHinhthuc.setEnabled(false);
+
+                    donhang.setVisible(true);
+
+                    //-------------------------------------------
+                    //-------------------------------------------
+                    //-------------------------------------------
+                }else if(dongtrangthai.equals("<html><body style='color:blue;'>Đóng gói</body></html>")){
+                    jdlDonHang donhang = new jdlDonHang(new javax.swing.JFrame(), true);
+
+                    jdlDonHang.txtTrangthai.setForeground(Color.blue);
+                    jdlDonHang.txtTrangthai.setText("ĐÓNG GÓI");
+
+                    if (dh.getTinhtrang()== 0) {
+                        txtTinhtrang.setForeground(Color.red);
+                        txtTinhtrang.setText("CHƯA THANH TOÁN");
+                    }else{
+                        txtTinhtrang.setForeground(Color.blue);
+                        txtTinhtrang.setText("ĐÃ THANH TOÁN");
+                    }
+                    txtTenKhachHang.setText(dh.getMaKhachHang()+"");
+                    txtDiachi.setText(dh.getDiachi());
+                    txtSDT.setText(dh.getSodienthoai()+"");
+                    txtID.setText(dh.getIdhoadon()+"");
+                    txtSoHD.setText(dh.getSoHoaDon());
+                    txtNgayTao.setText(dh.getNgayTaoHoaDon());
+                    txtTime.setText(dh.getTimeTaoHoaDon());
+                    ResultSet rsSize = DAO.DAODonHang.LayHinhThucTheoID(dh.getHinhthucvanchuyen());
+                    try {
+                        while (rsSize.next()) {
+                            DefaultComboBoxModel cbbModel1 = (DefaultComboBoxModel) cbbHinhthuc.getModel();
+                            for (int i = 0; i < cbbHinhthuc.getItemCount(); i++) {
+                                MyCombobox mb1 = (MyCombobox) cbbModel1.getElementAt(i);
+                                String tenCV = mb1.Text.toString();
+                                if (tenCV.equals(rsSize.getString("tenhinhthuc"))) {
+                                    cbbHinhthuc.setSelectedIndex(i);
+
+                                }
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        ThongBaoLoi.ThongBao("Lỗi Lấy dữ liệu ComboBox Hình thức", "Thông Báo");
+
+                    }
+
+                    txtPhigiaohang.setText(ChuyenDoi.DinhDangTien(dh.getTiengiaohang()));
+
+                    if (dh.getHinhthucthanhtoan() == 0) {
+                        txtHinhthuc.setText("Thu COD sau khi thanh toán");
+                    }else{
+                        txtHinhthuc.setText("Thanh toán ATM");
+                    }
+
+                    txtTienhang.setText(ChuyenDoi.DinhDangTien(dh.getTongTien())+" VND");
+
+                    if (tblChiTietHoaDonSanPham != null) {
+
+                        Double sum = 0.0;
+                        for(int i = 0; i < tblChiTietHoaDonSanPham.getRowCount(); i++)
+                        {
+                            sum = sum + Double.parseDouble(tblChiTietHoaDonSanPham.getValueAt(i, 8).toString());
+                        }
+
+                        txtUudai.setText(ChuyenDoi.DinhDangTien(sum)+" VND");
+                    }
+
+                    HienThiChiTietDonHangSanPham(tblChiTietHoaDonSanPham, Integer.parseInt(txtID.getText()));
+
+                    txtPhigiaohang.setEnabled(false);
+                    cbbHinhthuc.setEnabled(false);
+
+                    bttxacnhan.setText("Đóng gói");
+
+                    donhang.setVisible(true);
+
+                    //-------------------------------------------
+                    //-------------------------------------------
+                    //-------------------------------------------
+                }else if(dongtrangthai.equals("<html><body style='color:blue;'>Xuất kho</body></html>")){
+                    jdlDonHang donhang = new jdlDonHang(new javax.swing.JFrame(), true);
+
+                    jdlDonHang.txtTrangthai.setForeground(Color.blue);
+                    jdlDonHang.txtTrangthai.setText("XUẤT KHO");
+
+                    if (dh.getTinhtrang()== 0) {
+                        txtTinhtrang.setForeground(Color.red);
+                        txtTinhtrang.setText("CHƯA THANH TOÁN");
+                    }else{
+                        txtTinhtrang.setForeground(Color.blue);
+                        txtTinhtrang.setText("ĐÃ THANH TOÁN");
+                    }
+                    txtTenKhachHang.setText(dh.getMaKhachHang()+"");
+                    txtDiachi.setText(dh.getDiachi());
+                    txtSDT.setText(dh.getSodienthoai()+"");
+                    txtID.setText(dh.getIdhoadon()+"");
+                    txtSoHD.setText(dh.getSoHoaDon());
+                    txtNgayTao.setText(dh.getNgayTaoHoaDon());
+                    txtTime.setText(dh.getTimeTaoHoaDon());
+                    ResultSet rsSize = DAO.DAODonHang.LayHinhThucTheoID(dh.getHinhthucvanchuyen());
+                    try {
+                        while (rsSize.next()) {
+                            DefaultComboBoxModel cbbModel1 = (DefaultComboBoxModel) cbbHinhthuc.getModel();
+                            for (int i = 0; i < cbbHinhthuc.getItemCount(); i++) {
+                                MyCombobox mb1 = (MyCombobox) cbbModel1.getElementAt(i);
+                                String tenCV = mb1.Text.toString();
+                                if (tenCV.equals(rsSize.getString("tenhinhthuc"))) {
+                                    cbbHinhthuc.setSelectedIndex(i);
+                                }
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        ThongBaoLoi.ThongBao("Lỗi Lấy dữ liệu ComboBox Hình thức", "Thông Báo");
+
+                    }
+                    txtPhigiaohang.setText(ChuyenDoi.DinhDangTien(dh.getTiengiaohang()));
+                    if (dh.getHinhthucthanhtoan() == 0) {
+                        txtHinhthuc.setText("Thu COD sau khi thanh toán");
+                    }else{
+                        txtHinhthuc.setText("Thanh toán ATM");
+                    }
+
+                    txtTienhang.setText(ChuyenDoi.DinhDangTien(dh.getTongTien())+" VND");
+
+                    if (tblChiTietHoaDonSanPham != null) {
+
+                        Double sum = 0.0;
+                        for(int i = 0; i < tblChiTietHoaDonSanPham.getRowCount(); i++)
+                        {
+                            sum = sum + Double.parseDouble(tblChiTietHoaDonSanPham.getValueAt(i, 8).toString());
+                        }
+
+                        txtUudai.setText(ChuyenDoi.DinhDangTien(sum)+" VND");
+                    }
+
+                    HienThiChiTietDonHangSanPham(tblChiTietHoaDonSanPham, Integer.parseInt(txtID.getText()));
+                    txtPhigiaohang.setEnabled(false);
+                    cbbHinhthuc.setEnabled(false);
+                    bttxacnhan.setText("Xuất kho");
+
+                    donhang.setVisible(true);
+
+                    //-------------------------------------------
+                    //-------------------------------------------
+                    //-------------------------------------------
+                }else if(dongtrangthai.equals("<html><body style='color:blue;'>Đang giao hàng</body></html>")){
+                    jdlDonHang donhang = new jdlDonHang(new javax.swing.JFrame(), true);
+
+                    jdlDonHang.txtTrangthai.setForeground(Color.blue);
+                    jdlDonHang.txtTrangthai.setText("GIAO HÀNG");
+
+                    if (dh.getTinhtrang()== 0) {
+                        txtTinhtrang.setForeground(Color.red);
+                        txtTinhtrang.setText("CHƯA THANH TOÁN");
+                    }else{
+                        txtTinhtrang.setForeground(Color.blue);
+                        txtTinhtrang.setText("ĐÃ THANH TOÁN");
+                    }
+                    txtTenKhachHang.setText(dh.getMaKhachHang()+"");
+                    txtDiachi.setText(dh.getDiachi());
+                    txtSDT.setText(dh.getSodienthoai()+"");
+                    txtID.setText(dh.getIdhoadon()+"");
+                    txtSoHD.setText(dh.getSoHoaDon());
+                    txtNgayTao.setText(dh.getNgayTaoHoaDon());
+                    txtTime.setText(dh.getTimeTaoHoaDon());
+
+                    ResultSet rsSize = DAO.DAODonHang.LayHinhThucTheoID(dh.getHinhthucvanchuyen());
+                    try {
+                        while (rsSize.next()) {
+                            DefaultComboBoxModel cbbModel1 = (DefaultComboBoxModel) cbbHinhthuc.getModel();
+                            for (int i = 0; i < cbbHinhthuc.getItemCount(); i++) {
+                                MyCombobox mb1 = (MyCombobox) cbbModel1.getElementAt(i);
+                                String tenCV = mb1.Text.toString();
+                                if (tenCV.equals(rsSize.getString("tenhinhthuc"))) {
+                                    cbbHinhthuc.setSelectedIndex(i);
+
+                                }
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        ThongBaoLoi.ThongBao("Lỗi Lấy dữ liệu ComboBox Hình thức", "Thông Báo");
+
+                    }
+
+                    txtPhigiaohang.setText(ChuyenDoi.DinhDangTien(dh.getTiengiaohang()));
+
+                    if (dh.getHinhthucthanhtoan() == 0) {
+                        txtHinhthuc.setText("Thu COD sau khi thanh toán");
+                    }else{
+                        txtHinhthuc.setText("Thanh toán ATM");
+                    }
+
+                    txtTienhang.setText(ChuyenDoi.DinhDangTien(dh.getTongTien())+" VND");
+
+                    if (tblChiTietHoaDonSanPham != null) {
+
+                        Double sum = 0.0;
+                        for(int i = 0; i < tblChiTietHoaDonSanPham.getRowCount(); i++)
+                        {
+                            sum = sum + Double.parseDouble(tblChiTietHoaDonSanPham.getValueAt(i, 8).toString());
+                        }
+
+                        txtUudai.setText(ChuyenDoi.DinhDangTien(sum)+" VND");
+                    }
+
+                    HienThiChiTietDonHangSanPham(tblChiTietHoaDonSanPham, Integer.parseInt(txtID.getText()));
+                    txtPhigiaohang.setEnabled(true);
+                    cbbHinhthuc.setEnabled(true);
+
+                    bttxacnhan.setText("Giao hàng");
+                    donhang.setVisible(true);
+
+                    //-------------------------------------------
+                    //-------------------------------------------
+                    //-------------------------------------------
+                }else if(dongtrangthai.equals("<html><body style='color:blue;'>Hoàn thành</body></html>")){
+                    jdlDonHang donhang = new jdlDonHang(new javax.swing.JFrame(), true);
+
+                    jdlDonHang.txtTrangthai.setForeground(Color.blue);
+                    jdlDonHang.txtTrangthai.setText("HOÀN THÀNH");
+
+                    if (dh.getTinhtrang()== 0) {
+                        txtTinhtrang.setForeground(Color.red);
+                        txtTinhtrang.setText("CHƯA THANH TOÁN");
+                    }else{
+                        txtTinhtrang.setForeground(Color.blue);
+                        txtTinhtrang.setText("ĐÃ THANH TOÁN");
+                    }
+                    txtTenKhachHang.setText(dh.getMaKhachHang()+"");
+                    txtDiachi.setText(dh.getDiachi());
+                    txtSDT.setText(dh.getSodienthoai()+"");
+                    txtID.setText(dh.getIdhoadon()+"");
+                    txtSoHD.setText(dh.getSoHoaDon());
+                    txtNgayTao.setText(dh.getNgayTaoHoaDon());
+                    txtTime.setText(dh.getTimeTaoHoaDon());
+                    ResultSet rsSize = DAO.DAODonHang.LayHinhThucTheoID(dh.getHinhthucvanchuyen());
+                    try {
+                        while (rsSize.next()) {
+                            DefaultComboBoxModel cbbModel1 = (DefaultComboBoxModel) cbbHinhthuc.getModel();
+                            for (int i = 0; i < cbbHinhthuc.getItemCount(); i++) {
+                                MyCombobox mb1 = (MyCombobox) cbbModel1.getElementAt(i);
+                                String tenCV = mb1.Text.toString();
+                                if (tenCV.equals(rsSize.getString("tenhinhthuc"))) {
+                                    cbbHinhthuc.setSelectedIndex(i);
+                                }
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        ThongBaoLoi.ThongBao("Lỗi Lấy dữ liệu ComboBox Hình thức", "Thông Báo");
+
+                    }
+                    txtPhigiaohang.setText(ChuyenDoi.DinhDangTien(dh.getTiengiaohang()));
+                    if (dh.getHinhthucthanhtoan() == 0) {
+                        txtHinhthuc.setText("Thu COD sau khi thanh toán");
+                    }else{
+                        txtHinhthuc.setText("Thanh toán ATM");
+                    }
+
+                    txtTienhang.setText(ChuyenDoi.DinhDangTien(dh.getTongTien())+" VND");
+
+                    if (tblChiTietHoaDonSanPham != null) {
+
+                        Double sum = 0.0;
+                        for(int i = 0; i < tblChiTietHoaDonSanPham.getRowCount(); i++)
+                        {
+                            sum = sum + Double.parseDouble(tblChiTietHoaDonSanPham.getValueAt(i, 8).toString());
+                        }
+
+                        txtUudai.setText(ChuyenDoi.DinhDangTien(sum)+" VND");
+                    }
+
+                    HienThiChiTietDonHangSanPham(tblChiTietHoaDonSanPham, Integer.parseInt(txtID.getText()));
+                    bttxacnhan.setText("Hoàn thành");
+                    txtPhigiaohang.setEnabled(false);
+                    cbbHinhthuc.setEnabled(false);
+
+                    donhang.setVisible(true);
+
+                }
+
+                //-------------------------------------------
+                //-------------------------------------------
+                //-------------------------------------------
+                else{
+                    jdlDonHang donhang = new jdlDonHang(new javax.swing.JFrame(), true);
+
+                    jdlDonHang.txtTrangthai.setForeground(Color.red);
+                    jdlDonHang.txtTrangthai.setText("ĐƠN HÀNG ĐÃ HỦY");
+
+                    if (dh.getTinhtrang()== 0) {
+                        txtTinhtrang.setForeground(Color.red);
+                        txtTinhtrang.setText("CHƯA THANH TOÁN");
+                    }else{
+                        txtTinhtrang.setForeground(Color.blue);
+                        txtTinhtrang.setText("ĐÃ THANH TOÁN");
+                    }
+                    txtTenKhachHang.setText(dh.getMaKhachHang()+"");
+                    txtDiachi.setText(dh.getDiachi());
+                    txtSDT.setText(dh.getSodienthoai()+"");
+                    txtID.setText(dh.getIdhoadon()+"");
+                    txtSoHD.setText(dh.getSoHoaDon());
+                    txtNgayTao.setText(dh.getNgayTaoHoaDon());
+                    txtTime.setText(dh.getTimeTaoHoaDon());
+                    ResultSet rsSize = DAO.DAODonHang.LayHinhThucTheoID(dh.getHinhthucvanchuyen());
+                    try {
+                        while (rsSize.next()) {
+                            DefaultComboBoxModel cbbModel1 = (DefaultComboBoxModel) cbbHinhthuc.getModel();
+                            for (int i = 0; i < cbbHinhthuc.getItemCount(); i++) {
+                                MyCombobox mb1 = (MyCombobox) cbbModel1.getElementAt(i);
+                                String tenCV = mb1.Text.toString();
+                                if (tenCV.equals(rsSize.getString("tenhinhthuc"))) {
+                                    cbbHinhthuc.setSelectedIndex(i);
+                                }
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        ThongBaoLoi.ThongBao("Lỗi Lấy dữ liệu ComboBox Hình thức", "Thông Báo");
+
+                    }
+                    txtPhigiaohang.setText(ChuyenDoi.DinhDangTien(dh.getTiengiaohang()));
+                    if (dh.getHinhthucthanhtoan() == 0) {
+                        txtHinhthuc.setText("Thu COD sau khi thanh toán");
+                    }else{
+                        txtHinhthuc.setText("Thanh toán ATM");
+                    }
+
+                    txtTienhang.setText(ChuyenDoi.DinhDangTien(dh.getTongTien())+" VND");
+
+                    if (tblChiTietHoaDonSanPham != null) {
+
+                        Double sum = 0.0;
+                        for(int i = 0; i < tblChiTietHoaDonSanPham.getRowCount(); i++)
+                        {
+                            sum = sum + Double.parseDouble(tblChiTietHoaDonSanPham.getValueAt(i, 8).toString());
+                        }
+
+                        txtUudai.setText(ChuyenDoi.DinhDangTien(sum)+" VND");
+                    }
+                    bttxacnhan.setEnabled(false);
+                    btthuydon.setEnabled(false);
+                    HienThiChiTietDonHangSanPham(tblChiTietHoaDonSanPham, Integer.parseInt(txtID.getText()));
+
+                    txtPhigiaohang.setEnabled(false);
+                    cbbHinhthuc.setEnabled(false);
+                    donhang.setVisible(true);
+
+                }
+
+            }
+        }
+    }//GEN-LAST:event_tblDonHang1MouseClicked
+
+    private void txttimkiem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttimkiem1ActionPerformed
+
+    }//GEN-LAST:event_txttimkiem1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        HienThiDonHang(tblDonHang1, txttimkiem1.getText());
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void tblDonHang2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDonHang2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblDonHang2MouseClicked
+
+    private void txttimkiem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttimkiem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttimkiem2ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JPanel pnldanhsach3;
+    private javax.swing.JPanel pnlhoanthanh;
+    private javax.swing.JScrollPane srcdanhsach3;
+    private javax.swing.JScrollPane srcdanhsach4;
+    public static javax.swing.JTable tblDonHang1;
+    public static javax.swing.JTable tblDonHang2;
+    public static javax.swing.JTextField txttimkiem1;
+    public static javax.swing.JTextField txttimkiem2;
     // End of variables declaration//GEN-END:variables
 }

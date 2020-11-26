@@ -22,6 +22,24 @@ public class DAOKhachHang {
         ResultSet rs = DBConection.GetData(query);
         return rs;
     }
+      public static ResultSet LaySoKhachHangTrongHD(int MaKH) {
+
+        String query = "SELECT * FROM hoadon where idkhachhang = '"+MaKH+"'";
+        ResultSet rs = DBConection.GetData(query);
+        return rs;
+    }
+    public static ResultSet LayKhachHangCBB() {
+
+        String query = "SELECT * FROM khachhang";
+        ResultSet rs = DBConection.GetData(query);
+        return rs;
+    }
+      public static ResultSet LayKhachHangTheoTen(String TenKH) {
+
+        String query = "SELECT * FROM khachhang where tenkhachhang = '"+TenKH+"'";
+        ResultSet rs = DBConection.GetData(query);
+        return rs;
+    }
 
     public static ResultSet LayMaLoaiKhachHangCBB(int MaLoaiKhachHang) {
 
@@ -29,6 +47,7 @@ public class DAOKhachHang {
         ResultSet rs = DBConection.GetData(query);
         return rs;
     }
+
 
     public static ResultSet LayKhachHangTheoMaLoai(int MaLoaiKhachHang) {
 
@@ -75,7 +94,7 @@ public class DAOKhachHang {
 
     public static int ThemKhachHang(DTOKhachHang kh) {
         String cauTruyVan = "INSERT INTO `khachhang`"
-                + "(`idloaikhachhang`, `idnguoidung`, `tenkhachhang`, `sodienthoai`, `email`, `matkhau`, `ngaysinh`, `diachi`, `gioitinh`, `mangxahoi`, `anhdaidien`, `mota`, `tag`)"
+                + "(`idloaikhachhang`, `idnguoidung`, `tenkhachhang`, `sodienthoai`, `email`, `matkhau`, `ngaysinh`, `diachi`, `gioitinh`, `mangxahoi`, `mota`, `tag`)"
                 + " VALUES "
                 + "('"+kh.getIdLoaiKhachHang()+"',"
                 + "'"+kh.getIdNguoiDung()+"',"
@@ -87,7 +106,6 @@ public class DAOKhachHang {
                 + "'"+kh.getDiaChi()+"',"
                 + ""+kh.getGioiTinh()+","
                 + "'"+kh.getMangXaHoi()+"',"
-                + "'"+kh.getAnhDaiDien()+"',"
                 + "'"+kh.getMoTa()+"',"
                 + "'"+kh.getTag()+"')";
         System.out.println(cauTruyVan);
@@ -106,7 +124,6 @@ public class DAOKhachHang {
                 + "`diachi`='"+kh.getDiaChi()+"',"
                 + "`gioitinh`="+kh.getGioiTinh()+","
                 + "`mangxahoi`='"+kh.getMangXaHoi()+"',"
-                + "`anhdaidien`='"+kh.getAnhDaiDien()+"',"
                 + "`mota`='"+kh.getMoTa()+"',"
                 + "`tag`='"+kh.getTag()+"' "
                 + "WHERE `idkhachhang`='"+kh.getIdKhachHang()+"'";
@@ -119,4 +136,20 @@ public class DAOKhachHang {
        return  DBConection.ExcuteTruyVan(cauTruyVan);
         
     }
+   public static int SuaHoaDonKhachHang(DTOKhachHang kh) {
+        String cauTruyVan = "UPDATE `khachhang` SET `lancuoimuahang`='"+kh.getLanCuoiMuaHang()+"',`tongtienhang`='"+kh.getTongTienHang()+"' WHERE `idkhachhang`='"+kh.getIdKhachHang()+"'";
+        System.out.println(cauTruyVan);
+        return DBConection.ExcuteTruyVan(cauTruyVan);
+    }
+     public static int SuaNoTraHangKhachHang(DTOKhachHang kh) {
+        String cauTruyVan = "UPDATE `khachhang` SET `congno`='"+kh.getCongNo()+"' WHERE `idkhachhang`='"+kh.getIdKhachHang()+"'";
+        System.out.println(cauTruyVan);
+        return DBConection.ExcuteTruyVan(cauTruyVan);
+    }
+     public static int SuaLoaiKhachHang(DTOKhachHang kh) {
+        String cauTruyVan = "UPDATE `khachhang` SET `idloaikhachhang`='"+kh.getIdLoaiKhachHang()+"' WHERE `idkhachhang`='"+kh.getIdKhachHang()+"'";
+        System.out.println(cauTruyVan);
+        return DBConection.ExcuteTruyVan(cauTruyVan);
+    }
+
 }

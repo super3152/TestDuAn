@@ -17,6 +17,10 @@ public class DTOMauSanPham {
     public DTOMauSanPham() {
     }
 
+    public DTOMauSanPham(String TenMauSanPham) {
+        this.TenMauSanPham = TenMauSanPham;
+    }
+
     public DTOMauSanPham(int IDMauSanPham, String TenMauSanPham, String MoTa) {
         this.IDMauSanPham = IDMauSanPham;
         this.TenMauSanPham = TenMauSanPham;

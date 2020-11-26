@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>DuAn2020</name>
+            <name>DuAn2020-Part15</name>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
@@ -11,5 +11,13 @@
                 <root id="test.src.dir"/>
             </test-roots>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>jdllocnhacungcap</word>
+            <word>jdlthemsize</word>
+            <word>pnldonhang</word>
+            <word>pnlthemphieunhap</word>
+            <word>pnlthongke</word>
+            <word>pnltongquan</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

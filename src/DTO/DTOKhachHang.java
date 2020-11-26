@@ -21,14 +21,16 @@ public class DTOKhachHang {
     String DiaChi;
     String GioiTinh;
     String MangXaHoi;
-    String AnhDaiDien;
+    String LanCuoiMuaHang;
+    double TongTienHang;
+    double CongNo;
     String MoTa;
     String Tag;
 
     public DTOKhachHang() {
     }
 
-    public DTOKhachHang(int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, String SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
+    public DTOKhachHang(int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, String SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String MoTa, String Tag) {
         this.IdLoaiKhachHang = IdLoaiKhachHang;
         this.IdNguoiDung = IdNguoiDung;
         this.TenKhachHang = TenKhachHang;
@@ -39,12 +41,11 @@ public class DTOKhachHang {
         this.DiaChi = DiaChi;
         this.GioiTinh = GioiTinh;
         this.MangXaHoi = MangXaHoi;
-        this.AnhDaiDien = AnhDaiDien;
         this.MoTa = MoTa;
         this.Tag = Tag;
     }
 
-    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, String SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String AnhDaiDien, String MoTa, String Tag) {
+    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang, int IdNguoiDung, String TenKhachHang, String SoDienThoai, String Email, String MatKhau, String NgaySinh, String DiaChi, String GioiTinh, String MangXaHoi, String MoTa, String Tag) {
         this.IdKhachHang = IdKhachHang;
         this.IdLoaiKhachHang = IdLoaiKhachHang;
         this.IdNguoiDung = IdNguoiDung;
@@ -56,10 +57,27 @@ public class DTOKhachHang {
         this.DiaChi = DiaChi;
         this.GioiTinh = GioiTinh;
         this.MangXaHoi = MangXaHoi;
-        this.AnhDaiDien = AnhDaiDien;
         this.MoTa = MoTa;
         this.Tag = Tag;
     }
+
+    public DTOKhachHang(int IdKhachHang, int IdLoaiKhachHang) {
+        this.IdKhachHang = IdKhachHang;
+        this.IdLoaiKhachHang = IdLoaiKhachHang;
+    }
+    
+    public DTOKhachHang(int IdKhachHang, String LanCuoiMuaHang, double TongTienHang) {
+        this.IdKhachHang = IdKhachHang;
+        this.LanCuoiMuaHang = LanCuoiMuaHang;
+        this.TongTienHang = TongTienHang;
+    }
+
+    public DTOKhachHang(int IdKhachHang, double CongNo) {
+        this.IdKhachHang = IdKhachHang;
+        this.CongNo = CongNo;
+    }
+
+   
 
     public int getIdKhachHang() {
         return IdKhachHang;
@@ -149,12 +167,28 @@ public class DTOKhachHang {
         this.MangXaHoi = MangXaHoi;
     }
 
-    public String getAnhDaiDien() {
-        return AnhDaiDien;
+    public String getLanCuoiMuaHang() {
+        return LanCuoiMuaHang;
     }
 
-    public void setAnhDaiDien(String AnhDaiDien) {
-        this.AnhDaiDien = AnhDaiDien;
+    public void setLanCuoiMuaHang(String LanCuoiMuaHang) {
+        this.LanCuoiMuaHang = LanCuoiMuaHang;
+    }
+
+    public double getTongTienHang() {
+        return TongTienHang;
+    }
+
+    public void setTongTienHang(double TongTienHang) {
+        this.TongTienHang = TongTienHang;
+    }
+
+    public double getCongNo() {
+        return CongNo;
+    }
+
+    public void setCongNo(double CongNo) {
+        this.CongNo = CongNo;
     }
 
     public String getMoTa() {
@@ -173,7 +207,7 @@ public class DTOKhachHang {
         this.Tag = Tag;
     }
 
-  
+
  
     
 }

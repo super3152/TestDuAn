@@ -5,10 +5,13 @@
  */
 package GUI;
 
-import static GUI.pnlsanpham.jPanel22;
-import static GUI.pnlsanpham.jPanel29;
-import static GUI.pnlsanpham.jPanel31;
-import static GUI.pnlsanpham.jPanel49;
+import DTO.DTONhaCungCap;
+import DTO.MyCombobox;
+import static GUI.pnlhanghoa.jPanel22;
+import static GUI.pnlhanghoa.jPanel29;
+import static GUI.pnlhanghoa.jPanel31;
+import static GUI.pnlhanghoa.jPanel50;
+import java.util.Random;
 
 /**
  *
@@ -21,8 +24,9 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
      */
     public pnlthemnhacungcap() {
         initComponents();
-       jComboBox2.setEditable(false); 
-            jTextField1.setEditable(false);
+        BLL.BLLNhaCungCap.DoDuLieuVaoCBBNguoiDung(cbbidnguoidung);
+        BLL.BLLNhaCungCap.DoDuLieuVaoCBBLoaiNhaCungCap(cbbLoaincc);
+
     }
 
     /**
@@ -46,23 +50,20 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         lblthongtinkhac = new javax.swing.JLabel();
         pnlnennhomkhachhang = new javax.swing.JPanel();
         lblnhomkhachhang = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        pnlnennhanvienphutrach = new javax.swing.JPanel();
-        lblnhanvienphutrach = new javax.swing.JLabel();
-        cbbNhanVien = new javax.swing.JComboBox<>();
-        pnlnennhomkhachhang1 = new javax.swing.JPanel();
-        lblnhomkhachhang1 = new javax.swing.JLabel();
-        cbbLoaiKhachHang1 = new javax.swing.JComboBox<>();
+        txtid = new javax.swing.JTextField();
         pnlnennhanvienphutrach1 = new javax.swing.JPanel();
         lblnhanvienphutrach1 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbbidnguoidung = new javax.swing.JComboBox<>();
         pnlnennhanvienphutrach2 = new javax.swing.JPanel();
         lblnhanvienphutrach2 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        scrpanemota = new javax.swing.JScrollPane();
+        txamota = new javax.swing.JTextArea();
         pnlnennhomkhachhang2 = new javax.swing.JPanel();
         lblnhomkhachhang2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        lblthongtinkhac1 = new javax.swing.JLabel();
+        txttag = new javax.swing.JTextField();
+        pnlnennhomkhachhang3 = new javax.swing.JPanel();
+        lblnhomkhachhang3 = new javax.swing.JLabel();
+        cbbtrangthai = new javax.swing.JComboBox<>();
         pnlnenlonthongtincoban = new javax.swing.JPanel();
         pnlnenlonngoaithongtin = new javax.swing.JPanel();
         pnlnenngoaithongtin = new javax.swing.JPanel();
@@ -70,35 +71,35 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         lblthongtincoban = new javax.swing.JLabel();
         pnlnenhotenkhachhang = new javax.swing.JPanel();
         lblhotenkhachhang = new javax.swing.JLabel();
-        txtHoTen = new javax.swing.JTextField();
+        txtTenncc = new javax.swing.JTextField();
         jPanel39 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        cbbTinh = new javax.swing.JComboBox<>();
         jPanel40 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txtdiachi = new javax.swing.JTextField();
         lblthongtinbosung1 = new javax.swing.JLabel();
         jPanel41 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtMancc = new javax.swing.JTextField();
         jPanel42 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbbLoaincc = new javax.swing.JComboBox<>();
         jPanel43 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtSDT = new javax.swing.JTextField();
         jPanel44 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jPanel45 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtFax = new javax.swing.JTextField();
         jPanel46 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtMathue = new javax.swing.JTextField();
         jPanel47 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtWeb = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         lblthongtinbosung2 = new javax.swing.JLabel();
@@ -134,6 +135,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         pnlnenngoaithongtinkhac1.setLayout(new java.awt.BorderLayout());
 
         pnlnenngoaithongtinkhac.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
+        pnlnenngoaithongtinkhac.setPreferredSize(new java.awt.Dimension(261, 513));
 
         pnlnenthongtinkhac.setBackground(new java.awt.Color(255, 255, 255));
         pnlnenthongtinkhac.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -146,33 +148,12 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         pnlnennhomkhachhang.setLayout(new java.awt.BorderLayout());
 
         lblnhomkhachhang.setBackground(new java.awt.Color(255, 255, 255));
-        lblnhomkhachhang.setText("Giá mặc định");
+        lblnhomkhachhang.setText("ID Nhà cung cấp");
         lblnhomkhachhang.setPreferredSize(new java.awt.Dimension(75, 20));
         pnlnennhomkhachhang.add(lblnhomkhachhang, java.awt.BorderLayout.PAGE_START);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlnennhomkhachhang.add(jComboBox2, java.awt.BorderLayout.CENTER);
-
-        pnlnennhanvienphutrach.setBackground(new java.awt.Color(255, 255, 255));
-        pnlnennhanvienphutrach.setLayout(new java.awt.BorderLayout());
-
-        lblnhanvienphutrach.setBackground(new java.awt.Color(255, 255, 255));
-        lblnhanvienphutrach.setText("Thuế mặc định");
-        lblnhanvienphutrach.setPreferredSize(new java.awt.Dimension(75, 20));
-        pnlnennhanvienphutrach.add(lblnhanvienphutrach, java.awt.BorderLayout.PAGE_START);
-
-        pnlnennhanvienphutrach.add(cbbNhanVien, java.awt.BorderLayout.CENTER);
-
-        pnlnennhomkhachhang1.setBackground(new java.awt.Color(255, 255, 255));
-        pnlnennhomkhachhang1.setLayout(new java.awt.BorderLayout());
-
-        lblnhomkhachhang1.setBackground(new java.awt.Color(255, 255, 255));
-        lblnhomkhachhang1.setText("Hình thức thanh toán");
-        lblnhomkhachhang1.setPreferredSize(new java.awt.Dimension(75, 20));
-        pnlnennhomkhachhang1.add(lblnhomkhachhang1, java.awt.BorderLayout.PAGE_START);
-
-        cbbLoaiKhachHang1.setToolTipText("");
-        pnlnennhomkhachhang1.add(cbbLoaiKhachHang1, java.awt.BorderLayout.CENTER);
+        txtid.setEditable(false);
+        pnlnennhomkhachhang.add(txtid, java.awt.BorderLayout.CENTER);
 
         pnlnennhanvienphutrach1.setBackground(new java.awt.Color(255, 255, 255));
         pnlnennhanvienphutrach1.setLayout(new java.awt.BorderLayout());
@@ -182,8 +163,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         lblnhanvienphutrach1.setPreferredSize(new java.awt.Dimension(75, 20));
         pnlnennhanvienphutrach1.add(lblnhanvienphutrach1, java.awt.BorderLayout.PAGE_START);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlnennhanvienphutrach1.add(jComboBox3, java.awt.BorderLayout.CENTER);
+        pnlnennhanvienphutrach1.add(cbbidnguoidung, java.awt.BorderLayout.CENTER);
 
         pnlnennhanvienphutrach2.setBackground(new java.awt.Color(255, 255, 255));
         pnlnennhanvienphutrach2.setLayout(new java.awt.BorderLayout());
@@ -192,7 +172,12 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         lblnhanvienphutrach2.setText("Mô tả");
         lblnhanvienphutrach2.setPreferredSize(new java.awt.Dimension(75, 20));
         pnlnennhanvienphutrach2.add(lblnhanvienphutrach2, java.awt.BorderLayout.PAGE_START);
-        pnlnennhanvienphutrach2.add(jTextField4, java.awt.BorderLayout.CENTER);
+
+        txamota.setColumns(20);
+        txamota.setRows(5);
+        scrpanemota.setViewportView(txamota);
+
+        pnlnennhanvienphutrach2.add(scrpanemota, java.awt.BorderLayout.CENTER);
 
         pnlnennhomkhachhang2.setBackground(new java.awt.Color(255, 255, 255));
         pnlnennhomkhachhang2.setLayout(new java.awt.BorderLayout());
@@ -201,11 +186,18 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         lblnhomkhachhang2.setText("Tag");
         lblnhomkhachhang2.setPreferredSize(new java.awt.Dimension(75, 20));
         pnlnennhomkhachhang2.add(lblnhomkhachhang2, java.awt.BorderLayout.PAGE_START);
-        pnlnennhomkhachhang2.add(jTextField3, java.awt.BorderLayout.CENTER);
+        pnlnennhomkhachhang2.add(txttag, java.awt.BorderLayout.CENTER);
 
-        lblthongtinkhac1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        lblthongtinkhac1.setText("Thông tin khác");
-        lblthongtinkhac1.setPreferredSize(new java.awt.Dimension(34, 20));
+        pnlnennhomkhachhang3.setBackground(new java.awt.Color(255, 255, 255));
+        pnlnennhomkhachhang3.setLayout(new java.awt.BorderLayout());
+
+        lblnhomkhachhang3.setBackground(new java.awt.Color(255, 255, 255));
+        lblnhomkhachhang3.setText("Trạng thái");
+        lblnhomkhachhang3.setPreferredSize(new java.awt.Dimension(75, 20));
+        pnlnennhomkhachhang3.add(lblnhomkhachhang3, java.awt.BorderLayout.PAGE_START);
+
+        cbbtrangthai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang hoạt động", "Ngừng hoạt động" }));
+        pnlnennhomkhachhang3.add(cbbtrangthai, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout pnlnenthongtinkhacLayout = new javax.swing.GroupLayout(pnlnenthongtinkhac);
         pnlnenthongtinkhac.setLayout(pnlnenthongtinkhacLayout);
@@ -214,17 +206,17 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
             .addGroup(pnlnenthongtinkhacLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlnenthongtinkhacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlnennhomkhachhang3, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                     .addGroup(pnlnenthongtinkhacLayout.createSequentialGroup()
-                        .addGroup(pnlnenthongtinkhacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnlnennhomkhachhang, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(pnlnennhanvienphutrach, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(pnlnennhomkhachhang1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(pnlnennhanvienphutrach1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(pnlnennhomkhachhang2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(pnlnennhanvienphutrach2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(lblthongtinkhac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 1, Short.MAX_VALUE))
-                    .addComponent(lblthongtinkhac1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pnlnenthongtinkhacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlnenthongtinkhacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pnlnennhomkhachhang, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                .addComponent(lblthongtinkhac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlnenthongtinkhacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pnlnennhanvienphutrach1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                .addComponent(pnlnennhomkhachhang2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                .addComponent(pnlnennhanvienphutrach2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlnenthongtinkhacLayout.setVerticalGroup(
@@ -235,18 +227,14 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlnennhomkhachhang, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlnennhanvienphutrach, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlnennhomkhachhang1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(lblthongtinkhac1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlnennhanvienphutrach1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlnennhomkhachhang2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlnennhanvienphutrach2, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                .addComponent(pnlnennhomkhachhang3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlnennhanvienphutrach2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlnenngoaithongtinkhacLayout = new javax.swing.GroupLayout(pnlnenngoaithongtinkhac);
@@ -295,22 +283,22 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         pnlnenthongtin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblthongtincoban.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblthongtincoban.setText("Thêm nhà cung cấp");
+        lblthongtincoban.setText("Nhà cung cấp");
 
         pnlnenhotenkhachhang.setBackground(new java.awt.Color(255, 255, 255));
         pnlnenhotenkhachhang.setLayout(new java.awt.BorderLayout());
 
         lblhotenkhachhang.setBackground(new java.awt.Color(255, 255, 255));
-        lblhotenkhachhang.setText("Nhà cung cấp");
+        lblhotenkhachhang.setText("Nhà cung cấp ");
         lblhotenkhachhang.setPreferredSize(new java.awt.Dimension(106, 20));
         pnlnenhotenkhachhang.add(lblhotenkhachhang, java.awt.BorderLayout.PAGE_START);
 
-        txtHoTen.addActionListener(new java.awt.event.ActionListener() {
+        txtTenncc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHoTenActionPerformed(evt);
+                txtTennccActionPerformed(evt);
             }
         });
-        pnlnenhotenkhachhang.add(txtHoTen, java.awt.BorderLayout.CENTER);
+        pnlnenhotenkhachhang.add(txtTenncc, java.awt.BorderLayout.CENTER);
 
         jPanel39.setBackground(new java.awt.Color(255, 255, 255));
         jPanel39.setLayout(new java.awt.BorderLayout());
@@ -320,8 +308,8 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel17.setPreferredSize(new java.awt.Dimension(52, 20));
         jPanel39.add(jLabel17, java.awt.BorderLayout.PAGE_START);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel39.add(jComboBox6, java.awt.BorderLayout.CENTER);
+        cbbTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Tĩnh", "Hải Dương", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang", "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái", "Phú Yên", "Cần Thơ", "Đà Nẵng", "Hải Phòng", "Hà Nội", "TP HCM" }));
+        jPanel39.add(cbbTinh, java.awt.BorderLayout.CENTER);
 
         jPanel40.setBackground(new java.awt.Color(255, 255, 255));
         jPanel40.setLayout(new java.awt.BorderLayout());
@@ -331,12 +319,12 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel18.setPreferredSize(new java.awt.Dimension(31, 20));
         jPanel40.add(jLabel18, java.awt.BorderLayout.PAGE_START);
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        txtdiachi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                txtdiachiActionPerformed(evt);
             }
         });
-        jPanel40.add(jTextField12, java.awt.BorderLayout.CENTER);
+        jPanel40.add(txtdiachi, java.awt.BorderLayout.CENTER);
 
         lblthongtinbosung1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblthongtinbosung1.setText("Thông tin địa chỉ");
@@ -348,18 +336,17 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel19.setText("Mã nhà cung cấp");
         jLabel19.setPreferredSize(new java.awt.Dimension(31, 20));
         jPanel41.add(jLabel19, java.awt.BorderLayout.PAGE_START);
-        jPanel41.add(jTextField9, java.awt.BorderLayout.CENTER);
+        jPanel41.add(txtMancc, java.awt.BorderLayout.CENTER);
 
         jPanel42.setBackground(new java.awt.Color(255, 255, 255));
         jPanel42.setLayout(new java.awt.BorderLayout());
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Nhóm nhà cung cấp");
+        jLabel20.setText("Loại nhà cung cấp");
         jLabel20.setPreferredSize(new java.awt.Dimension(52, 20));
         jPanel42.add(jLabel20, java.awt.BorderLayout.PAGE_START);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel42.add(jComboBox1, java.awt.BorderLayout.CENTER);
+        jPanel42.add(cbbLoaincc, java.awt.BorderLayout.CENTER);
 
         jPanel43.setBackground(new java.awt.Color(255, 255, 255));
         jPanel43.setLayout(new java.awt.BorderLayout());
@@ -368,7 +355,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel21.setText("Số điện thoại");
         jLabel21.setPreferredSize(new java.awt.Dimension(31, 20));
         jPanel43.add(jLabel21, java.awt.BorderLayout.PAGE_START);
-        jPanel43.add(jTextField10, java.awt.BorderLayout.CENTER);
+        jPanel43.add(txtSDT, java.awt.BorderLayout.CENTER);
 
         jPanel44.setBackground(new java.awt.Color(255, 255, 255));
         jPanel44.setLayout(new java.awt.BorderLayout());
@@ -377,7 +364,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel22.setText("Email");
         jLabel22.setPreferredSize(new java.awt.Dimension(52, 20));
         jPanel44.add(jLabel22, java.awt.BorderLayout.PAGE_START);
-        jPanel44.add(jTextField11, java.awt.BorderLayout.CENTER);
+        jPanel44.add(txtEmail, java.awt.BorderLayout.CENTER);
 
         jPanel45.setBackground(new java.awt.Color(255, 255, 255));
         jPanel45.setLayout(new java.awt.BorderLayout());
@@ -386,7 +373,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel23.setText("Số fax");
         jLabel23.setPreferredSize(new java.awt.Dimension(31, 20));
         jPanel45.add(jLabel23, java.awt.BorderLayout.PAGE_START);
-        jPanel45.add(jTextField1, java.awt.BorderLayout.CENTER);
+        jPanel45.add(txtFax, java.awt.BorderLayout.CENTER);
 
         jPanel46.setBackground(new java.awt.Color(255, 255, 255));
         jPanel46.setLayout(new java.awt.BorderLayout());
@@ -395,7 +382,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel24.setText("Mã số thuế");
         jLabel24.setPreferredSize(new java.awt.Dimension(52, 20));
         jPanel46.add(jLabel24, java.awt.BorderLayout.PAGE_START);
-        jPanel46.add(jTextField7, java.awt.BorderLayout.CENTER);
+        jPanel46.add(txtMathue, java.awt.BorderLayout.CENTER);
 
         jPanel47.setBackground(new java.awt.Color(255, 255, 255));
         jPanel47.setLayout(new java.awt.BorderLayout());
@@ -404,7 +391,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         jLabel25.setText("Website");
         jLabel25.setPreferredSize(new java.awt.Dimension(31, 20));
         jPanel47.add(jLabel25, java.awt.BorderLayout.PAGE_START);
-        jPanel47.add(jTextField8, java.awt.BorderLayout.CENTER);
+        jPanel47.add(txtWeb, java.awt.BorderLayout.CENTER);
 
         lblthongtinbosung2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblthongtinbosung2.setText("Thông tin bổ sung");
@@ -627,7 +614,7 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         );
         pnldanhsachLayout.setVerticalGroup(
             pnldanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 587, Short.MAX_VALUE)
             .addGroup(pnldanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnldanhsachLayout.createSequentialGroup()
                     .addGap(0, 0, 0)
@@ -648,21 +635,53 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 587, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, 0)
-                    .addComponent(pnldanhsach, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                    .addComponent(pnldanhsach, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
                     .addGap(0, 0, 0)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtHoTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoTenActionPerformed
+    private void txtTennccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTennccActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoTenActionPerformed
+    }//GEN-LAST:event_txtTennccActionPerformed
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
+        String TenNhaCungCap = txtTenncc.getText();
 
+        String MaNhaCungCap = txtMancc.getText();
+        MyCombobox mb = (MyCombobox) cbbLoaincc.getSelectedItem();
+        int LoaiNhaCungCap = Integer.parseInt(mb.Value.toString());
+        String SoDienThoai = txtSDT.getText();
+        String Email = txtEmail.getText();
+        String DiaChi = txtdiachi.getText();
+        String Tinh = cbbTinh.getSelectedItem().toString();
+        String SoFax = txtFax.getText();
+        String MaSoThue = txtMathue.getText();
+        String Website = txtWeb.getText();
+        MyCombobox mc = (MyCombobox) cbbidnguoidung.getSelectedItem();
+        int NguoiDung = Integer.parseInt(mc.Value.toString());
+        String trangthai;
+        if (cbbtrangthai.getSelectedItem().toString().equals("Đang hoạt động")) {
+            trangthai = "1";
+        } else {
+            trangthai = "2";
+        }
+        String Tag = txttag.getText();
+
+        String MoTa = txamota.getText();
+
+        if (BLL.BLLNhaCungCap.KiemTraThemNhaCungCap(TenNhaCungCap, MaNhaCungCap, LoaiNhaCungCap, SoDienThoai, Email, DiaChi, Tinh, SoFax, MaSoThue, Website, NguoiDung, Integer.parseInt(trangthai), Tag, MoTa)) {
+            DTONhaCungCap ncc = new DTONhaCungCap(TenNhaCungCap, MaNhaCungCap, LoaiNhaCungCap, SoDienThoai, Email, DiaChi, Tinh, SoFax, MaSoThue, Website, NguoiDung, Integer.parseInt(trangthai), Tag, MoTa);
+            BLL.BLLNhaCungCap.ThemNhaCungCap(ncc);
+            ThongBaoCanhBao.ThongBao("Thêm nhà cung cấp thành công", "Thông báo");
+            jPanel29.remove(this);
+            jPanel50.setVisible(true);
+
+            BLL.BLLNhaCungCap.HienThiNhaCungCap(GUI.pnlhanghoa.tblnhacungcap, GUI.pnlhanghoa.txttimkiem6.getText());
+        }
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void FileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FileChooserActionPerformed
@@ -670,23 +689,56 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
     }//GEN-LAST:event_FileChooserActionPerformed
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
-     
+        String TenNhaCungCap = txtTenncc.getText();
+
+        String MaNhaCungCap = txtMancc.getText();
+        MyCombobox mb = (MyCombobox) cbbLoaincc.getSelectedItem();
+        int LoaiNhaCungCap = Integer.parseInt(mb.Value.toString());
+        String SoDienThoai = txtSDT.getText();
+        String Email = txtEmail.getText();
+        String DiaChi = txtdiachi.getText();
+        String Tinh = cbbTinh.getSelectedItem().toString();
+        String SoFax = txtFax.getText();
+        String MaSoThue = txtMathue.getText();
+        String Website = txtWeb.getText();
        
-        
-       
+        MyCombobox mc = (MyCombobox) cbbidnguoidung.getSelectedItem();
+        int NguoiDung = Integer.parseInt(mc.Value.toString());
+        String trangthai;
+        if (cbbtrangthai.getSelectedItem().toString().equals("Đang hoạt động")) {
+            trangthai = "1";
+        } else {
+            trangthai = "2";
+        }
+        String Tag = txttag.getText();
+
+        String MoTa = txamota.getText();
+         int IDNhaCungCap = Integer.parseInt(txtid.getText());
+        if (BLL.BLLNhaCungCap.KiemTraSuaNhaCungCap(IDNhaCungCap ,TenNhaCungCap, MaNhaCungCap, LoaiNhaCungCap, SoDienThoai, Email, DiaChi, Tinh, SoFax, MaSoThue, Website, NguoiDung, Integer.parseInt(trangthai), Tag, MoTa)) {
+            DTONhaCungCap ncc = new DTONhaCungCap(IDNhaCungCap,TenNhaCungCap, MaNhaCungCap, LoaiNhaCungCap, SoDienThoai, Email, DiaChi, Tinh, SoFax, MaSoThue, Website, NguoiDung, Integer.parseInt(trangthai), Tag, MoTa);
+            BLL.BLLNhaCungCap.SuaNhaCungCap(ncc);
+            ThongBaoCanhBao.ThongBao("Sửa nhà cung cấp thành công", "Thông báo");
+            jPanel29.remove(this);
+            jPanel50.setVisible(true);
+
+            BLL.BLLNhaCungCap.HienThiNhaCungCap(GUI.pnlhanghoa.tblnhacungcap, GUI.pnlhanghoa.txttimkiem6.getText());
+        }
+
+
     }//GEN-LAST:event_btnsuaActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void txtdiachiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdiachiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_txtdiachiActionPerformed
 
     private void btnsua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsua1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsua1ActionPerformed
 
     private void btnsua2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsua2ActionPerformed
-         jPanel29.remove(this);
-        jPanel49.setVisible(true);
+        jPanel29.remove(this);
+        jPanel50.setVisible(true);
+        btnthem.setEnabled(true);
     }//GEN-LAST:event_btnsua2ActionPerformed
 
 
@@ -695,13 +747,11 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
     private javax.swing.JButton btnsua;
     private javax.swing.JButton btnsua1;
     private javax.swing.JButton btnsua2;
-    private javax.swing.JButton btnthem;
-    private javax.swing.JComboBox<String> cbbLoaiKhachHang1;
-    private javax.swing.JComboBox<String> cbbNhanVien;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox6;
+    public static javax.swing.JButton btnthem;
+    public static javax.swing.JComboBox<String> cbbLoaincc;
+    public static javax.swing.JComboBox<String> cbbTinh;
+    public static javax.swing.JComboBox<String> cbbidnguoidung;
+    public static javax.swing.JComboBox<String> cbbtrangthai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -725,27 +775,16 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblhotenkhachhang;
-    private javax.swing.JLabel lblnhanvienphutrach;
     private javax.swing.JLabel lblnhanvienphutrach1;
     private javax.swing.JLabel lblnhanvienphutrach2;
     private javax.swing.JLabel lblnhomkhachhang;
-    private javax.swing.JLabel lblnhomkhachhang1;
     private javax.swing.JLabel lblnhomkhachhang2;
+    private javax.swing.JLabel lblnhomkhachhang3;
     private javax.swing.JLabel lblthongtinbosung1;
     private javax.swing.JLabel lblthongtinbosung2;
     private javax.swing.JLabel lblthongtincoban;
     private javax.swing.JLabel lblthongtinkhac;
-    private javax.swing.JLabel lblthongtinkhac1;
     private javax.swing.JPanel pnldanhsach;
     private javax.swing.JPanel pnlnenbtn;
     private javax.swing.JPanel pnlnenhotenkhachhang;
@@ -758,16 +797,26 @@ public class pnlthemnhacungcap extends javax.swing.JPanel {
     private javax.swing.JPanel pnlnenngoaithongtinkhac;
     private javax.swing.JPanel pnlnenngoaithongtinkhac1;
     private javax.swing.JPanel pnlnenngoaithongtinkhac2;
-    private javax.swing.JPanel pnlnennhanvienphutrach;
     private javax.swing.JPanel pnlnennhanvienphutrach1;
     private javax.swing.JPanel pnlnennhanvienphutrach2;
     private javax.swing.JPanel pnlnennhomkhachhang;
-    private javax.swing.JPanel pnlnennhomkhachhang1;
     private javax.swing.JPanel pnlnennhomkhachhang2;
+    private javax.swing.JPanel pnlnennhomkhachhang3;
     private javax.swing.JPanel pnlnenthemsuakhachhang1;
     private javax.swing.JPanel pnlnenthongtin;
     private javax.swing.JPanel pnlnenthongtinkhac;
     private javax.swing.JPanel pnlthemsuakhachhang;
-    private javax.swing.JTextField txtHoTen;
+    private javax.swing.JScrollPane scrpanemota;
+    public static javax.swing.JTextArea txamota;
+    public static javax.swing.JTextField txtEmail;
+    public static javax.swing.JTextField txtFax;
+    public static javax.swing.JTextField txtMancc;
+    public static javax.swing.JTextField txtMathue;
+    public static javax.swing.JTextField txtSDT;
+    public static javax.swing.JTextField txtTenncc;
+    public static javax.swing.JTextField txtWeb;
+    public static javax.swing.JTextField txtdiachi;
+    public static javax.swing.JTextField txtid;
+    public static javax.swing.JTextField txttag;
     // End of variables declaration//GEN-END:variables
 }
