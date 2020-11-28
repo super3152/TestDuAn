@@ -1210,6 +1210,8 @@ buttonPanel.setSize(new Dimension(974, 587));
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    
     private void btnChonSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonSPActionPerformed
         if (cbbSize.getSelectedItem().equals("Size")) {
             ThongBaoCanhBao.ThongBao("Vui lòng chọn size sản phẩm để mua hàng", "Thông Báo");

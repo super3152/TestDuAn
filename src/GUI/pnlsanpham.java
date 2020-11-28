@@ -142,7 +142,7 @@ public class pnlsanpham extends javax.swing.JPanel {
         bttLamMoi = new javax.swing.JButton();
         bttThem = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneSanPham = new javax.swing.JScrollPane();
         tblThemThuocTinh = new javax.swing.JTable();
         jPanel17 = new javax.swing.JPanel();
         jPanel25 = new javax.swing.JPanel();
@@ -658,9 +658,9 @@ public class pnlsanpham extends javax.swing.JPanel {
                 tblThemThuocTinhKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(tblThemThuocTinh);
+        jScrollPaneSanPham.setViewportView(tblThemThuocTinh);
 
-        jPanel16.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+        jPanel16.add(jScrollPaneSanPham, java.awt.BorderLayout.CENTER);
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1427,8 +1427,8 @@ public boolean validCheck() {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel87;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    public static javax.swing.JScrollPane jScrollPaneSanPham;
     private com.toedter.calendar.JDateChooser jdcNgayTao;
     private javax.swing.JLabel lblLink;
     public static javax.swing.JLabel lblNull;

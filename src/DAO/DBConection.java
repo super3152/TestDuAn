@@ -25,9 +25,9 @@ public class DBConection {
 
 
 
-   private static String DB_URL = "jdbc:mysql://localhost:3306/sho71306_chaunganproject";   
-    private static String USER_NAME = "root";
-    private static String PASSWORD = "";
+     private static String DB_URL = "jdbc:mysql://103.138.88.11/sho71306_ChauNganProject?useUnicode=yes&characterEncoding=UTF-8";   
+    private static String USER_NAME = "sho71306_Adminchaungan";
+    private static String PASSWORD = "Duantotnghiep2020";
     public static Connection conn;
 
 

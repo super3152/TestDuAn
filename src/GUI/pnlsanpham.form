@@ -1281,8 +1281,9 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                                   <SubComponents>
-                                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                                    <Container class="javax.swing.JScrollPane" name="jScrollPaneSanPham">
                                       <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                                       </AuxValues>
                                       <Constraints>

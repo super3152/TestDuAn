@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.pnlsanpham.jScrollPaneSanPham;
 import static GUI.pnlsanpham.tblThemThuocTinh;
 
 /**
@@ -19,7 +20,7 @@ public class jdlZoomTable extends javax.swing.JDialog {
     public jdlZoomTable(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jPanel2.add(pnlsanpham.tblThemThuocTinh);
+        jPanel2.add(jScrollPaneSanPham);
        
     }
 
